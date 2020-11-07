@@ -1,11 +1,12 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+import MockPage from '../../../pages/UnderConstruction';
 
 const Settlement = createStackNavigator(
   {
-    Settlements: { screen: null },
-    SettlementsDetail: { screen: null },
-    AddAdditionalFees: { screen: null },
+    Settlements: { screen: () => <MockPage pageName='Settlements'/> },
+    SettlementsDetail: { screen: () => <MockPage pageName='Settlements Detail'/> },
+    AddAdditionalFees: { screen: () => <MockPage pageName='Add Additional Fees'/> },
   },
   {
     initialRouteName: "Settlements",
