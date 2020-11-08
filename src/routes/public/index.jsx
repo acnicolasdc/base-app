@@ -1,18 +1,20 @@
-import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
-import MockPage from '../../../pages/UnderConstruction';
+import * as React from "react";
+import { createStackNavigator } from '@react-navigation/stack';
+import MockPage from '../../pages/UnderConstruction';
 
-const Public = createStackNavigator(
-  {
-    onBoarding: { screen: () => <MockPage pageName='onBoarding'/> },
-    Login: { screen: () => <MockPage pageName='Login'/> },
-    ForgotPassword: { screen: () => <MockPage pageName='ForgotPassword'/> },
-    SingUp: { screen: () => <MockPage pageName='SingUp'/> },
-    ResetPassword: { screen: () => <MockPage pageName='ResetPassword'/> },
-  },
-  {
-    initialRouteName: "onBoarding",
-  }
-);
+
+const Stack = createStackNavigator();
+
+const Public = () => {
+  return (
+      <Stack.Navigator>
+        <Stack.Screen name="onBoarding" component={(props)=><MockPage {...props} pageName="onBoarding"/>} />
+        <Stack.Screen name="Login" component={(props)=><MockPage {...props} pageName="Login"/>} />
+        <Stack.Screen name="ForgotPassword" component={(props)=><MockPage {...props} pageName="ForgotPassword"/>} />
+        <Stack.Screen name="SingUp" component={(props)=><MockPage {...props} pageName="SingUp"/>} />
+        <Stack.Screen name="ResetPassword" component={(props)=><MockPage {...props} pageName="ResetPassword"/>} />
+      </Stack.Navigator>
+  );
+};
 
 export default Public;

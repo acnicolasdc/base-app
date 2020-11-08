@@ -1,14 +1,15 @@
-import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import * as React from "react";
+import { createStackNavigator } from '@react-navigation/stack';
 import MockPage from '../../../pages/UnderConstruction';
 
-const AvailableLoad = createStackNavigator(
-  {
-    AvailableLoads: { screen: () => <MockPage pageName='Available Loads'/> },
-  },
-  {
-    initialRouteName: "AvailableLoads",
-  }
-);
+const Stack = createStackNavigator();
+
+const AvailableLoad = () => {
+  return (
+      <Stack.Navigator>
+        <Stack.Screen name="AvailableLoads" component={(props)=><MockPage {...props} pageName="AvailableLoads"/>} />
+      </Stack.Navigator>
+  );
+};
 
 export default AvailableLoad;

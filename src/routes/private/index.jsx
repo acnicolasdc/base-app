@@ -1,13 +1,17 @@
-import React from 'react'
-import Stack from './stack';
-import Tab from './tab';
-import { createStackNavigator } from "@react-navigation/stack";
+import * as React from "react";
+import { createStackNavigator } from '@react-navigation/stack';
+import StackNavigation from './stack';
+import TabNavigation from './tab';
 
-const Private = createStackNavigator({
-    GeneralStack: { screen: Stack},
-    GeneralTab: { screen: Tab}
-},{
-    initialRouteName: "GeneralTab",
-});
+const Stack = createStackNavigator();
 
-export default Private
+const Private = () => {
+  return (
+      <Stack.Navigator initialRouteName="GeneralTab">
+        <Stack.Screen name="GeneralTab" component={TabNavigation} />
+        <Stack.Screen name="GeneralStack" component={StackNavigation} />
+      </Stack.Navigator>
+  );
+};
+
+export default Private;
