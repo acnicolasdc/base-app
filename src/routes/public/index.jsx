@@ -1,6 +1,7 @@
 import * as React from "react";
 import { createStackNavigator } from '@react-navigation/stack';
 import MockPage from '../../pages/UnderConstruction';
+import OnBoarding from '../../pages/OnBoarding';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +16,7 @@ export const routes = Object.freeze({
 const Public = () => {
   return (
       <Stack.Navigator>
-        <Stack.Screen name={routes.ON_BOARDING} component={(props)=><MockPage {...props} pageName={routes.ON_BOARDING}/>} />
+        <Stack.Screen name={routes.ON_BOARDING} component={OnBoarding} />
         <Stack.Screen name={routes.LOGIN} component={(props)=><MockPage {...props} pageName={routes.LOGIN} />} />
         <Stack.Screen name={routes.FORGOT_PASSWORD} component={(props)=><MockPage {...props} pageName={routes.FORGOT_PASSWORD}/>} />
         <Stack.Screen name={routes.SING_UP} component={(props)=><MockPage {...props} pageName={routes.SING_UP}/>} />
