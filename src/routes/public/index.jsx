@@ -8,11 +8,11 @@ const Stack = createStackNavigator();
 const Public = () => {
   return (
       <Stack.Navigator>
-        <Stack.Screen name="onBoarding" component={(props)=><MockPage {...props} pageName="onBoarding"/>} />
-        <Stack.Screen name="Login" component={(props)=><MockPage {...props} pageName="Login"/>} />
-        <Stack.Screen name="ForgotPassword" component={(props)=><MockPage {...props} pageName="ForgotPassword"/>} />
-        <Stack.Screen name="SingUp" component={(props)=><MockPage {...props} pageName="SingUp"/>} />
-        <Stack.Screen name="ResetPassword" component={(props)=><MockPage {...props} pageName="ResetPassword"/>} />
+        <Stack.Screen name="onBoarding" component={(props)=><MockPage {...props} pageName="onBoarding" screen="Login"/>} />
+        <Stack.Screen name="Login" component={(props)=><MockPage {...props} pageName="Login" screen="ForgotPassword"/>} />
+        <Stack.Screen name="ForgotPassword" component={(props)=><MockPage {...props} pageName="ForgotPassword" screen="SingUp"/>} />
+        <Stack.Screen name="SingUp" component={(props)=><MockPage {...props} pageName="SingUp" screen="ResetPassword"/>} />
+        <Stack.Screen name="ResetPassword" component={(props)=><MockPage {...props} pageName="ResetPassword" screen="onBoarding"/>} />
       </Stack.Navigator>
   );
 };
