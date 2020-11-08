@@ -4,10 +4,14 @@ import MockPage from '../../../pages/UnderConstruction';
 
 const Stack = createStackNavigator();
 
+export const routes = Object.freeze({
+  AVAILABLE_LOADS: 'AvailableLoads'
+});
+
 const AvailableLoad = () => {
   return (
       <Stack.Navigator>
-        <Stack.Screen name="AvailableLoads" component={(props)=><MockPage {...props} pageName="AvailableLoads"/>} />
+        <Stack.Screen name={routes.AVAILABLE_LOADS} component={(props)=><MockPage {...props} pageName={routes.AVAILABLE_LOADS}/>} />
       </Stack.Navigator>
   );
 };

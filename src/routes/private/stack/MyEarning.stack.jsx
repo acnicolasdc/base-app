@@ -4,10 +4,14 @@ import MockPage from '../../../pages/UnderConstruction';
 
 const Stack = createStackNavigator();
 
+export const routes = Object.freeze({
+  MY_EARNINGS:'MyEarnings',  
+});
+
 const MyEarning = () => {
   return (
       <Stack.Navigator>
-        <Stack.Screen name="MyEarnings" component={(props)=><MockPage {...props} pageName="MyEarnings"/>} />
+        <Stack.Screen name={routes.MY_EARNINGS} component={(props)=><MockPage {...props} pageName={routes.MY_EARNINGS}/>} />
       </Stack.Navigator>
   );
 };

@@ -5,11 +5,16 @@ import TabNavigation from './tab';
 
 const Stack = createStackNavigator();
 
+export const routes = Object.freeze({
+  GENERAL_TAB: 'GeneralTab',
+  GENERAL_STACK: 'GeneralStack',
+});
+
 const Private = () => {
   return (
-      <Stack.Navigator initialRouteName="GeneralTab">
-        <Stack.Screen name="GeneralTab" component={TabNavigation} />
-        <Stack.Screen name="GeneralStack" component={StackNavigation} />
+      <Stack.Navigator initialRouteName={routes.GENERAL_TAB}>
+        <Stack.Screen name={routes.GENERAL_TAB} component={TabNavigation} />
+        <Stack.Screen name={routes.GENERAL_STACK} component={StackNavigation} />
       </Stack.Navigator>
   );
 };

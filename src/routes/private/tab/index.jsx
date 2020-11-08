@@ -4,12 +4,18 @@ import MockPage from '../../../pages/UnderConstruction';
 
 const Tab = createBottomTabNavigator();
 
+export const routes = Object.freeze({
+  LOAD: 'load',
+  DOCUMENT: 'document',
+  CHAT: 'chat',
+});
+
 const TabNavigation = () => {
   return (
     <Tab.Navigator>
-        <Tab.Screen name="Load" component={(props)=><MockPage {...props} pageName="Load"/>} />
-        <Tab.Screen name="Document" component={(props)=><MockPage {...props} pageName="Document"/>} />
-        <Tab.Screen name="Chat" component={(props)=><MockPage {...props} pageName="Chat"/>} />
+        <Tab.Screen name={routes.LOAD} component={(props)=><MockPage {...props} pageName={routes.LOAD}/>} />
+        <Tab.Screen name={routes.DOCUMENT} component={(props)=><MockPage {...props} pageName={routes.DOCUMENT}/>} />
+        <Tab.Screen name={routes.CHAT} component={(props)=><MockPage {...props} pageName={routes.CHAT}/>} />
     </Tab.Navigator>
   );
 };

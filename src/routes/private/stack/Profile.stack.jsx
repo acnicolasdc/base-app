@@ -4,11 +4,16 @@ import MockPage from '../../../pages/UnderConstruction';
 
 const Stack = createStackNavigator();
 
+export const routes = Object.freeze({
+  MY_PROFILE:'MyProfile',
+  UPDATE_PERSONAL_INFORMATION:'UpdatePersonalInformation',
+});
+
 const Profile = () => {
   return (
       <Stack.Navigator>
-        <Stack.Screen name="MyProfile" component={(props)=><MockPage {...props} pageName="MyProfile"/>} />
-        <Stack.Screen name="UpdatePersonalInformation" component={(props)=><MockPage {...props} pageName="UpdatePersonalInformation"/>} />
+        <Stack.Screen name={routes.MY_PROFILE} component={(props)=><MockPage {...props} pageName={routes.MY_PROFILE}/>} />
+        <Stack.Screen name={routes.UPDATE_PERSONAL_INFORMATION} component={(props)=><MockPage {...props} pageName={routes.UPDATE_PERSONAL_INFORMATION}/>} />
       </Stack.Navigator>
   );
 };

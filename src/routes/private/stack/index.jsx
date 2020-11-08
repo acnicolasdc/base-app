@@ -14,20 +14,34 @@ import SettingsConfiguration from './SettingsConfiguration.stack';
 
 const Stack = createStackNavigator();
 
+export const routes = Object.freeze({
+  COMPANY: 'Company',
+  DVIR_ELD:'DvirEld',
+  PROFILE: 'Profile',
+  MY_EARNING:'MyEarning',  
+  SETTLEMENT: 'Settlement',
+  NOTIFICATION:'Notification',  
+  AVAILABLE_LOAD: 'AvailableLoad',
+  SHIPMENT_DETAIL:'ShipmentDetail',  
+  DRIVER_INFORMATION: 'DriverInformation',
+  DOCUMENT_ATTACHMENT:'DocumentAttachment',
+  SETTINGS_CONFIGURATION:'SettingsConfiguration',
+});
+
 const StackNavigation = () => {
   return (
       <Stack.Navigator>
-        <Stack.Screen name="Company" component={Company} />
-        <Stack.Screen name="DvirEld" component={DvirEld} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="MyEarning" component={MyEarning} />
-        <Stack.Screen name="Settlement" component={Settlement} />
-        <Stack.Screen name="Notification" component={Notification} />
-        <Stack.Screen name="AvailableLoad" component={AvailableLoad} />
-        <Stack.Screen name="ShipmentDetail" component={ShipmentDetail} />
-        <Stack.Screen name="DriverInformation" component={DriverInformation} />
-        <Stack.Screen name="DocumentAttachment" component={DocumentAttachment} />
-        <Stack.Screen name="SettingsConfiguration" component={SettingsConfiguration} />
+        <Stack.Screen name={routes.COMPANY} component={Company} />
+        <Stack.Screen name={routes.DVIR_ELD} component={DvirEld} />
+        <Stack.Screen name={routes.PROFILE} component={Profile} />
+        <Stack.Screen name={routes.MY_EARNING} component={MyEarning} />
+        <Stack.Screen name={routes.SETTLEMENT} component={Settlement} />
+        <Stack.Screen name={routes.NOTIFICATION} component={Notification} />
+        <Stack.Screen name={routes.AVAILABLE_LOAD} component={AvailableLoad} />
+        <Stack.Screen name={routes.SHIPMENT_DETAIL} component={ShipmentDetail} />
+        <Stack.Screen name={routes.DRIVER_INFORMATION} component={DriverInformation} />
+        <Stack.Screen name={routes.DOCUMENT_ATTACHMENT} component={DocumentAttachment} />
+        <Stack.Screen name={routes.SETTINGS_CONFIGURATION} component={SettingsConfiguration} />
       </Stack.Navigator>
   );
 };

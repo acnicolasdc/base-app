@@ -4,11 +4,16 @@ import MockPage from '../../../pages/UnderConstruction';
 
 const Stack = createStackNavigator();
 
+export const routes = Object.freeze({
+  DVIR_AND_ELD: 'DvirAndEld',
+  CAMERA:'Camera',
+});
+
 const DvirEld = () => {
   return (
       <Stack.Navigator>
-        <Stack.Screen name="DvirAndEld" component={(props)=><MockPage {...props} pageName="DvirAndEld"/>} />
-        <Stack.Screen name="Camera" component={(props)=><MockPage {...props} pageName="Camera"/>} />
+        <Stack.Screen name={routes.DVIR_AND_ELD} component={(props)=><MockPage {...props} pageName={routes.DVIR_AND_ELD}/>} />
+        <Stack.Screen name={routes.CAMERA} component={(props)=><MockPage {...props} pageName={routes.CAMERA}/>} />
       </Stack.Navigator>
   );
 };
