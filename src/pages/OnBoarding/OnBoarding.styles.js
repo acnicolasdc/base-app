@@ -9,10 +9,22 @@ export default (colors) =>
     subheading: {
       justifyContent: "center",
       alignItems: "center",
-      paddingVertical: 25,
+      paddingVertical: 20,
     },
     container: {
       flex: 1,
+    },
+    containerText: {
+      justifyContent: "center",
+      alignItems: "center",
+      paddingVertical: 20,
+      paddingHorizontal: 20,
+    },
+    containerTextTile: {
+      color: `${colors.secondary}`,
+      fontSize: 30,
+      fontWeight: "bold",
+      textAlign: "center",
     },
     bottomContent: {
       justifyContent: "center",
