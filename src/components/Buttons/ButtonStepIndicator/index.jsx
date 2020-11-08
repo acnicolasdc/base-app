@@ -5,9 +5,11 @@ import Svg, { G, Circle } from "react-native-svg";
 
 export const defaultProps = Object.freeze({
   RADIUS: 50,
-  STROKE_WIDTH: 15,
+  STROKE_WIDTH: 20,
   COLOR: "#0DE1F6",
-  BACK_COLOR: "#0DE1F6",
+  BACK_COLOR: "transparent",
+  FILL: '#000',
+  ICON_COLOR: '#FFF',
   STEPS: 3,
   POSITION: 0,
   ON_PRESS: () => {},
@@ -24,6 +26,8 @@ const ButtonStepIndicator = ({
   backColor = defaultProps.BACK_COLOR,
   steps = defaultProps.STEPS,
   position = defaultProps.POSITION,
+  fill = defaultProps.FILL,
+  iconColor = defaultProps.ICON_COLOR,
   onPress = defaultProps.ON_PRESS,
 }) => {
   const circleRef = React.useRef();
@@ -49,7 +53,7 @@ const ButtonStepIndicator = ({
               cx="50%"
               cy="50%"
               r={radius}
-              fill="transparent"
+              fill={fill}
               stroke={color}
               strokeWidth={strokeWidth}
               strokeDashoffset={circumference}
@@ -60,7 +64,7 @@ const ButtonStepIndicator = ({
               cx="50%"
               cy="50%"
               r={radius}
-              fill="transparent"
+              fill={fill}
               stroke={backColor}
               strokeWidth={strokeWidth}
               strokeLinejoin="round"
@@ -77,7 +81,7 @@ const ButtonStepIndicator = ({
           <Ionicons
             name="ios-arrow-round-forward"
             size={radius * 0.6}
-            color="black"
+            color={iconColor}
           />
         </View>
       </>

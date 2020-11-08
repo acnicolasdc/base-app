@@ -1,18 +1,14 @@
-import React from 'react';
-import Routes  from './src/routes';
-import { StyleSheet, View } from 'react-native';
+import React from "react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import Routes from "./src/routes";
+import Theme from "./src/provider/Theme";
 
 export default function App() {
   return (
-      <Routes />
+    <SafeAreaProvider>
+      <Theme>
+        <Routes />
+      </Theme>
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
