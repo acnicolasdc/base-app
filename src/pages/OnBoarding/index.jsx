@@ -7,13 +7,13 @@ import ButtonStepIndicator from "../../components/Buttons/ButtonStepIndicator";
 import LayoutFrame from "../../components/Layouts/LayoutFrame";
 import getStartedInformation from './utils/getStartedInformation';
 
-const MAX_STEPS = 3;
 const OnBoarding = ({ navigation }) => {
   const [step, setStep] = useState(0);
   const { colors } = useTheme();
   const styleSheet = style(colors);
+  const maxSteps = getStartedInformation.length;
   const stepController = () => {
-    if (step+1 === MAX_STEPS) {
+    if (step+1 === maxSteps) {
       navigation.navigate(routes.LOGIN);
     } else {
       setStep((prevStep) => prevStep + 1);
@@ -34,10 +34,8 @@ const OnBoarding = ({ navigation }) => {
       </View>
       <View style={styleSheet.bottomContent}>
         <ButtonStepIndicator
-          key={1}
-          percentage={10}
           position={step+1}
-          steps={getStartedInformation.length}
+          steps={maxSteps}
           color={colors.primary}
           iconColor={colors.background}
           fill={colors.onBackground}

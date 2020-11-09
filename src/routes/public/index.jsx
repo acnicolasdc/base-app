@@ -2,6 +2,7 @@ import * as React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import MockPage from "../../pages/UnderConstruction";
 import OnBoarding from "../../pages/OnBoarding";
+import Login from "../../pages/Login";
 
 const Stack = createStackNavigator();
 
@@ -23,7 +24,7 @@ const Public = () => {
       <Stack.Screen name={routes.ON_BOARDING} component={OnBoarding} />
       <Stack.Screen
         name={routes.LOGIN}
-        component={(props) => <MockPage {...props} pageName={routes.LOGIN} />}
+        component={Login}
       />
       <Stack.Screen
         name={routes.FORGOT_PASSWORD}

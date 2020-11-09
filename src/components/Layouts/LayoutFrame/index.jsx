@@ -9,7 +9,7 @@ export const defaultProps = Object.freeze({
 const LayoutFrame = ({ children, style = defaultProps.STYLE}) => {
   const { colors } = useTheme();
   return (
-    <SafeAreaView style={[{ flex: 1, backgroundColor: colors.background }, style]}>{children}</SafeAreaView>
+    <SafeAreaView style={[{ flex: 1, backgroundColor: colors.background, paddingHorizontal: 25 }, style]}>{children}</SafeAreaView>
   );
 };
 
