@@ -4,7 +4,7 @@ export default (colors) =>
   StyleSheet.create({
     headingText: {
       letterSpacing: 8,
-      color: `${colors.secondary}`,
+      color: `${colors.primary}`,
     },
     subheading: {
       justifyContent: "center",
@@ -21,7 +21,7 @@ export default (colors) =>
       paddingHorizontal: 20,
     },
     containerTextTile: {
-      color: `${colors.secondary}`,
+      color: `${colors.primary}`,
       fontSize: 30,
       fontWeight: "bold",
       textAlign: "center",

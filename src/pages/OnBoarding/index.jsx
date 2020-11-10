@@ -36,7 +36,7 @@ const OnBoarding = ({ navigation }) => {
         <ButtonStepIndicator
           position={step+1}
           steps={maxSteps}
-          color={colors.primary}
+          color={colors.secondary}
           iconColor={colors.background}
           fill={colors.onBackground}
           onPress={stepController}
