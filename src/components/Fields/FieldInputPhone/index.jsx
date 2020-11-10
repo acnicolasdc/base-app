@@ -15,13 +15,13 @@ const FieldInputPhone = ({ style, ...restProps }) => {
       underlineColorAndroid={colors.placeholder}
       render={(props) => (
         <TextInputMask
-          {...props}
           type={"cel-phone"}
           options={{
             maskType: "BRL",
             withDDD: true,
             dddMask: "(+99) | ",
           }}
+          {...props}
         />
       )}
       {...restProps}

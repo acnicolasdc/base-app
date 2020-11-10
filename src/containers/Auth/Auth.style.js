@@ -5,7 +5,8 @@ export default () =>
     buttonsContainer: {
       justifyContent:'center',
       alignItems:'center',
-      paddingVertical: 15,
+      paddingTop: 15,
+      flex:1,
     },
     buttonsContainerDivider: {
       paddingVertical: 15,

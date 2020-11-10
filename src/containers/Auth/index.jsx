@@ -11,7 +11,7 @@ const Auth = () => {
   const styleSheet = style();
   const [state, setState] = useState(false);
   return (
-    <View>
+    <View style={{flex:1}}>
       <FieldInput label="COMPANY ID" style={{ marginBottom: 10 }} />
       <FieldInput
         label="USERNAME / EMAIL"
