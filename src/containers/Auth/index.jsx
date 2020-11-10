@@ -12,8 +12,12 @@ const Auth = () => {
   const [state, setState] = useState(false);
   return (
     <View>
-      <FieldInput label="COMPANY ID" />
-      <FieldInput label="USERNAME / EMAIL" textContentType="emailAddress" />
+      <FieldInput label="COMPANY ID" style={{ marginBottom: 10 }} />
+      <FieldInput
+        label="USERNAME / EMAIL"
+        textContentType="emailAddress"
+        style={{ marginBottom: 10 }}
+      />
       <FieldInput label="PASSWORD" secureTextEntry={true} />
       <View style={styleSheet.buttonsContainer}>
         <View style={styleSheet.rememberContainer}>
@@ -32,7 +36,9 @@ const Auth = () => {
         >
           <>
             <IconFaceID />
-            <Paragraph>LOGIN VIA FACE ID</Paragraph>
+            <Paragraph style={styleSheet.faceIDText}>
+              LOGIN VIA FACE ID
+            </Paragraph>
           </>
         </TouchableHighlight>
         <ButtonCommon

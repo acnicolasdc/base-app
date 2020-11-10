@@ -13,6 +13,9 @@ export default () =>
     boldText: {
       fontWeight: 'bold'
     },
+    faceIDText: {
+      marginTop: 15
+    },
     rememberContainer: {
       flexDirection:'row',
       justifyContent:'space-between',

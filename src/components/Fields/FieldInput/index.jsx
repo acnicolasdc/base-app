@@ -1,15 +1,15 @@
 import React from "react";
 import { TextInput, useTheme } from "react-native-paper";
-import style from "./FieldInput.style";
+import styles from "./FieldInput.style";
 
-const FieldInput = ({ ...props }) => {
+const FieldInput = ({ style, ...props }) => {
   const { colors } = useTheme();
-  const styleSheet = style(colors);
+  const styleSheet = styles(colors);
   return (
     <TextInput
       mode="flat"
       autoCapitalize="none"
-      style={styleSheet.fieldStructure}
+      style={[styleSheet.fieldStructure, style]}
       underlineColor={colors.placeholder}
       underlineColorAndroid={colors.placeholder}
       {...props}

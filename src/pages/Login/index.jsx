@@ -15,7 +15,7 @@ const Login = () => {
   });
   const styleSheet = style();
   return (
-    <LayoutFrame>
+    <LayoutFrame style={styleSheet.noFrames}>
       <View style={styleSheet.headerContainer}>
         <Headline style={styleSheet.headerContainerTile}>Welcome Back!</Headline>
         <Subheading>Enter the credentials to continue</Subheading>
