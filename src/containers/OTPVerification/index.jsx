@@ -2,26 +2,27 @@ import React from "react";
 import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { routes } from "../../routes/public";
-import FieldInputPhone from "../../components/Fields/FieldInputPhone";
 import ButtonCommon from "../../components/Buttons/ButtonCommon";
-import style from "./ForgotPassword.style";
+import style from "./OTPVerification.style";
 
-const ForgotPassword = () => {
+const OTPVerification = () => {
   const styleSheet = style();
   const navigation = useNavigation();
   return (
     <View style={styleSheet.formContainer}>
-      <FieldInputPhone label="PHONE NUMBER" style={{width:'100%'}}/>
-      <ButtonCommon
+      <View style={[styleSheet.formContainer, styleSheet.centerContent]}></View>
+      <View style={styleSheet.centerContent}>
+        <ButtonCommon
           style={{
-            width: "100%",
+            width: "70%",
           }}
-          onPress={()=>navigation.navigate(routes.CODE_VERIFICATION)}
+          onPress={() => navigation.navigate(routes.CODE_VERIFICATION)}
         >
-          SEND OTP
+          VERIFY & PROCEED
         </ButtonCommon>
+      </View>
     </View>
   );
 };
 
-export default ForgotPassword;
+export default OTPVerification;

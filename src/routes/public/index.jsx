@@ -4,6 +4,7 @@ import MockPage from "../../pages/UnderConstruction";
 import OnBoarding from "../../pages/OnBoarding";
 import Login from "../../pages/Login";
 import ForgotPassword from "../../pages/ForgotPassword";
+import CodeVerification from "../../pages/CodeVerification";
 
 const Stack = createStackNavigator();
 
@@ -13,6 +14,7 @@ export const routes = Object.freeze({
   FORGOT_PASSWORD: "ForgotPassword",
   SING_UP: "SingUp",
   RESET_PASSWORD: "ResetPassword",
+  CODE_VERIFICATION: "codeVerification",
 });
 
 const Public = () => {
@@ -23,13 +25,12 @@ const Public = () => {
         component={OnBoarding}
         options={{ headerShown: false }}
       />
+      <Stack.Screen name={routes.LOGIN} component={Login} />
+      <Stack.Screen name={routes.FORGOT_PASSWORD} component={ForgotPassword} />
       <Stack.Screen
-        name={routes.LOGIN}
-        component={Login}
-      />
-      <Stack.Screen
-        name={routes.FORGOT_PASSWORD}
-        component={ForgotPassword}
+        name={routes.CODE_VERIFICATION}
+        component={CodeVerification}
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name={routes.SING_UP}

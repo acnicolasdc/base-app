@@ -3,6 +3,7 @@ import { DefaultTheme } from 'react-native-paper';
 const pallet = {
   green001: '#2FD573',
   grey001:'#ECEBEC',
+  purple001:'#D4CAE9'
 }
 
 export const lightMode = {
