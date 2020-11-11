@@ -43,7 +43,7 @@ const OTPVerification = ({ phoneNumber }) => {
           style={{
             width: "70%",
           }}
-          onPress={() => navigation.navigate(routes.CODE_VERIFICATION)}
+          onPress={() => navigation.navigate(routes.RESET_PASSWORD)}
         >
           VERIFY & PROCEED
         </ButtonCommon>

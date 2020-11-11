@@ -6,9 +6,11 @@ const ButtonCommon = ({ children, style, ...props }) => {
     <Button
       mode="contained"
       style={{
-        paddingVertical: 15,
         borderRadius: "50%",
         ...style,
+      }}
+      contentStyle={{
+        paddingVertical: 15,
       }}
       {...props}
     >

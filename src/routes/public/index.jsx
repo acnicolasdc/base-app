@@ -4,6 +4,7 @@ import MockPage from "../../pages/UnderConstruction";
 import OnBoarding from "../../pages/OnBoarding";
 import Login from "../../pages/Login";
 import ForgotPassword from "../../pages/ForgotPassword";
+import ResetPassword from "../../pages/ResetPassword";
 import CodeVerification from "../../pages/CodeVerification";
 
 const Stack = createStackNavigator();
@@ -36,12 +37,7 @@ const Public = () => {
         name={routes.SING_UP}
         component={(props) => <MockPage {...props} pageName={routes.SING_UP} />}
       />
-      <Stack.Screen
-        name={routes.RESET_PASSWORD}
-        component={(props) => (
-          <MockPage {...props} pageName={routes.RESET_PASSWORD} />
-        )}
-      />
+      <Stack.Screen name={routes.RESET_PASSWORD} component={ResetPassword} />
     </Stack.Navigator>
   );
 };
