@@ -8,7 +8,7 @@ import ButtonCommon from "../../components/Buttons/ButtonCommon";
 import FieldCodeVerification from "../../components/Fields/FieldCodeVerification";
 import style from "./OTPVerification.style";
 
-const OTPVerification = () => {
+const OTPVerification = ({ phoneNumber }) => {
   const navigation = useNavigation();
   const { colors } = useTheme();
   const [code, setCode] = useState("");
@@ -19,7 +19,7 @@ const OTPVerification = () => {
       <View style={[styleSheet.formContainer, styleSheet.centerContent]}>
         <View style={styleSheet.verificationContainer}>
           <Headline>OTP Verification</Headline>
-          <Paragraph>Enter the OTP received to phone +91 87855XXX</Paragraph>
+          <Paragraph>{`Enter the OTP received to phone\n${phoneNumber}`}</Paragraph>
           <FieldCodeVerification
             code={code}
             setCode={setCode}

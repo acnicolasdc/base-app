@@ -5,16 +5,17 @@ import LayoutFrame from "../../components/Layouts/LayoutFrame";
 import OTPVerification from '../../containers/OTPVerification'
 import style from "./CodeVerification.styles";
 
-const CodeVerification = () => {
+const CodeVerification = ({ route }) => {
   const styleSheet = style();
   const { colors } = useTheme();
+  const { phoneNumber } = route.params;
   return (
     <LinearGradient
       style={{ flex: 1 }}
       colors={[colors.background, colors.pallet.purple001]}
     >
       <LayoutFrame style={styleSheet.container}>
-        <OTPVerification />
+        <OTPVerification phoneNumber={phoneNumber}/>
       </LayoutFrame>
     </LinearGradient>
   );
