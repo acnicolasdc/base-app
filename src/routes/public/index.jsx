@@ -6,6 +6,7 @@ import Login from "../../pages/Login";
 import ForgotPassword from "../../pages/ForgotPassword";
 import ResetPassword from "../../pages/ResetPassword";
 import CodeVerification from "../../pages/CodeVerification";
+import CreateAccount from "../../pages/CreateAccount";
 
 const Stack = createStackNavigator();
 
@@ -33,10 +34,7 @@ const Public = () => {
         component={CodeVerification}
         options={{ headerShown: false }}
       />
-      <Stack.Screen
-        name={routes.SING_UP}
-        component={(props) => <MockPage {...props} pageName={routes.SING_UP} />}
-      />
+      <Stack.Screen name={routes.SING_UP} component={CreateAccount} />
       <Stack.Screen name={routes.RESET_PASSWORD} component={ResetPassword} />
     </Stack.Navigator>
   );

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { routes } from "../../routes/public";
+import { useNavigation } from "@react-navigation/native";
 import { View, TouchableHighlight } from "react-native";
 import { Paragraph } from "react-native-paper";
 import FieldInput from "../../components/Fields/FieldInput";
@@ -8,8 +10,9 @@ import IconFaceID from "../../components/Icons/IconFaceID";
 import style from "./Auth.style";
 
 const Auth = () => {
-  const styleSheet = style();
+  const navigation = useNavigation();
   const [state, setState] = useState(false);
+  const styleSheet = style();
   return (
     <View style={{flex:1}}>
       <FieldInput label="COMPANY ID" style={{ marginBottom: 10 }} />
@@ -56,6 +59,9 @@ const Auth = () => {
           style={{
             width: "80%",
           }}
+          onPress={() =>
+          navigation.navigate(routes.SING_UP)
+        }
         >
           DON'T HAVE AN ACCOUNT YET.
         </ButtonCommon>
