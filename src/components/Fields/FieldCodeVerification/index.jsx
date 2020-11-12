@@ -26,13 +26,13 @@ const FieldCodeVerification = ({
   rootStyle = defaultProps.CELL_STYLE,
   ...restProps
 }) => {
-  const { colors } = useTheme();
+  const { colors, dark } = useTheme();
   const ref = useBlurOnFulfill({ value: code, cellCount: numCells });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value: code,
     setValue: setCode,
   });
-  const styleSheet = styles(colors, cellSize);
+  const styleSheet = styles(colors, cellSize, dark);
   return (
     <CodeField
       ref={ref}

@@ -16,7 +16,7 @@ const ButtonSwitch = ({
   const width = size * 4;
   const height = size * 2;
   const barRef = React.useRef();
-  const { colors: { pallet } } = useTheme();
+  const { colors } = useTheme();
   React.useEffect(() => {
     const percentage = isToggle ? 70 : 20;
     if (barRef?.current) {
@@ -37,7 +37,7 @@ const ButtonSwitch = ({
           <Rect
             width={width}
             height={height}
-            fill={isToggle ? pallet.green001 : pallet.grey001}
+            fill={isToggle ? colors.pallet.green001 : colors.pallet.grey001}
             rx={size}
           />
           <Rect
@@ -46,7 +46,7 @@ const ButtonSwitch = ({
             y={size / 2}
             width={size * 0.4}
             height={size}
-            fill="white"
+            fill={colors.background}
             rx={size * 0.2}
           />
         </G>
