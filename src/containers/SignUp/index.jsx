@@ -38,7 +38,7 @@ const SignUp = () => {
           onPress={() =>
           navigation.navigate(routes.CODE_VERIFICATION, {
             phoneNumber: phoneNumber,
-            pushRoute: routes.RESET_PASSWORD,
+            pushRoute: routes.NOTICE_INFORMATION,
           })
         }
         >
