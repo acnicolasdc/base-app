@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import style from "./OnBoarding.styles";
-import { routes } from "../../routes/public";
 import { View } from "react-native";
 import { useTheme, Subheading, Headline, Paragraph } from "react-native-paper";
-import ButtonStepIndicator from "../../components/Buttons/ButtonStepIndicator";
-import LayoutFrame from "../../components/Layouts/LayoutFrame";
+import { routes } from "@routes/public";
+import ButtonStepIndicator from "@components/Buttons/ButtonStepIndicator";
+import LayoutFrame from "@components/Layouts/LayoutFrame";
+import style from "./OnBoarding.styles";
 import getStartedInformation from './utils/getStartedInformation';
 
 const OnBoarding = ({ navigation }) => {

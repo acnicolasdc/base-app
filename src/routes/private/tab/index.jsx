@@ -1,6 +1,6 @@
 import * as React from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MockPage from '../../../pages/UnderConstruction';
+import MockPage from '@pages/UnderConstruction';
 
 const Tab = createBottomTabNavigator();
 

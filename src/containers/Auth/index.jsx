@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { routes } from "../../routes/public";
+import { routes } from "@routes/public";
 import { useNavigation } from "@react-navigation/native";
 import { View, TouchableHighlight } from "react-native";
 import { Paragraph } from "react-native-paper";
-import FieldInput from "../../components/Fields/FieldInput";
-import ButtonCommon from "../../components/Buttons/ButtonCommon";
-import ButtonSwitch from "../../components/Buttons/ButtonSwitch";
-import IconFaceID from "../../components/Icons/IconFaceID";
+import FieldInput from "@components/Fields/FieldInput";
+import ButtonCommon from "@components/Buttons/ButtonCommon";
+import ButtonSwitch from "@components/Buttons/ButtonSwitch";
+import IconFaceID from "@components/Icons/IconFaceID";
 import style from "./Auth.style";
 
 const Auth = () => {

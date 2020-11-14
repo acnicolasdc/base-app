@@ -1,6 +1,6 @@
 import * as React from "react";
 import { createStackNavigator } from '@react-navigation/stack';
-import MockPage from '../../../pages/UnderConstruction';
+import MockPage from '@pages/UnderConstruction';
 
 const Stack = createStackNavigator();
 

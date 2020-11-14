@@ -3,12 +3,16 @@ import { View, Dimensions } from "react-native";
 import { Headline, useTheme, Paragraph, Subheading } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { routes } from "../../routes/public";
-import ButtonCommon from "../../components/Buttons/ButtonCommon";
-import FieldCodeVerification from "../../components/Fields/FieldCodeVerification";
+import ButtonCommon from "@components/Buttons/ButtonCommon";
+import FieldCodeVerification from "@components/Fields/FieldCodeVerification";
 import style from "./OTPVerification.style";
 
-const OTPVerification = ({ phoneNumber }) => {
+export const defaultProps = Object.freeze({
+  PHONE_NUMBER: "(+91) 87855 XXXX",
+  PUSH_ROUTE: null,
+});
+
+const OTPVerification = ({ phoneNumber, pushRoute }) => {
   const navigation = useNavigation();
   const { colors } = useTheme();
   const [code, setCode] = useState("");
@@ -43,7 +47,7 @@ const OTPVerification = ({ phoneNumber }) => {
           style={{
             width: "70%",
           }}
-          onPress={() => navigation.navigate(routes.RESET_PASSWORD)}
+          onPress={() => (pushRoute ? navigation.navigate(pushRoute) : null)}
         >
           VERIFY & PROCEED
         </ButtonCommon>

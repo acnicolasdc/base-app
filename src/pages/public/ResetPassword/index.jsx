@@ -1,10 +1,10 @@
 import React from "react";
 import { View } from "react-native";
 import { Headline, Subheading } from "react-native-paper";
-import { routes } from "../../routes/public";
-import useHeader, {defaultParams} from "../../hooks/useHeader";
-import LayoutFrame from "../../components/Layouts/LayoutFrame";
-import ResetPasswordContainer from "../../containers/ResetPassword";
+import { routes } from "@routes/public";
+import useHeader, {defaultParams} from "@hooks/useHeader";
+import LayoutFrame from "@components/Layouts/LayoutFrame";
+import ResetPasswordContainer from "@containers/ResetPassword";
 import style from "./ResetPassword.styles";
 
 const ResetPassword = () => {

@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { useTheme, Subheading } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
-import ButtonArrow from "../components/Buttons/ButtonArrow";
+import ButtonArrow from "@components/Buttons/ButtonArrow";
 
 export const defaultParams = Object.freeze({
   title: "",

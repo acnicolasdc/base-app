@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { routes } from "../../routes/public";
-import FieldInputPhone from "../../components/Fields/FieldInputPhone";
-import ButtonCommon from "../../components/Buttons/ButtonCommon";
+import { routes } from "@routes/public";
+import FieldInputPhone from "@components/Fields/FieldInputPhone";
+import ButtonCommon from "@components/Buttons/ButtonCommon";
 import style from "./ForgotPassword.style";
 
 const ForgotPassword = () => {
@@ -25,6 +25,7 @@ const ForgotPassword = () => {
         onPress={() =>
           navigation.navigate(routes.CODE_VERIFICATION, {
             phoneNumber: phoneNumber,
+            pushRoute: routes.RESET_PASSWORD,
           })
         }
       >

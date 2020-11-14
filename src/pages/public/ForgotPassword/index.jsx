@@ -1,10 +1,10 @@
 import React from "react";
 import { View } from "react-native";
 import { Headline, Subheading } from "react-native-paper";
-import { routes } from "../../routes/public";
-import useHeader, {defaultParams} from "../../hooks/useHeader";
-import LayoutFrame from "../../components/Layouts/LayoutFrame";
-import ForgotPasswordContainer from "../../containers/ForgotPassword";
+import { routes } from "@routes/public";
+import useHeader, {defaultParams} from "@hooks/useHeader";
+import LayoutFrame from "@components/Layouts/LayoutFrame";
+import ForgotPasswordContainer from "@containers/ForgotPassword";
 import style from "./ForgotPassword.styles";
 
 const ForgotPassword = () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import Routes from "./src/routes";
-import Theme from "./src/provider/Theme";
+import Routes from "@routes";
+import Theme from "@providers/Theme";
 
 export default function App() {
   return (
