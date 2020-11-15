@@ -8,7 +8,7 @@ export const ThemeContext = React.createContext({
 });
 
 const ThemeProvider = ({ children }) => {
-    const [dark, setDark] = useState(true);
+    const [dark, setDark] = useState(false);
 
     useLayoutEffect(() => {
         setDark(dark);
