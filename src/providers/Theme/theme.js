@@ -19,6 +19,7 @@ export const lightMode = {
       secondary: '#0DE1F6',
       primary:'#6739BF',
       background:'#FFFF',
+      background001: '#F2F2F2',
       accent: '#f1c40f',
       placeholder: "rgba(0, 0, 0, 0.24)",
       pallet:pallet
@@ -32,6 +33,7 @@ export const darkMode = {
       ...DefaultTheme.colors,
       secondary: '#0DE1F6',
       background:'#131313',
+      background001: '#0D0D0D',
       onBackground:'#FFFF',
       accent: '#f1c40f',
       primary:'#6739BF',

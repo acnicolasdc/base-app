@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { useTheme } from "react-native-paper";
-import { SimpleLineIcons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { SimpleLineIcons, MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Products from "@pages/private/Products";
-import MockPage from "@pages/UnderConstruction";
+import Inventory from "@pages/private/Inventory";
+import Orders from "@pages/private/Orders";
 import { AuthorizationsContext } from "@providers/Authorizations";
 import TabItem from "./components/TabItem";
 import style from "./Tab.styles";
@@ -36,9 +37,7 @@ const TabNavigation = () => {
     >
       <Tab.Screen
         name={routes.ORDERS}
-        component={(props) => (
-          <MockPage {...props} pageName={routes.ORDERS} />
-        )}
+        component={Orders}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
             <TabItem title="ORDENES" focused={focused}>
@@ -60,12 +59,12 @@ const TabNavigation = () => {
       />
       {hasInventoryPermission()&&<Tab.Screen
         name={routes.INVENTORY}
-        component={(props) => <MockPage {...props} pageName={routes.INVENTORY} />}
+        component={Inventory}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
             <TabItem title="INVENTARIO" focused={focused}>
-              <MaterialCommunityIcons
-                name="message-text-outline"
+              <AntDesign
+                name="switcher"
                 size={sizeFocused(focused, size)}
                 color={color}
               />

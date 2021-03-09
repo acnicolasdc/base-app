@@ -1,6 +1,6 @@
 import React from 'react';
 
-const APP_NAME = 'Facturapp';
+const APP_NAME = 'Payboard';
 
 export const AuthorizationsContext = React.createContext({
     hasInventoryPermission: () => false,

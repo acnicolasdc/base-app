@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Subheading } from "react-native-paper";
 import LayoutFrame, { themeLayoutFrame } from "@components/Layouts/LayoutFrame";
 
-const Products = () => {
+const Orders = () => {
   const navigation = useNavigation();
   console.log(navigation )
   return (
@@ -13,4 +13,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Orders;
