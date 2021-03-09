@@ -1,5 +1,6 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import { createStackNavigator } from '@react-navigation/stack';
+import { AuthorizationsContext } from "@providers/Authorizations";
 import StackNavigation from './stack';
 import TabNavigation from './tab';
 
@@ -11,9 +12,10 @@ export const routes = Object.freeze({
 });
 
 const Private = () => {
+  const { getCompanyName } = useContext(AuthorizationsContext);
   return (
       <Stack.Navigator initialRouteName={routes.GENERAL_TAB}>
-        <Stack.Screen name={routes.GENERAL_TAB} component={TabNavigation} />
+        <Stack.Screen name={routes.GENERAL_TAB} component={TabNavigation} options={{ title: getCompanyName() }}/>
         <Stack.Screen name={routes.GENERAL_STACK} component={StackNavigation} />
       </Stack.Navigator>
   );
