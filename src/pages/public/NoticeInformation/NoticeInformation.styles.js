@@ -42,10 +42,6 @@ export default (colors) =>
       justifyContent: "center",
       alignItems: "center",
     },
-    bottomAbsoluteContent: {
-      position: "absolute",
-      right: 25,
-    },
     bottomContentButton: {
       width: "80%",
       backgroundColor: colors.secondary,

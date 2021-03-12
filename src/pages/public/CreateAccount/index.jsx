@@ -8,13 +8,13 @@ import SignUp from "@containers/SignUp";
 import style from "./CreateAccount.styles";
 
 const CreateAccount = () => {
-  useHeader({ ...defaultParams, rightText: 'Have an account? Login', rightNavigation:routes.LOGIN });
+  useHeader({ ...defaultParams, rightText: 'Tiene una cuenta? Login', rightNavigation:routes.LOGIN });
   const styleSheet = style();
   return (
     <LayoutFrame>
       <View style={styleSheet.headerContainer}>
-        <Headline style={styleSheet.headerContainerTile}>{`Don't have an account?\nSign Up!`}</Headline>
-        <Subheading>Please enter the required details</Subheading>
+        <Headline style={styleSheet.headerContainerTile}>{`No tiene una cuenta?\nRegistrate!`}</Headline>
+        <Subheading>Por favor ingresa tus datos</Subheading>
       </View>
       <View style={styleSheet.container}>
       <SignUp />
