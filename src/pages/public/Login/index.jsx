@@ -10,15 +10,15 @@ import style from "./Login.styles";
 const Login = () => {
   useHeader({
     ...defaultParams,
-    rightText: "Forgot Password?",
+    rightText: "Olvido la contraseña?",
     rightNavigation: routes.FORGOT_PASSWORD,
   });
   const styleSheet = style();
   return (
     <LayoutFrame>
       <View style={styleSheet.headerContainer}>
-        <Headline style={styleSheet.headerContainerTile}>Welcome Back!</Headline>
-        <Subheading>Enter the credentials to continue</Subheading>
+        <Headline style={styleSheet.headerContainerTile}>Bienvenido!</Headline>
+        <Subheading>Ingresa tus datos para continuar</Subheading>
       </View>
       <View style={styleSheet.container}>
         <Auth/>

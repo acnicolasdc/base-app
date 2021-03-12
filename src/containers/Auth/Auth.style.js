@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export default () =>
   StyleSheet.create({
     buttonsContainer: {
-      justifyContent:'center',
+      justifyContent:'flex-start',
       alignItems:'center',
       paddingTop: 15,
       flex:1,
@@ -14,14 +14,12 @@ export default () =>
     boldText: {
       fontWeight: 'bold'
     },
-    faceIDText: {
-      marginTop: 15
-    },
     rememberContainer: {
       flexDirection:'row',
       justifyContent:'space-between',
-      alignItems:'center',
+      alignItems:'flex-start',
       width:'100%',
       paddingVertical: 10,
+      flex:0.3,
     },
   });
