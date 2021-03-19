@@ -1,6 +1,7 @@
 import { DefaultTheme } from 'react-native-paper';
 
 const pallet = {
+  black001:'#000',
   white001:'#FFFF',
   green001: '#2FD573',
   grey001:'#ECEBEC',
