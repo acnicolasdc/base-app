@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { View } from "react-native";
 import { useTheme, Subheading, Headline, Paragraph } from "react-native-paper";
 import { routes } from "@routes/public";
-import ButtonStepIndicator from "@components/Buttons/ButtonStepIndicator";
-import LayoutFrame from "@components/Layouts/LayoutFrame";
+import ButtonStepIndicator from "@components/Button/ButtonStepIndicator";
+import LayoutFrame from "@components/Layout/LayoutFrame";
 import style from "./OnBoarding.styles";
 import getStartedInformation from './utils/getStartedInformation';
 

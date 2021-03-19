@@ -3,9 +3,9 @@ import { routes } from "@routes/public";
 import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
 import { Paragraph } from "react-native-paper";
-import FieldInput from "@components/Fields/FieldInput";
-import ButtonCommon from "@components/Buttons/ButtonCommon";
-import ButtonSwitch from "@components/Buttons/ButtonSwitch";
+import FieldInput from "@components/Field/FieldInput";
+import ButtonCommon from "@components/Button/ButtonCommon";
+import ButtonSwitch from "@components/Button/ButtonSwitch";
 import style from "./Auth.style";
 
 const Auth = () => {

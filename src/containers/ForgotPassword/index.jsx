@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { routes } from "@routes/public";
-import FieldInputPhone from "@components/Fields/FieldInputPhone";
-import ButtonCommon from "@components/Buttons/ButtonCommon";
+import FieldInputPhone from "@components/Field/FieldInputPhone";
+import ButtonCommon from "@components/Button/ButtonCommon";
 import style from "./ForgotPassword.style";
 
 const ForgotPassword = () => {

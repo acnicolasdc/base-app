@@ -3,9 +3,9 @@ import { View } from "react-native";
 import { Paragraph } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import { routes } from "@routes/public";
-import FieldInput from "@components/Fields/FieldInput";
-import FieldInputPhone from "@components/Fields/FieldInputPhone";
-import ButtonCommon from "@components/Buttons/ButtonCommon";
+import FieldInput from "@components/Field/FieldInput";
+import FieldInputPhone from "@components/Field/FieldInputPhone";
+import ButtonCommon from "@components/Button/ButtonCommon";
 import image from "@assets/notice-background.png";
 import style from "./SignUp.style";
 
