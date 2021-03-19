@@ -3,8 +3,8 @@ import { View, Dimensions } from "react-native";
 import { Headline, useTheme, Paragraph, Subheading } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import ButtonCommon from "@components/Buttons/ButtonCommon";
-import FieldCodeVerification from "@components/Fields/FieldCodeVerification";
+import ButtonCommon from "@components/Button/ButtonCommon";
+import FieldCodeVerification from "@components/Field/FieldCodeVerification";
 import style from "./OTPVerification.style";
 
 export const defaultProps = Object.freeze({

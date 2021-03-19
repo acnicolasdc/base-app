@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { Headline, Subheading } from "react-native-paper";
 import { routes } from "@routes/public";
 import useHeader, { defaultParams } from "@hooks/useHeader";
-import LayoutFrame from "@components/Layouts/LayoutFrame";
+import LayoutFrame from "@components/Layout/LayoutFrame";
 import Auth from "@containers/Auth";
 import style from "./Login.styles";
 

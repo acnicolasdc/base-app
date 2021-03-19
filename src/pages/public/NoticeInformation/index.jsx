@@ -2,8 +2,8 @@ import React from "react";
 import { View, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useTheme, Subheading, Headline } from "react-native-paper";
-import ButtonCommon from "@components/Buttons/ButtonCommon";
-import LayoutFrame from "@components/Layouts/LayoutFrame";
+import ButtonCommon from "@components/Button/ButtonCommon";
+import LayoutFrame from "@components/Layout/LayoutFrame";
 import style from "./NoticeInformation.styles";
 
 const NoticeInformation = ({ route }) => {

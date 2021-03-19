@@ -2,8 +2,8 @@ import React from "react";
 import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { routes } from "@routes/public";
-import FieldInput from "@components/Fields/FieldInput";
-import ButtonCommon from "@components/Buttons/ButtonCommon";
+import FieldInput from "@components/Field/FieldInput";
+import ButtonCommon from "@components/Button/ButtonCommon";
 import style from "./ResetPassword.style";
 
 const ResetPassword = () => {

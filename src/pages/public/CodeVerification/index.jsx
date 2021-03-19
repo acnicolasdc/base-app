@@ -1,7 +1,7 @@
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { useTheme } from "react-native-paper";
-import LayoutFrame from "@components/Layouts/LayoutFrame";
+import LayoutFrame from "@components/Layout/LayoutFrame";
 import OTPVerification from '@containers/OTPVerification'
 import style from "./CodeVerification.styles";
 

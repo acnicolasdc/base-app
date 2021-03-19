@@ -6,7 +6,7 @@ export default (colors, dark) =>
       borderTopRightRadius: 25,
       borderTopLeftRadius: 25,
       borderTopWidth: 0,
-      backgroundColor: colors.background,
+      backgroundColor: colors.tab,
       height: 100,
       paddingHorizontal: 20,
     },
