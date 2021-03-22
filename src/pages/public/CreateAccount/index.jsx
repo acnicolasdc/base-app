@@ -13,7 +13,7 @@ const CreateAccount = () => {
   return (
     <LayoutFrame>
       <View style={styleSheet.headerContainer}>
-        <Headline style={styleSheet.headerContainerTile}>{`No tiene una cuenta?\nRegistrate!`}</Headline>
+        <Headline style={styleSheet.headerContainerTile}>{`No tienes una cuenta?\nRegistrate!`}</Headline>
         <Subheading>Por favor ingresa tus datos</Subheading>
       </View>
       <View style={styleSheet.container}>

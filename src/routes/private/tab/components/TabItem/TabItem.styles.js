@@ -14,6 +14,8 @@ export default (colors) =>
     label:{
       color: colors.pallet.white001,
       marginLeft: 10,
-      fontSize: 10
+      fontSize: 9,
+  
+      
     }
   });

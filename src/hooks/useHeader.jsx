@@ -5,9 +5,10 @@ import ButtonArrow from "@components/Button/ButtonArrow";
 
 export const defaultParams = Object.freeze({
   title: "",
-  height: 110,
+  height: 100,
   rightText: '',
   rightNavigation:'',
+
 });
 
 const useHeader = (params = defaultParams ) => {
@@ -17,6 +18,7 @@ const useHeader = (params = defaultParams ) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       title: title,
+      
       headerStyle: {
         shadowRadius: 0,
         shadowOffset: {

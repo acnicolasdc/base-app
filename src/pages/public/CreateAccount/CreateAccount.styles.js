@@ -4,11 +4,12 @@ export default () =>
   StyleSheet.create({
     container: {
       flex: 1,
-      paddingTop: 15,
+      paddingTop: 0,
     },
     headerContainer: {
       justifyContent: "center",
       alignItems: "flex-start",
+    
     },
     headerContainerTile: {
       fontSize: 30,

@@ -46,6 +46,7 @@ const OTPVerification = ({ phoneNumber, pushRoute }) => {
         <ButtonCommon
           style={{
             width: "70%",
+            
           }}
           onPress={() => (pushRoute ? navigation.navigate(pushRoute) : null)}
         >

@@ -35,17 +35,10 @@ const TabNavigation = () => {
         labelStyle: styleSheet.labelStyle,
       }}
     >
-      <Tab.Screen
-        name={routes.ORDERS}
-        component={Orders}
-        options={{
-          tabBarIcon: ({ color, size, focused }) => (
-            <TabItem title="ORDENES" focused={focused}>
-              <MaterialCommunityIcons name="text" size={sizeFocused(focused, size)} color={color} />
-            </TabItem>
-          ),
-        }}
-      />
+
+
+
+
       <Tab.Screen
         name={routes.PRODUCTS}
         component={Products}
@@ -57,6 +50,18 @@ const TabNavigation = () => {
           ),
         }}
       />
+      <Tab.Screen
+        name={routes.ORDERS}
+        component={Orders}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => (
+            <TabItem title="ORDENES" focused={focused}>
+              <MaterialCommunityIcons name="text" size={sizeFocused(focused, size)} color={color} />
+            </TabItem>
+          ),
+        }}
+      />
+      
       {hasInventoryPermission()&&<Tab.Screen
         name={routes.INVENTORY}
         component={Inventory}

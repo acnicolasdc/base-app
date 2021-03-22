@@ -1,13 +1,13 @@
 import { StyleSheet } from "react-native";
 
-export default (colors) => StyleSheet.create({
+export default () => StyleSheet.create({
     container: {
        
         width: '100%',
-        height: 150,
+        height: 120,
         borderRadius: 10,
-        backgroundColor: colors.background001,
-        shadowColor: colors.pallet.black001,
+        backgroundColor: '#f1c40f',
+        marginBottom:"5%",
         shadowOffset: {
             width: 0,
             height: 2,
@@ -15,6 +15,7 @@ export default (colors) => StyleSheet.create({
         shadowOpacity: 0.2,
         shadowRadius: 3.84,
         elevation: 5,
-       
-    }
+    },
+
+
 });

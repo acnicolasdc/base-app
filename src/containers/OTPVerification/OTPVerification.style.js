@@ -4,6 +4,7 @@ export default (colors, windowWidth) =>
   StyleSheet.create({
     formContainer: {
       flex:1,
+      paddingBottom:"10%"
     },
     centerContent:{
       justifyContent:'center',

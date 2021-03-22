@@ -1,6 +1,6 @@
 import React from 'react';
 
-const APP_NAME = 'Payboard';
+const APP_NAME = 'ORDERWAY';
 
 export const AuthorizationsContext = React.createContext({
     hasInventoryPermission: () => false,

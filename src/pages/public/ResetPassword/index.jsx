@@ -13,8 +13,8 @@ const ResetPassword = () => {
   return (
     <LayoutFrame>
       <View style={styleSheet.headerContainer}>
-        <Headline style={styleSheet.headerContainerTile}>Reset Password</Headline>
-        <Subheading>{`Create a new unique password in order\nto continue`}</Subheading>
+        <Headline style={styleSheet.headerContainerTile}>Crear nueva contraseña</Headline>
+        <Subheading>{`Define y confirma una contraseña nueva`}</Subheading>
       </View>
       <View style={styleSheet.container}>
       <ResetPasswordContainer />

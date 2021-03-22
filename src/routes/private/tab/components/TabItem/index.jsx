@@ -19,7 +19,7 @@ const TabItem = ({
   return focused ? (
     <View style={styleSheet.tabContainer}>
       {children}
-      <Paragraph style={styleSheet.label}>{title}</Paragraph>
+      <Paragraph style={styleSheet.label }>{title}</Paragraph>
     </View>
   ) : (
     children

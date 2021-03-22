@@ -8,7 +8,7 @@ const Inventory = () => {
   console.log(navigation )
   return (
     <LayoutFrame>
-        <Subheading>{`Please enter the phone number associated\nwith this account`}</Subheading>
+        <Subheading>{`Modulo visible solo para el admin.\nAqui podra modificar el stock y sus parametros`}</Subheading>
     </LayoutFrame>
   );
 };

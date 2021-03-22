@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export default () =>
   StyleSheet.create({
     buttonsContainerDivider: {
-      paddingVertical: 30,
+      marginTop:"5%",
       width:'100%',
       justifyContent:'center',
       alignItems:'center',
@@ -13,7 +13,9 @@ export default () =>
     },
     bottomContainer: {
       flex: 1,
-      justifyContent:'flex-end',
       alignItems:'center',
+      justifyContent:'flex-end'
+      
+     
     },
   });

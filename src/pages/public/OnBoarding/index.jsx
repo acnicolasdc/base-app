@@ -23,7 +23,7 @@ const OnBoarding = ({ navigation }) => {
   return (
     <LayoutFrame>
       <View style={styleSheet.subheading}>
-        <Subheading style={styleSheet.headingText}>ENVASE</Subheading>
+        <Subheading style={styleSheet.headingText}>ORDERWAY</Subheading>
       </View>
       <View style={styleSheet.container}>
         <View style={styleSheet.container}></View>
@@ -43,7 +43,7 @@ const OnBoarding = ({ navigation }) => {
         />
         <View style={styleSheet.bottomAbsoluteContent}>
           <Subheading onPress={() => navigation.navigate(routes.LOGIN)}>
-            SKIP
+            SALTAR
           </Subheading>
         </View>
       </View>
