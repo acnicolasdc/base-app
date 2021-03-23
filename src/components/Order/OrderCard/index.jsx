@@ -8,7 +8,6 @@ const OrderCard = ({ style }) => {
     const styleSheet = styles(colors);
     return (
         <View style={[styleSheet.container, style]}>
-           
         </View>
     );
 }
