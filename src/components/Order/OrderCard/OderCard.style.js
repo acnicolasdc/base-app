@@ -4,7 +4,7 @@ export default (colors) =>
   StyleSheet.create({
     container: {
       width: "100%",
-      height: 150,
+      height: 130,
       borderRadius: 10,
       backgroundColor: colors.background001,
       shadowColor: colors.pallet.black001,
