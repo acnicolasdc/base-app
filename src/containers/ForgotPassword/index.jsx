@@ -21,7 +21,6 @@ const ForgotPassword = () => {
       <ButtonCommon
         style={{
           width: "100%",
-         
         }}
         onPress={() =>
           navigation.navigate(routes.CODE_VERIFICATION, {

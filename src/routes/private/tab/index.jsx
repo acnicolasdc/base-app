@@ -1,6 +1,10 @@
 import React, { useContext } from "react";
 import { useTheme } from "react-native-paper";
-import { SimpleLineIcons, MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
+import {
+  SimpleLineIcons,
+  MaterialCommunityIcons,
+  AntDesign,
+} from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Products from "@pages/private/Products";
 import Inventory from "@pages/private/Inventory";
@@ -19,8 +23,8 @@ export const routes = Object.freeze({
 
 const sizeFocused = (focused, size) => {
   const multiSize = 1.2;
-  return focused?size:size*multiSize;
-}
+  return focused ? size : size * multiSize;
+};
 
 const TabNavigation = () => {
   const { hasInventoryPermission } = useContext(AuthorizationsContext);
@@ -35,17 +39,17 @@ const TabNavigation = () => {
         labelStyle: styleSheet.labelStyle,
       }}
     >
-
-
-
-
       <Tab.Screen
         name={routes.PRODUCTS}
         component={Products}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
             <TabItem title="PRODUCTOS" focused={focused}>
-              <SimpleLineIcons name="handbag" size={sizeFocused(focused, size)} color={color} />
+              <SimpleLineIcons
+                name="handbag"
+                size={sizeFocused(focused, size)}
+                color={color}
+              />
             </TabItem>
           ),
         }}
@@ -56,27 +60,33 @@ const TabNavigation = () => {
         options={{
           tabBarIcon: ({ color, size, focused }) => (
             <TabItem title="ORDENES" focused={focused}>
-              <MaterialCommunityIcons name="text" size={sizeFocused(focused, size)} color={color} />
-            </TabItem>
-          ),
-        }}
-      />
-      
-      {hasInventoryPermission()&&<Tab.Screen
-        name={routes.INVENTORY}
-        component={Inventory}
-        options={{
-          tabBarIcon: ({ color, size, focused }) => (
-            <TabItem title="INVENTARIO" focused={focused}>
-              <AntDesign
-                name="switcher"
+              <MaterialCommunityIcons
+                name="text"
                 size={sizeFocused(focused, size)}
                 color={color}
               />
             </TabItem>
           ),
         }}
-      />}
+      />
+
+      {hasInventoryPermission() && (
+        <Tab.Screen
+          name={routes.INVENTORY}
+          component={Inventory}
+          options={{
+            tabBarIcon: ({ color, size, focused }) => (
+              <TabItem title="INVENTARIO" focused={focused}>
+                <AntDesign
+                  name="switcher"
+                  size={sizeFocused(focused, size)}
+                  color={color}
+                />
+              </TabItem>
+            ),
+          }}
+        />
+      )}
     </Tab.Navigator>
   );
 };

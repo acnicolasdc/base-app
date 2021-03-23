@@ -5,10 +5,10 @@ import LayoutFrame from "@components/Layout/LayoutFrame";
 
 const Inventory = () => {
   const navigation = useNavigation();
-  console.log(navigation )
+  console.log(navigation);
   return (
     <LayoutFrame>
-        <Subheading>{`Modulo visible solo para el admin.\nAqui podra modificar el stock y sus parametros`}</Subheading>
+      <Subheading>{`Modulo visible solo para el admin.\nAqui podra modificar el stock y sus parametros`}</Subheading>
     </LayoutFrame>
   );
 };

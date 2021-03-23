@@ -9,7 +9,6 @@ export default () =>
     headerContainer: {
       justifyContent: "center",
       alignItems: "flex-start",
-    
     },
     headerContainerTile: {
       fontSize: 30,

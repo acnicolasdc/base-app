@@ -6,19 +6,18 @@ import ButtonArrow from "@components/Button/ButtonArrow";
 export const defaultParams = Object.freeze({
   title: "",
   height: 100,
-  rightText: '',
-  rightNavigation:'',
-
+  rightText: "",
+  rightNavigation: "",
 });
 
-const useHeader = (params = defaultParams ) => {
+const useHeader = (params = defaultParams) => {
   const navigation = useNavigation();
   const { colors } = useTheme();
-  const {height, rightText, title, rightNavigation} = params;
+  const { height, rightText, title, rightNavigation } = params;
   useLayoutEffect(() => {
     navigation.setOptions({
       title: title,
-      
+
       headerStyle: {
         shadowRadius: 0,
         shadowOffset: {
@@ -28,9 +27,14 @@ const useHeader = (params = defaultParams ) => {
         height: height,
       },
       headerLeft: ButtonArrow,
-      headerRight:() => (rightText&&rightNavigation)?<Subheading onPress={()=> navigation.navigate(rightNavigation)}>{rightText}</Subheading>:null,
-      headerLeftContainerStyle: { marginLeft: 20, height:'100%'},
-      headerRightContainerStyle: { marginRight: 20, height:'100%'},
+      headerRight: () =>
+        rightText && rightNavigation ? (
+          <Subheading onPress={() => navigation.navigate(rightNavigation)}>
+            {rightText}
+          </Subheading>
+        ) : null,
+      headerLeftContainerStyle: { marginLeft: 20, height: "100%" },
+      headerRightContainerStyle: { marginRight: 20, height: "100%" },
     });
   }, [navigation]);
 };

@@ -39,7 +39,11 @@ const Public = () => {
         component={CodeVerification}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name={routes.NOTICE_INFORMATION} component={NoticeInformation} options={{ headerShown: false }}/>
+      <Stack.Screen
+        name={routes.NOTICE_INFORMATION}
+        component={NoticeInformation}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };

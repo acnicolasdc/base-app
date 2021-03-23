@@ -45,6 +45,6 @@ export default (colors) =>
     bottomContentButton: {
       width: "80%",
       backgroundColor: colors.secondary,
-     marginBottom:"10%"
+      marginBottom: "10%",
     },
   });

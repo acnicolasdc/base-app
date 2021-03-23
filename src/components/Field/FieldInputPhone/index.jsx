@@ -21,8 +21,8 @@ const FieldInputPhone = ({ style, ...restProps }) => {
             withDDD: true,
             dddMask: "(+99) | ",
           }}
-          keyboardType='phone-pad'
-          returnKeyType='done' 
+          keyboardType="phone-pad"
+          returnKeyType="done"
           {...props}
         />
       )}

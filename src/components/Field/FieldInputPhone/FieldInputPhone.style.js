@@ -6,6 +6,6 @@ export default (colors) =>
       backgroundColor: colors.background,
       paddingBottom: 0,
       marginBottom: 0,
-      height: 45
+      height: 45,
     },
   });
