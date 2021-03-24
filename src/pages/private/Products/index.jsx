@@ -11,7 +11,7 @@ const Products = () => {
   const navigation = useNavigation();
   console.log(navigation);
   return (
-    <LayoutFrame style={{}}>
+    <LayoutFrame>
       <Subheading>{"Modulo para agregar productos a una orden"}</Subheading>
       {array.map((value)=>(<ProductCard key={value} style={styleSheet.wrapMargin}/>))
 

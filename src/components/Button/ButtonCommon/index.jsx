@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "react-native-paper";
 
-const ButtonCommon = ({ children, style, ...props }) => {
+const ButtonCommon = ({ children, style, ...restProps }) => {
   return (
     <Button
       mode="contained"
@@ -12,7 +12,7 @@ const ButtonCommon = ({ children, style, ...props }) => {
       contentStyle={{
         paddingVertical: 15,
       }}
-      {...props}
+      {...restProps}
     >
       {children}
     </Button>
