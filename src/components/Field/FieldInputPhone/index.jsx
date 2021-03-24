@@ -23,7 +23,7 @@ const FieldInputPhone = ({ style, ...restProps }) => {
           }}
           keyboardType='phone-pad'
           returnKeyType='done' 
-          {...props}
+          {...restProps}
         />
       )}
       {...restProps}
