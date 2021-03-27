@@ -2,9 +2,9 @@ import React from "react";
 import { View } from "react-native";
 import { Paragraph, useTheme } from "react-native-paper";
 import { FontAwesome5 } from "@expo/vector-icons";
-import styles from "./OrderCard.style";
+import styles from "./InventoryItem.style";
 
-const OrderCard = ({ style, info={info}  }) => {
+const InventoryItem = ({ style, info={info}}) => {
     const { colors } = useTheme();
     const styleSheet = styles(colors);
     return (
@@ -13,11 +13,11 @@ const OrderCard = ({ style, info={info}  }) => {
                 <FontAwesome5 name="store" size={35} color="black" />
             </View>
             <View style={styleSheet.informationContent}>
-                <Paragraph style={styleSheet.textTitle}>Cliente: {info.NombreCliente}</Paragraph>
-                <Paragraph style={styleSheet.textTitle}>ORDENggg  :  {info.NumeroOrden}</Paragraph>
+                <Paragraph style={styleSheet.textTitle}>Producto: {info.NombreProducto}</Paragraph>
+                <Paragraph style={styleSheet.textTitle}>Precio :  {info.Precio}</Paragraph>
                 <Paragraph style={styleSheet.textTitle}>Descripcion : {info.Descripcion}</Paragraph>
             </View>
         </View>
     );
 };
-export default OrderCard;
+export default InventoryItem;
