@@ -44,7 +44,7 @@ export default (colors) =>
       
     },
     textItems:{
-      color:"#5e5e5e",
+      color:colors.pallet.textSubtitle,
       fontStyle:'normal',
       //fontWeight:"700",
       fontSize:13,

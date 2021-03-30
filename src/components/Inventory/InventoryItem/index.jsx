@@ -5,7 +5,16 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import styles from "./InventoryItem.style";
 import IconWrap from "../../Icons/IconWrap/IconWrap";
 
-const InventoryItem = ({ style, info = { info } }) => {
+export const defaultProps = Object.freeze({
+    INFO: {
+      date: "7/17/2020",
+      name: "Product name",
+      amount: 1,
+      price: 1000,
+    },
+  });
+
+const InventoryItem =  ({ style, info: {name, amount, price,date } = defaultProps.INFO }) => {
     const { colors } = useTheme();
     const styleSheet = styles(colors);
     return (
@@ -16,12 +25,13 @@ const InventoryItem = ({ style, info = { info } }) => {
                 </IconWrap>
             </View>
             <View style={styleSheet.informationContent}>
-                <Text style={styleSheet.textNameItem}>{info.NombreProducto}</Text>
-                <Text style={styleSheet.textDate}>{info.fechaEntrada}</Text>
-                <Text style={styleSheet.textAmount}>{info.Cantidad}</Text>
+                <Text style={styleSheet.textNameItem}>{name}</Text>
+                
+                <Text style={styleSheet.textAmount}>{amount}</Text>
             </View>
             <View style={styleSheet.wrapTextPrice}>
-                <Text style={styleSheet.textPrice}>$ {info.Precio}</Text>
+                <Text style={styleSheet.textPrice}>$ {price}</Text>
+                <Text style={styleSheet.textDate}>{date}</Text>
             </View>
 
         </View>
