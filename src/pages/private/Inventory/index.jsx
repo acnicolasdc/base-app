@@ -12,11 +12,11 @@ const Inventory = () => {
   const navigation = useNavigation();
   console.log(navigation);
   return (
-    <LayoutFrame >
+    <View style={{ backgroundColor: 'white', flex:1, paddingHorizontal: 15}}>
 
       <ButtonCommon
         style={{
-          width: "50%",
+          width: "100%",
           marginBottom: "2%",
           marginTop: 0,
           alignSelf: 'center',
@@ -33,7 +33,7 @@ const Inventory = () => {
       <View style={styleSheet.container}></View>
         <InventoryList />
       
-    </LayoutFrame>
+    </View>
   );
 };
 

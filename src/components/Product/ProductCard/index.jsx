@@ -1,26 +1,24 @@
 import React from "react";
 import styles from "./ProductCard.style";
-import { View, Text } from "react-native";
+import { TouchableHighlight, Text, View } from "react-native";
 import { useTheme } from "react-native-paper";
 import { Fontisto } from '@expo/vector-icons';
 import IconWrap from "../../Icons/IconWrap/IconWrap";
 
 export const defaultProps = Object.freeze({
   INFO: {
-    nombreProducto: 'Product Name',
-    cantidad: 1,
-    precio: 0,
-    id: 0
+    id: 1,
+    name: "Product name",
+    amount: 1,
+    price: 1000,
   },
 });
 
-const ProductCard = ({ style, info: { nombreProducto, cantidad, precio, id } = defaultProps.INFO }) => {
+const ProductCard = ({ style, info: { id, name, amount, price } = defaultProps.INFO }) => {
   const { pallet, colors } = useTheme();
   const styleSheet = styles(pallet, colors);
-  console.log(id)
-
   return (
-    <View style={{ flex: 1, padding: "2%" }}>
+    <TouchableHighlight style={{ flex: 1, padding: "2%" }}>
       {
         id !== 'blank' ?
           <View style={[styleSheet.container, style]}>
@@ -28,24 +26,18 @@ const ProductCard = ({ style, info: { nombreProducto, cantidad, precio, id } = d
               <Fontisto name="qrcode" size={50} color="black" />
             </IconWrap>
             <View style={styleSheet.textContent}>
-              <Text style={styleSheet.textTitle, styleSheet.textNameProduct}>{nombreProducto} </Text>
-              <Text style={styleSheet.textTitle, styleSheet.textAmountProduct}>{cantidad} </Text>
-              <Text style={styleSheet.textTitle, styleSheet.textPriceProduct}>${precio} </Text>
+              <Text style={styleSheet.textTitle, styleSheet.textNameProduct}>{name} </Text>
+              <Text style={styleSheet.textTitle, styleSheet.textAmountProduct}>{amount} </Text>
+              <Text style={styleSheet.textTitle, styleSheet.textPriceProduct}>${price} </Text>
             </View>
           </View>
           :
-
           <View style={[
             styleSheet.itemInvisible, style]}>
             <Text style={styleSheet.textTitle}></Text>
           </View>
       }
-    </View>
+    </TouchableHighlight>
   )
-  /*   <View style={[
-      styleSheet.container, style]}>
-      <Text style={styleSheet.textTitle}>ID: {id} </Text>\
-    </View> */
-
 };
 export default ProductCard;

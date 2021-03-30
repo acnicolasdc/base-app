@@ -2,63 +2,56 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Subheading } from "react-native-paper";
 import LayoutFrame from "@components/Layout/LayoutFrame";
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 import styles from "./Orders.style";
-import OrderCard from "../../../components/Order/OrderCard"
+import OrderCard from "../../../components/Order/OrderCard";
 
 const array = [
   {
-    NombreCliente: 'Andres Yepez',
-    NumIdentificacion:1144174047,
-    Celular:'3154528784',
-    Correo:'Anres@gmail.com',
+    NombreCliente: "Andres Yepez",
+    NumIdentificacion: 1144174047,
+    Celular: "3154528784",
+    Correo: "Anres@gmail.com",
     NumeroOrden: 1,
-    items:[],
-    Total: '$50.000',
-
+    items: [],
+    Total: "$50.000",
   },
   {
-    NombreCliente: 'Camilo Sanchez',
-    NumIdentificacion:1144174047,
-    Celular:'3194528784',
-    Correo:'Camilo@gmail.com',
+    NombreCliente: "Camilo Sanchez",
+    NumIdentificacion: 1144174047,
+    Celular: "3194528784",
+    Correo: "Camilo@gmail.com",
     NumeroOrden: 2,
-    items:[],
-    Total: '$1.540.000',
+    items: [],
+    Total: "$1.540.000",
   },
   {
-    NombreCliente: 'Natalia Portillo',
-    NumIdentificacion:1144174047,
-    Celular:'3024528784',
-    Correo:'Natalia@gmail.com',
+    NombreCliente: "Natalia Portillo",
+    NumIdentificacion: 1144174047,
+    Celular: "3024528784",
+    Correo: "Natalia@gmail.com",
     NumeroOrden: 3,
-    items:[
-      
-      "televisor1",
-      "closetRimax"
-      
-    ],
-    Total: '$850.000',
+    items: ["televisor1", "closetRimax"],
+    Total: "$850.000",
   },
   {
-    NombreCliente: 'Roger Pino',
-    NumIdentificacion:1144174047,
-    Celular:'3204528784',
-    Correo:'Roger@gmail.com',
+    NombreCliente: "Roger Pino",
+    NumIdentificacion: 1144174047,
+    Celular: "3204528784",
+    Correo: "Roger@gmail.com",
     NumeroOrden: 4,
-    items:[],
-    Total: '$5.000',
-  
+    items: [],
+    Total: "$5.000",
   },
   {
-    NombreCliente: 'Andres Perez',
-    NumIdentificacion:1144174047,
-    Celular:'3154528784',
-    Correo:'pelele@gmail.com',
+    NombreCliente: "Andres Perez",
+    NumIdentificacion: 1144174047,
+    Celular: "3154528784",
+    Correo: "pelele@gmail.com",
     NumeroOrden: 5,
-    items:[],
-    Total: '$84.540.000',
-  }
+    items: [],
+    Total: "$84.540.000",
+  },
 ];
 
 const Orders = () => {
@@ -66,18 +59,13 @@ const Orders = () => {
   const styleSheet = styles();
   console.log(navigation);
   return (
-    <LayoutFrame>
-     
-     {/*  {array.map((value) => (
-        <OrderCard key={
-        value} style={styleSheet.wrapMargin} />
-      ))} */}
+    <View style={{ backgroundColor: "white", flex: 1 }}>
       <FlatList
         data={array}
-        renderItem={({ item, index}) => (<OrderCard info={item} />)}
+        renderItem={({ item, index }) => <OrderCard info={item} />}
         keyExtractor={array.NumeroOrden}
       />
-    </LayoutFrame>
+    </View>
   );
 };
 

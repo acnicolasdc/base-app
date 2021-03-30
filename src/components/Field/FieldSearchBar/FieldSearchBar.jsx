@@ -1,19 +1,24 @@
-import * as React from 'react';
-import { View } from 'react-native';
+import React from 'react';
 import { Searchbar } from 'react-native-paper';
 import styles from "./FieldSearchBar.style";
-const FieldSearchBar = () => {
+
+
+export const defaultProps = Object.freeze({
+  PLACEHOLDER: 'Search'
+});
+
+const FieldSearchBar = ({ style, placeholder = defaultProps.PLACEHOLDER, onChangeText: onChangeSearch, value, ...restProps }) => {
   const styleSheet = styles();
-  const [searchQuery, setSearchQuery] = React.useState('');
-  const onChangeSearch = query => setSearchQuery(query);
+  // const [searchQuery, setSearchQuery] = React.useState('');
+  // const onChangeSearch = query => setSearchQuery(query);
   return (
-    <View  style={[styleSheet.containerSearchBar]}>
     <Searchbar
-      placeholder="Search"
+      style={[styleSheet.containerSearchBar, style]}
+      placeholder={placeholder}
       onChangeText={onChangeSearch}
-      value={searchQuery}
+      value={value}
+      {...restProps}
     />
-    </View>
-  );
+  )
 };
 export default FieldSearchBar;
