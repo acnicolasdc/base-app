@@ -8,34 +8,56 @@ import OrderCard from "../../../components/Order/OrderCard"
 
 const array = [
   {
-    NombreCliente: 'Cliente 1',
+    NombreCliente: 'Andres Yepez',
+    NumIdentificacion:1144174047,
+    Celular:'3154528784',
+    Correo:'Anres@gmail.com',
     NumeroOrden: 1,
-    Descripcion: 'sdcsdc sf',
-    id: 1
+    items:[],
+    Total: '$50.000',
+
   },
   {
-    NombreCliente: 'Cliente 2',
+    NombreCliente: 'Camilo Sanchez',
+    NumIdentificacion:1144174047,
+    Celular:'3194528784',
+    Correo:'Camilo@gmail.com',
     NumeroOrden: 2,
-    Descripcion: 'sdcsdc sf',
-    id: 2
+    items:[],
+    Total: '$1.540.000',
   },
   {
-    NombreCliente: 'Cliente 3',
+    NombreCliente: 'Natalia Portillo',
+    NumIdentificacion:1144174047,
+    Celular:'3024528784',
+    Correo:'Natalia@gmail.com',
     NumeroOrden: 3,
-    Descripcion: 'sdcsdc sf',
-    id: 3
+    items:[
+      
+      "televisor1",
+      "closetRimax"
+      
+    ],
+    Total: '$850.000',
   },
   {
-    NombreCliente: 'Cliente 4',
+    NombreCliente: 'Roger Pino',
+    NumIdentificacion:1144174047,
+    Celular:'3204528784',
+    Correo:'Roger@gmail.com',
     NumeroOrden: 4,
-    Descripcion: 'sdcsdc sf',
-    id: 4
+    items:[],
+    Total: '$5.000',
+  
   },
   {
-    NombreCliente: 'Cliente 5',
+    NombreCliente: 'Andres Perez',
+    NumIdentificacion:1144174047,
+    Celular:'3154528784',
+    Correo:'pelele@gmail.com',
     NumeroOrden: 5,
-    Descripcion: 'sdcsdc sf',
-    id: 5
+    items:[],
+    Total: '$84.540.000',
   }
 ];
 
@@ -45,7 +67,7 @@ const Orders = () => {
   console.log(navigation);
   return (
     <LayoutFrame>
-      <Subheading>{`Se muestran como tarjetas,las ordenes pendientes por ser aprobadas por el admin`}</Subheading>
+     
      {/*  {array.map((value) => (
         <OrderCard key={
         value} style={styleSheet.wrapMargin} />
@@ -53,7 +75,7 @@ const Orders = () => {
       <FlatList
         data={array}
         renderItem={({ item, index}) => (<OrderCard info={item} />)}
-        keyExtractor={array.id}
+        keyExtractor={array.NumeroOrden}
       />
     </LayoutFrame>
   );

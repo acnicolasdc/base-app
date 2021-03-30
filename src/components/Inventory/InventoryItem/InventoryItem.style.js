@@ -3,34 +3,55 @@ import { StyleSheet } from "react-native";
 export default (colors) =>
   StyleSheet.create({
     container: {
+    
       width: "97%",
-      height: 60,
-      borderRadius: 5,
-      backgroundColor: colors.background001,
-      shadowColor: colors.pallet.black001,
-      marginBottom: ".5%",
-      shadowOffset: {
-        height: 2,
-      },
-      shadowOpacity: 0.2,
-      shadowRadius: 3.84,
-      elevation: 5,
+      height: 70,
+      borderRadius: 80,
+      backgroundColor:colors.background,
       flexDirection: "row",
       overflow: "hidden",
     },
     iconContent: {
-      flex: 1,
-      backgroundColor: (255, 255, 255, 0.54),
-      justifyContent: "center",
-      alignItems: "center",
+      paddingLeft:20,
+      alignSelf:'center',
+    
+      
+
     },
     informationContent: {
       flex:'row',
-      flex: 2,
-      backgroundColor: "#424242",
-      padding:"2%"
+      flex: 2.4,
+      paddingTop:12,
+      paddingLeft:20
     },
-    textTitle:{
-      color:"#F5F3FB"
+    textAmount:{
+      color:"#5e5e5e",
+      fontStyle:'italic',
+      paddingLeft:5,
+      fontSize:12
     }
+    ,
+    textDate:{
+      color:"#5e5e5e",
+      fontStyle:'italic',
+      paddingLeft:5,
+      fontSize:10
+    },
+    textNameItem:{
+      color:"#424242",
+      fontWeight:"500",
+      fontSize:16
+    },
+    textPrice:{
+      color:"#6739BF",
+      fontWeight:"500",
+      fontStyle:'italic',
+      fontSize:14
+    }
+    ,
+    wrapTextPrice:{
+    width:75,
+    alignSelf:'center'
+    }
+    
   });

@@ -1,26 +1,63 @@
 import { StyleSheet } from "react-native";
 
-export default () =>
+export default (pallet,colors) =>
   StyleSheet.create({
     container: {
-  
-     
-      height: 120,
-      borderRadius: 10,
-      backgroundColor: "#424242",
+      borderStyle: 'solid',
+      borderColor: colors.pallet.borderCard,
+      borderWidth: 1,
+      flexDirection: 'column',
+      height: 220,
+      borderRadius: 30,
+      backgroundColor: colors.background,
       marginBottom: "5%",
-      shadowOffset: {
-        height: 2,
-      },
-      shadowOpacity: 0.2,
-      shadowRadius: 3.84,
-      elevation: 5,
-      padding:"2%"
+      padding: "2%",
+      paddingTop: 15,
+      flex: 1,
     },
-    textTitle:{
-      color:"#F5F3FB"
+
+    itemInvisible: {
+      backgroundColor: 'transparent'
     },
-    itemInvisible:{
-      backgroundColor:'transparent'
+    iconContent: {
+      backgroundColor: colors.pallet.backgroundWrapIcon,
+      width: 80,
+      height: 80,
+      borderRadius: 20,
+      justifyContent: 'center',
+      alignSelf: 'center',
+      alignItems: 'center',
+      margin:15
+      
+     
+    },
+    textContent: {
+    paddingLeft:15,
+    paddingTop:25,
+    flex: 1,
+
+    },
+    textNameProduct: {
+      fontSize: 15,
+      alignSelf: "flex-start",
+      paddingTop: 5,
+      color: colors.textTitle,
+      fontWeight: "500"
+    },
+    textAmountProduct: {
+      fontSize: 12,
+      color: colors.textSubtitle,
+      fontStyle: 'italic',
+      alignSelf: "flex-start",
+      fontWeight: "300"
+    },
+    textPriceProduct: {
+      fontSize: 15,
+      color:  colors.textTitle,
+      fontStyle: 'normal',
+      paddingTop: 12,
+      fontWeight: "500"
     }
+
+
   });

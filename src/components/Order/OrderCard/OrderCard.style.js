@@ -4,33 +4,63 @@ export default (colors) =>
   StyleSheet.create({
     container: {
       width: "97%",
-      height: 130,
-      borderRadius: 10,
-      backgroundColor: colors.background001,
-      shadowColor: colors.pallet.black001,
+      height: 150,
+      borderRadius: 30,
+      backgroundColor: colors.background,
       marginBottom: "5%",
-      shadowOffset: {
-        height: 2,
-      },
-      shadowOpacity: 0.2,
-      shadowRadius: 3.84,
-      elevation: 5,
       flexDirection: "row",
       overflow: "hidden",
-
+      borderStyle: 'solid',
+      borderColor: colors.pallet.borderCard,
+      borderWidth: 1,
     },
+
     iconContent: {
-      flex: 1,
-      backgroundColor: (255, 255, 255, 0.54),
       justifyContent: "center",
       alignItems: "center",
+      flex:1,
+      backgroundColor:'transparent',
     },
     informationContent: {
       flex: 2,
-      backgroundColor: "#424242",
-      padding:"2%"
+      padding:"2%",
+      paddingTop:20
     },
-    textTitle:{
-      color:"#F5F3FB"
+    textNumOrder:{
+      alignSelf:'flex-end',
+      fontStyle:'italic',
+      paddingRight:15,
+      marginBottom:0,
+      paddingBottom:0
+      
+    },
+    textNameClient:{
+      color:colors.pallet.grey005,
+      fontStyle:'normal',
+      fontWeight:"700",
+      fontSize:20,
+      paddingBottom:3,
+    
+      
+    },
+    textItems:{
+      color:"#5e5e5e",
+      fontStyle:'normal',
+      //fontWeight:"700",
+      fontSize:13,
+      paddingBottom:5
+      
+    }
+    ,
+    textTotal:{
+      color:colors.pallet.textTitle,
+      fontStyle:'normal',
+      fontWeight:"500",
+      fontSize:16
+      
+    },
+   
+    contentIndicator:{
+      marginVertical:5
     }
   });

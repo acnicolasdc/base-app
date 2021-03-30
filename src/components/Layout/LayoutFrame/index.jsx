@@ -21,10 +21,7 @@ const LayoutFrame = ({ children, style = defaultProps.STYLE }) => {
           backgroundColor: "transparent",
           paddingHorizontal: 20,
         }}
-        scrollEnabled={enable}
-        onContentSizeChange={(contentWidth, contentHeight) => {
-          setHeight(contentHeight);
-        }}
+    
       >
         {children}
       </ScrollView>

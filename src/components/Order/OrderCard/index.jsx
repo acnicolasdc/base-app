@@ -1,21 +1,32 @@
 import React from "react";
 import { View } from "react-native";
-import { Paragraph, useTheme } from "react-native-paper";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { useTheme, Text } from "react-native-paper";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 import styles from "./OrderCard.style";
+import IconWrap from "../../Icons/IconWrap/IconWrap";
 
-const OrderCard = ({ style, info={info}  }) => {
+const OrderCard = ({ style, info = { info } }) => {
     const { colors } = useTheme();
     const styleSheet = styles(colors);
     return (
         <View style={[styleSheet.container, style]}>
+
             <View style={styleSheet.iconContent}>
-                <FontAwesome5 name="store" size={35} color="black" />
+                <IconWrap>
+                    <MaterialCommunityIcons name="clipboard-text-outline" size={40} color="black" />
+                </IconWrap>
             </View>
             <View style={styleSheet.informationContent}>
-                <Paragraph style={styleSheet.textTitle}>Cliente: {info.NombreCliente}</Paragraph>
-                <Paragraph style={styleSheet.textTitle}>ORDENggg  :  {info.NumeroOrden}</Paragraph>
-                <Paragraph style={styleSheet.textTitle}>Descripcion : {info.Descripcion}</Paragraph>
+                <Text style={styleSheet.textNumOrder}># {info.NumeroOrden}</Text>
+                <Text style={styleSheet.textNameClient}>{info.NombreCliente}</Text>
+                <View
+                    style={styleSheet.contentIndicator}
+                >
+                    <AntDesign name="checkcircle" size={13} color="#2FD573" />
+                </View>
+                <Text style={styleSheet.textItems}>{info.items.length} Productos</Text>
+                <Text style={styleSheet.textTotal}>TOTAL : {info.Total}</Text>
             </View>
         </View>
     );

@@ -4,62 +4,82 @@ import LayoutFrame from "@components/Layout/LayoutFrame";
 import styles from "./Product.style";
 import ProductCard from "@components/Product/ProductCard"
 import FieldSearchBar from "@components/Field/FieldSearchBar/FieldSearchBar";
-import { FlatList, Dimensions } from "react-native";
+import { FlatList, Dimensions, View } from "react-native";
+import ShoppingCart from "../../../containers/ShoppingCart/ShoppingCart";
+import ProductPresentation from "../../../containers/Product/ProductPresentation";
 const styleSheet = styles();
 const array = [
   {
-    NombreProducto: 'Televisor1',
-    Precio: 50000,
-    Descripcion: 'sdcsdc sf',
-    id: 1
+    nombreProducto: 'Televisor 1',
+    precio: 550000,
+    id: 1,
+    QR:'',
+    cantidad:100,
+    descripcion: 'sdcsdc',
   },
   {
-    NombreProducto: 'Televisor2',
-    Precio: 60000,
-    Descripcion: 'sdcsdc sf',
-    id: 2
+    nombreProducto: 'Televisor2',
+    precio: 75000,
+    id: 2,
+    QR:'',
+    cantidad:10,
+    descripcion: 'sdcsdc sf'
   },
   {
-    NombreProducto: 'Televisor3',
-    Precio: 80000,
-    Descripcion: 'sdcsdc sf',
-    id: 3
+    nombreProducto: 'Televisor1',
+    precio: 50000,
+    id: 3,
+    QR:'',
+    cantidad:100,
+    descripcion: 'sdcsdc sf'
   },
   {
-    NombreProducto: 'Televisor4',
-    Precio: 40000,
-    Descripcion: 'sdcsdc sf',
-    id: 4
+    nombreProducto: 'Televisor1',
+    precio: 50000,
+    id: 4,
+    QR:'',
+    cantidad:100,
+    descripcion: 'sdcsdc sf'
   },
   {
-    NombreProducto: 'Televisor5',
-    Precio: 550000,
-    Descripcion: 'sdcsdc sf',
-    id: 5
+    nombreProducto: 'Televisor1',
+    precio: 50000,
+    id: 5,
+    QR:'',
+    cantidad:100,
+    descripcion: 'sdcsdc sf'
   },
   {
-    NombreProducto: 'Televisor6',
-    Precio: 560000,
-    Descripcion: 'sdcsdc sf',
-    id: 6
+    nombreProducto: 'Televisor1',
+    precio: 50000,
+    id: 6,
+    QR:'',
+    cantidad:100,
+    descripcion: 'sdcsdc sf'
   },
   {
-    NombreProducto: 'Televisor7',
-    Precio: 550000,
-    Descripcion: 'sdcsdc sf',
-    id: 7
+    nombreProducto: 'Televisor1',
+    precio: 50000,
+    id: 7,
+    QR:'',
+    cantidad:100,
+    descripcion: 'sdcsdc sf'
   },
   {
-    NombreProducto: 'Televisor8',
-    Precio: 550000,
-    Descripcion: 'sdcsdc sf',
-    id: 8
+    nombreProducto: 'Televisor1',
+    precio: 50000,
+    id: 8,
+    QR:'',
+    cantidad:100,
+    descripcion: 'sdcsdc sf'
   },
   {
-    NombreProducto: 'Televisor9',
-    Precio: 550000,
-    Descripcion: 'sdcsdc sf',
-    id: 9
+    nombreProducto: 'Televisor1',
+    precio: 50000,
+    id: 9,
+    QR:'',
+    cantidad:100,
+    descripcion: 'sdcsdc sf'
   }
   
   
@@ -82,19 +102,24 @@ const Products = () => {
   const navigation = useNavigation();
   console.log(WIDTH);
   return (
-    <LayoutFrame>
-      <FieldSearchBar/>
-      {/*   {
-        array.map((value) => (<ProductCard key={value} style={styleSheet.wrapMargin} />))
-      }  */}
-      <FlatList
+  
+      <View style={{width:"100%", height:"100%"}}>
+   {/*    <ShoppingCart/> */}
+   
+     <FieldSearchBar/> 
+     <LayoutFrame>
+  
+       <FlatList
         data={formatData(array, numColumns)}
         renderItem={({ item, index}) => (<ProductCard info={item}/>)}
         keyExtractor={(item, index)=>index.toString()}
         numColumns={numColumns}
-      />
+      /> 
 
+  {/*     <ProductPresentation></ProductPresentation> */}
+     
     </LayoutFrame>
+    </View>
   );
 };
 
