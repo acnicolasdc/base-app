@@ -3,8 +3,10 @@ import { View } from "react-native";
 import { useTheme, Text } from "react-native-paper";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import { TouchableOpacity } from "react-native";
 import styles from "./OrderCard.style";
 import IconWrap from "../../Icons/IconWrap/IconWrap";
+
 
 
 export const defaultProps = Object.freeze({
@@ -19,24 +21,30 @@ const OrderCard = ({ style, info: { number, nameClient, items, total } = default
     const { colors } = useTheme();
     const styleSheet = styles(colors);
     return (
-        <View style={[styleSheet.container, style]}>
-            <View style={styleSheet.iconContent}>
-                <IconWrap>
-                    <MaterialCommunityIcons name="clipboard-text-outline" size={40} color="black" />
-                </IconWrap>
-            </View>
-            <View style={styleSheet.informationContent}>
-                <Text style={styleSheet.textNumOrder}># {number}</Text>
-                <Text style={styleSheet.textNameClient}>{nameClient}</Text>
-                <View
-                    style={styleSheet.contentIndicator}
-                >
-                    <AntDesign name="checkcircle" size={13} color="#2FD573" />
+        <TouchableOpacity 
+        onPress={() => alert('Pressed!')
+        
+        }>
+
+            <View style={[styleSheet.container, style]}>
+                <View style={styleSheet.iconContent}>
+                    <IconWrap>
+                        <MaterialCommunityIcons name="clipboard-text-outline" size={40} color="black" />
+                    </IconWrap>
                 </View>
-                <Text style={styleSheet.textItems}>{items.length} Productos</Text>
-                <Text style={styleSheet.textTotal}>TOTAL : {total}</Text>
+                <View style={styleSheet.informationContent}>
+                    <Text style={styleSheet.textNumOrder}># {number}</Text>
+                    <Text style={styleSheet.textNameClient}>{nameClient}</Text>
+                    <View
+                        style={styleSheet.contentIndicator}
+                    >
+                        <AntDesign name="checkcircle" size={13} color="#2FD573" />
+                    </View>
+                    <Text style={styleSheet.textItems}>{items.length} Productos</Text>
+                    <Text style={styleSheet.textTotal}>TOTAL : {total}</Text>
+                </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 export default OrderCard;

@@ -23,7 +23,7 @@ const CreateAccount = () => {
         <Subheading>Por favor ingresa tus datos</Subheading>
       </View>
       <View style={styleSheet.container}>
-        <SignUp />
+       
       </View>
     </LayoutFrame>
   );

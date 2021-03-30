@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ProductCard.style";
-import { TouchableHighlight, Text, View } from "react-native";
+import { TouchableOpacity, Text, View } from "react-native";
 import { useTheme } from "react-native-paper";
 import { Fontisto } from '@expo/vector-icons';
 import IconWrap from "../../Icons/IconWrap/IconWrap";
@@ -18,7 +18,8 @@ const ProductCard = ({ style, info: { id, name, amount, price } = defaultProps.I
   const { pallet, colors } = useTheme();
   const styleSheet = styles(pallet, colors);
   return (
-    <TouchableHighlight style={{ flex: 1, padding: "2%" }}>
+    <TouchableOpacity onPress={() => alert('Pressed!')}
+    style={{ flex: 1, padding: "2%" }}>
       {
         id !== 'blank' ?
           <View style={[styleSheet.container, style]}>
@@ -37,7 +38,7 @@ const ProductCard = ({ style, info: { id, name, amount, price } = defaultProps.I
             <Text style={styleSheet.textTitle}></Text>
           </View>
       }
-    </TouchableHighlight>
+    </TouchableOpacity>
   )
 };
 export default ProductCard;
