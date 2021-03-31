@@ -5,7 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native";
 import styles from "./OrderCard.style";
-import IconWrap from "../../Icons/IconWrap/IconWrap";
+import IconWrap from "../../Icons/IconWrap";
 
 
 

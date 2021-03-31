@@ -4,23 +4,27 @@ export default () =>
     container: {
       flex: 1,
       flexDirection: "column",
-      backgroundColor: "#ECEBEC"
     },
-    containerImg: {
-    paddingTop:15,
+    contentImg: {
+      paddingTop: 15,
       justifyContent: "center",
       alignItems: "center",
-      //backgroundColor:'red'
     },
+    textNumOrder:{
+      fontStyle:'italic',
+      fontSize:15,
+      fontWeight:"300",
+      paddingTop:5
+    },
+
     infomationContent: {
-      marginTop: "5%",
+      marginTop: "1%",
       // backgroundColor:'green'
     },
     fieldInput: {
       width: "80%",
       paddingTop: "2%",
       alignSelf: 'center',
-      backgroundColor:"#ECEBEC"
 
     },
     textTitleForm: {
@@ -28,41 +32,44 @@ export default () =>
       fontWeight: "500"
     },
     textSubtitleForm: {
-      fontSize: 15,
-      fontWeight: "300",
+      fontSize: 25,
+      fontWeight: "500",
       alignSelf: 'center',
-      paddingTop:5
+      paddingTop: 5
     },
-    buttonsWrapContent: {
-      paddingTop: 15,
-  
-      height: 100,
+    contentTotal: {
+      paddingVertical:40,
+      paddingHorizontal:15,
+      flexDirection: "row",
+      justifyContent: 'space-between'
+
+    },
+    txtTotal: {
+      fontSize: 25,
+      fontWeight: "600",
+    },
+
+    btnGenerateOrder: {
+      width: "70%",
+      alignSelf: 'center',
+      marginVertical: 25
+
+
+    },
+    textButton: {
+      fontSize: 15,
+      color: 'white',
+      alignSelf: 'center',
+      justifyContent: 'center',
+      marginTop: 15
+    },
+    contentProducts: {
       flexDirection: 'row',
-      justifyContent: 'space-around',
+      paddingLeft: 35,
+
     },
-    buttons: {
-      width: "45%",
-      height: 45,
-      
-    },
-    buttonsText: {
-      fontSize:15,
-      color:'white',
-      alignSelf:'center',
-      justifyContent:'center',
-      marginTop:15
-    },
-    contentProducts:{
-      flexDirection:'row',
-      paddingLeft:35,
-      width:"100%"
-       }
-       ,
-       fieldInputProducts:{
-      flexDirection:'row',
-      paddingLeft:35,
-      width:"70%",
-      backgroundColor:"#ECEBEC"
-       }
+    fieldInputProducts: {
+      width: "70%",
+    }
   });
 ;

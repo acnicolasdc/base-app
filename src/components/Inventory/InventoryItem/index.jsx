@@ -4,7 +4,7 @@ import { useTheme, Text } from "react-native-paper";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native";
 import styles from "./InventoryItem.style";
-import IconWrap from "../../Icons/IconWrap/IconWrap";
+import IconWrap from "../../Icons/IconWrap";
 
 export const defaultProps = Object.freeze({
     INFO: {

@@ -3,7 +3,7 @@ import styles from "./ProductCard.style";
 import { TouchableOpacity, Text, View } from "react-native";
 import { useTheme } from "react-native-paper";
 import { Fontisto } from '@expo/vector-icons';
-import IconWrap from "../../Icons/IconWrap/IconWrap";
+import IconWrap from "../../Icons/IconWrap";
 
 export const defaultProps = Object.freeze({
   INFO: {
