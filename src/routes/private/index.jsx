@@ -3,7 +3,7 @@ import { useTheme } from "react-native-paper";
 import { createStackNavigator } from "@react-navigation/stack";
 import { AuthorizationsContext } from "@providers/Authorizations";
 import ShoppingCartController from "@containers/ShoppingCartController";
-import StackNavigation from "./stack";
+import StackNavigation, { routes as stackRoutes } from "./stack";
 import TabNavigation from "./tab";
 // import {
 //   AddItem
@@ -13,10 +13,9 @@ const Stack = createStackNavigator();
 export const routes = Object.freeze({
   GENERAL_TAB: "GeneralTab",
   GENERAL_STACK: "GeneralStack",
-  INVENTORY: "Inventory",
-  ORDERS: "Orders",
-  PRODUCTS: "Products",
-  ADD_ITEM: "AddItem",
+});
+export const subRoutes = Object.freeze({
+  GENERAL_STACK: stackRoutes,
 });
 
 const Private = () => {

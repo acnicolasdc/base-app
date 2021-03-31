@@ -1,7 +1,7 @@
 import * as React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import AvailableLoad from "./AvailableLoad.stack";
-import ShoppingCartDetail from "./ShoppingCartDetail.stack";
+import ShoppingCartDetail from "@pages/private/ShoppingCartDetail";
 const Stack = createStackNavigator();
 
 export const routes = Object.freeze({

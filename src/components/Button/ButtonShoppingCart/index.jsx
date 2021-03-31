@@ -6,14 +6,17 @@ import { FontAwesome } from "@expo/vector-icons";
 export const defaultProps = Object.freeze({
   SIZE: 40,
   COUNT: 0,
+  ON_PRESS: () => alert('press!')
 });
 
 const ButtonShoppingCart = ({
   count = defaultProps.COUNT,
   size = defaultProps.SIZE,
+  onPress = defaultProps.ON_PRESS
 }) => {
   return (
     <TouchableOpacity
+      onPress={onPress}
       style={{
         width: size,
         height: size,
