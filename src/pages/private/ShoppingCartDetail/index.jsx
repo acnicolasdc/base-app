@@ -2,14 +2,13 @@ import React from "react";
 import ProductList from "@containers/ProductList";
 import { View } from "react-native";
 import ShoppingCart from "@containers/ShoppingCart/"
-/////<ShoppingCart/>
-///// <ProductList />
-const Products = () => {
+
+const ShoppingCartDetail = () => {
   return (
     <View style={{ backgroundColor: 'white', flex:1}}>
-    <ProductList />
+   <ShoppingCart/>
     </View>
   );
 };
 
-export default Products;
+export default ShoppingCartDetail;

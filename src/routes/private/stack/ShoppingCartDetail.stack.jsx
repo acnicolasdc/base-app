@@ -1,6 +1,6 @@
 import * as React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import MockPage from "@pages/UnderConstruction";
+
 
 const Stack = createStackNavigator();
 
@@ -13,9 +13,7 @@ const ShoppingCartDetail = () => {
     <Stack.Navigator>
       <Stack.Screen
         name={routes.SHOPPING_CART}
-        component={(props) => (
-          <MockPage {...props} pageName={routes.SHOPPING_CART} />
-        )}
+        component={ShoppingCartDetail}
       />
     </Stack.Navigator>
   );

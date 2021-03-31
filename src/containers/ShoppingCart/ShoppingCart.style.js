@@ -39,7 +39,7 @@ export default () =>
       paddingTop: 5
     },
     contentTotal: {
-      paddingVertical:40,
+      paddingTop:40,
       paddingHorizontal:15,
       flexDirection: "row",
       justifyContent: 'space-between'
@@ -49,11 +49,21 @@ export default () =>
       fontSize: 25,
       fontWeight: "600",
     },
+    
+    txtSeparatorProducts: {
+      fontSize: 22,
+      fontWeight: "600",
+      alignSelf:'center',
+      paddingTop:30,
+      paddingBottom:15
+    
+    },
 
     btnGenerateOrder: {
       width: "70%",
       alignSelf: 'center',
-      marginVertical: 25
+      marginBottom: 20,
+      marginTop: 30
 
 
     },
@@ -65,8 +75,9 @@ export default () =>
       marginTop: 15
     },
     contentProducts: {
-      flexDirection: 'row',
-      paddingLeft: 35,
+      flexDirection: 'column',
+     
+     
 
     },
     fieldInputProducts: {

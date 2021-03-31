@@ -4,7 +4,8 @@ import React, { useState } from "react";
 export const ShoppingCartContext = React.createContext({
     addProduct: () => {},
     countProducts: 0,
-    products: {}
+    products: {},
+    
 });
 const productObject = (product, count  = 1 ) => ({
     id: product.id,
