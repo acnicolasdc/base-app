@@ -4,6 +4,7 @@ export default () =>
     container: {
       flex: 1,
       flexDirection: "column",
+      backgroundColor:'white'
     },
     contentImg: {
       paddingTop: 15,
