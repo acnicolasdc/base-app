@@ -5,20 +5,20 @@ import MockPage from "@pages/UnderConstruction";
 const Stack = createStackNavigator();
 
 export const routes = Object.freeze({
-  SETTINGS_CONFIGURATIONS: "SettingsConfigurations",
+  SHOPPING_CART: "ShoppingCartDetail",
 });
 
-const SettingsConfiguration = () => {
+const ShoppingCartDetail = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name={routes.SETTINGS_CONFIGURATIONS}
+        name={routes.SHOPPING_CART}
         component={(props) => (
-          <MockPage {...props} pageName={routes.SETTINGS_CONFIGURATIONS} />
+          <MockPage {...props} pageName={routes.SHOPPING_CART} />
         )}
       />
     </Stack.Navigator>
   );
 };
 
-export default SettingsConfiguration;
+export default ShoppingCartDetail;

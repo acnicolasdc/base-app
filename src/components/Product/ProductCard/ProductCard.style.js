@@ -15,7 +15,9 @@ export default (pallet,colors) =>
       paddingTop: 15,
       flex: 1,
     },
-
+    containerSelected: {
+      borderColor: colors.pallet.green001,
+    },
     itemInvisible: {
       backgroundColor: 'transparent'
     },

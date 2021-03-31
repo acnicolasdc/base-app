@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Snackbar } from "react-native-paper";
 import { FlatList, View } from "react-native";
+import { ShoppingCartContext } from "@providers/ShoppingCart";
 import FieldSearchBar from "@components/Field/FieldSearchBar/FieldSearchBar";
 import ProductCard from "@components/Product/ProductCard";
 import productData from "@data/products";
@@ -18,6 +19,7 @@ const ProductList = () => {
   const [visible, setVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState(refactoredProductData);
+  const { addProduct, products: shoppingList } = useContext(ShoppingCartContext);
   const onChangeSearch = (query) => setSearchQuery(query);
   const filterProductByName = () => {
     const MIN_SEARCH_LENGTH = 3;
@@ -36,6 +38,7 @@ const ProductList = () => {
       );
     }
   };
+  console.log(shoppingList)
   return (
     <>
       <View style={{ paddingHorizontal: 15 }}>
@@ -50,7 +53,7 @@ const ProductList = () => {
         <FlatList
           ListHeaderComponent={() => <View style={{ paddingTop: 15 }}></View>}
           data={products}
-          renderItem={({ item }) => <ProductCard info={item} />}
+          renderItem={({ item }) => <ProductCard info={item} onPress={addProduct} added={!!shoppingList[item.id]}/>}
           keyExtractor={(item, index) => index.toString()}
           numColumns={NUM_COLUMNS}
           contentContainerStyle={{
