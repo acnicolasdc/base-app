@@ -1,15 +1,14 @@
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
-import { Subheading } from "react-native-paper";
-import LayoutFrame from "@components/Layout/LayoutFrame";
-
+import ProductList from "@containers/ProductList";
+import { View } from "react-native";
+import ShoppingCart from "@containers/ShoppingCart/"
+/////<ShoppingCart/>
+///// <ProductList />
 const Products = () => {
-  const navigation = useNavigation();
-  console.log(navigation )
   return (
-    <LayoutFrame>
-        <Subheading>{`Please enter the phone number associated\nwith this account`}</Subheading>
-    </LayoutFrame>
+    <View style={{ backgroundColor: 'white', flex:1}}>
+    <ProductList />
+    </View>
   );
 };
 

@@ -14,7 +14,7 @@ export const defaultProps = Object.freeze({
   SET_VALUE: () => {},
   CELL_SIZE: 50,
   CELL_STYLE: {},
-  ROOT_STYLE: {}
+  ROOT_STYLE: {},
 });
 
 const FieldCodeVerification = ({
@@ -46,7 +46,11 @@ const FieldCodeVerification = ({
       renderCell={({ index, symbol, isFocused }) => (
         <Headline
           key={index}
-          style={[styleSheet.cell, isFocused && styleSheet.focusCell, cellStyle]}
+          style={[
+            styleSheet.cell,
+            isFocused && styleSheet.focusCell,
+            cellStyle,
+          ]}
           onLayout={getCellOnLayoutHandler(index)}
         >
           {symbol || (isFocused ? <Cursor /> : null)}

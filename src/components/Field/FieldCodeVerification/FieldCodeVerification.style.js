@@ -9,8 +9,8 @@ export default (colors, cellSize, dark = false) =>
       lineHeight: cellSize - 2,
       fontSize: cellSize / 2,
       textAlign: "center",
-      borderRadius: cellSize/4,
-      backgroundColor: dark?colors.pallet.grey002:colors.pallet.purple002,
+      borderRadius: cellSize / 4,
+      backgroundColor: dark ? colors.pallet.grey002 : colors.pallet.purple002,
       overflow: "hidden",
     },
     focusCell: {

@@ -13,7 +13,7 @@ const Auth = () => {
   const [state, setState] = useState(false);
   const styleSheet = style();
   return (
-    <View style={{flex:1}}>
+    <View style={{ flex: 1 }}>
       <FieldInput
         label="CORREO"
         textContentType="emailAddress"
@@ -22,9 +22,7 @@ const Auth = () => {
       <FieldInput label="CONTRASEÑA" secureTextEntry={true} />
       <View style={styleSheet.buttonsContainer}>
         <View style={styleSheet.rememberContainer}>
-          <Paragraph style={styleSheet.boldText}>
-            Recordar mis datos
-          </Paragraph>
+          <Paragraph style={styleSheet.boldText}>Recordar mis datos</Paragraph>
           <ButtonSwitch
             onPress={() => setState((prevState) => !prevState)}
             isToggle={state}
@@ -45,9 +43,7 @@ const Auth = () => {
           style={{
             width: "80%",
           }}
-          onPress={() =>
-          navigation.navigate(routes.SING_UP)
-        }
+          onPress={() => navigation.navigate(routes.SING_UP)}
         >
           NO TENGO UNA CUENTA
         </ButtonCommon>

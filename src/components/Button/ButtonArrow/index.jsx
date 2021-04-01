@@ -5,8 +5,8 @@ import Svg, { G, Circle } from "react-native-svg";
 
 export const defaultProps = Object.freeze({
   RADIUS: 25,
-  FILL: '#ECEBEC',
-  ICON_COLOR: '#000',
+  FILL: "#ECEBEC",
+  ICON_COLOR: "#000",
   ON_PRESS: () => {},
 });
 
@@ -31,12 +31,7 @@ const ButtonArrow = ({
           viewBox={`0 0 ${halfCircle * 2} ${halfCircle * 2}`}
         >
           <G rotation="-90" origin={`${halfCircle}, ${halfCircle}`}>
-            <Circle
-              cx="50%"
-              cy="50%"
-              r={radius}
-              fill={fill}
-            />
+            <Circle cx="50%" cy="50%" r={radius} fill={fill} />
           </G>
         </Svg>
         <View

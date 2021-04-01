@@ -2,7 +2,9 @@ import { StyleSheet } from "react-native";
 
 export default () =>
   StyleSheet.create({
-    wrapMargin: {
-        marginBottom: 15,
+    container: {
+      marginBottom: 15,
+      backgroundColor: "white",
+      flex: 1 
     }
   });

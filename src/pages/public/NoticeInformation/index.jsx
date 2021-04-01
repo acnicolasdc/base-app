@@ -14,7 +14,7 @@ const NoticeInformation = ({ route }) => {
   return (
     <LayoutFrame style={styleSheet.customFrame}>
       <View style={styleSheet.subheading}>
-        <Subheading style={styleSheet.headingText}>PAYBOARD</Subheading>
+        <Subheading style={styleSheet.headingText}>ORDERWAY</Subheading>
       </View>
       <View style={styleSheet.container}>
         <View style={styleSheet.containerImage}>

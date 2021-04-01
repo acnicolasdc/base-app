@@ -3,30 +3,31 @@ import { StyleSheet } from "react-native";
 export default (colors, windowWidth) =>
   StyleSheet.create({
     formContainer: {
-      flex:1,
+      flex: 1,
+      paddingBottom: "10%",
     },
-    centerContent:{
-      justifyContent:'center',
-      alignItems:'center'
+    centerContent: {
+      justifyContent: "center",
+      alignItems: "center",
     },
-    verificationContainer:{
+    verificationContainer: {
       width: windowWidth,
-      padding:25,
+      padding: 25,
       backgroundColor: colors.background,
-      borderRadius: 25
+      borderRadius: 25,
     },
-    rootCodeComponent:{
+    rootCodeComponent: {
       marginVertical: 20,
     },
-    timeTextIndicator:{
+    timeTextIndicator: {
       color: colors.primary,
     },
-    timeIndicatorContainer:{
-      flexDirection: 'row',
-      alignItems:'center'
+    timeIndicatorContainer: {
+      flexDirection: "row",
+      alignItems: "center",
     },
-    timeIconIndicator:{
+    timeIconIndicator: {
       color: colors.primary,
-      marginRight: 5
-    }
+      marginRight: 5,
+    },
   });

@@ -3,7 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import Private from "./private";
 import Public from "./public";
-const LOGIN = false;
+const LOGIN = true;
 const Routes = () => {
   return (
     <NavigationContainer>
