@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 const sizeCount = 30;
-export default (pallet, colors) =>
+export default (colors) =>
     StyleSheet.create({
         container: {
             flexDirection: 'row',

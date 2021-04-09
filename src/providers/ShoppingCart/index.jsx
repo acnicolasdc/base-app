@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 
 export const ShoppingCartContext = React.createContext({
-  addProduct: () => { },
+  updateProduct: () => { },
   countProducts: 0,
   products: {},
 
@@ -16,10 +16,10 @@ const productObject = (product, count = 1) => ({
 const ShoppingCartProvider = ({ children }) => {
   const [products, setProducts] = useState({});
 
-  const addProduct = (newProduct) => {
+  const updateProduct = (newProduct, count) => {
     const isProduct = products[newProduct.id];
     if (isProduct) {
-      const productUpdated = { ...isProduct, count: isProduct.count + 1 };
+      const productUpdated = { ...isProduct, count: count };
       setProducts({ ...products, [newProduct.id]: productUpdated })
     } else {
       setProducts({ ...products, [newProduct.id]: productObject(newProduct) })
@@ -29,7 +29,7 @@ const ShoppingCartProvider = ({ children }) => {
 
   return (
     <ShoppingCartContext.Provider
-      value={{ products, addProduct, countProducts: getCountProducts() }}
+      value={{ products, updateProduct, countProducts: getCountProducts() }}
     >
       {children}
     </ShoppingCartContext.Provider>

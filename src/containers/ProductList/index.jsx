@@ -5,7 +5,7 @@ import { ShoppingCartContext } from "@providers/ShoppingCart";
 import FieldSearchBar from "@components/Field/FieldSearchBar/FieldSearchBar";
 import ProductCard from "@components/Product/ProductCard";
 import productData from "@data/products";
-import ButtonCount from "@components/Button/ButtonCount"
+import ButtonCount from "@components/Button/ButtonCount";
 
 const NUM_COLUMNS = 2;
 const BLANK_COMPONENT = { id: "blank", empty: true, name: "" };
@@ -20,24 +20,22 @@ const ProductList = () => {
   const [visible, setVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState(refactoredProductData);
-  const { addProduct, products: shoppingList } = useContext(ShoppingCartContext);
+  const { updateProduct, products: shoppingList } = useContext(
+    ShoppingCartContext
+  );
   const onChangeSearch = (query) => setSearchQuery(query);
   const filterProductByName = () => {
     const MIN_SEARCH_LENGTH = 3;
-    if (!searchQuery || searchQuery.length < MIN_SEARCH_LENGTH ) return
-   
+    if (!searchQuery || searchQuery.length < MIN_SEARCH_LENGTH) return;
+
     const filteredProducts = products.filter((product) => {
       return product.name.toUpperCase() === searchQuery.toUpperCase();
     });
-  
 
     if (filteredProducts.length === 0) {
       setProducts(refactoredProductData);
       setVisible(true);
-     
-      
     } else {
-      
       setProducts(
         filteredProducts.length === 1
           ? [...filteredProducts, BLANK_COMPONENT]
@@ -45,7 +43,6 @@ const ProductList = () => {
       );
     }
   };
-  
   return (
     <>
       <View style={{ paddingHorizontal: 15 }}>
@@ -56,15 +53,20 @@ const ProductList = () => {
             value={searchQuery}
             onIconPress={filterProductByName}
             onSubmitEditing={filterProductByName}
-           
           />
         </View>
         <FlatList
           ListHeaderComponent={() => <View style={{ paddingTop: 15 }}></View>}
           data={products}
-          renderItem={({ item }) => <ProductCard info={item} onPress={addProduct} added={!!shoppingList[item.id]}>
-            <ButtonCount count/>
-          </ProductCard>}
+          renderItem={({ item }) => (
+            <ProductCard info={item} added={!!shoppingList[item.id]} disabled={item.amount === 0}>
+              <ButtonCount
+                count={shoppingList[item.id]?.count || 0}
+                getCount={(count) => updateProduct(item, count)}
+                limit={item.amount}
+              />
+            </ProductCard>
+          )}
           keyExtractor={(item, index) => index.toString()}
           numColumns={NUM_COLUMNS}
           contentContainerStyle={{

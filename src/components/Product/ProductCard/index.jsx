@@ -5,7 +5,6 @@ import { useTheme } from "react-native-paper";
 import { Fontisto } from "@expo/vector-icons";
 import IconWrap from "../../Icons/IconWrap";
 
-
 export const defaultProps = Object.freeze({
   INFO: {
     id: 1,
@@ -14,7 +13,8 @@ export const defaultProps = Object.freeze({
     price: 1000,
   },
   ON_PRESS: () => alert("press!"),
-  ADDED: false
+  ADDED: false,
+  DISABLED: false,
 });
 
 const ProductCard = ({
@@ -22,17 +22,19 @@ const ProductCard = ({
   info = defaultProps.INFO,
   onPress = defaultProps.ON_PRESS,
   added = defaultProps.ADDED,
-  children
+  disabled = defaultProps.DISABLED,
+  children,
 }) => {
   const { pallet, colors } = useTheme();
   const styleSheet = styles(pallet, colors);
   const { id, name, amount, price } = info;
-  const productContainerStyle = added ? [styleSheet.container, styleSheet.containerSelected] : [styleSheet.container]
+  const productContainerStyle = added
+    ? [styleSheet.container, styleSheet.containerSelected]
+    : [styleSheet.container];
   return (
     <TouchableHighlight
       activeOpacity={0.4}
       underlayColor="#FFFF"
-
       style={{ flex: 1, padding: "2%" }}
     >
       {id !== "blank" ? (
@@ -45,7 +47,9 @@ const ProductCard = ({
               <Text style={(styleSheet.textTitle, styleSheet.textNameProduct)}>
                 {name}{" "}
               </Text>
-              <Text style={(styleSheet.textTitle, styleSheet.textAmountProduct)}>
+              <Text
+                style={(styleSheet.textTitle, styleSheet.textAmountProduct)}
+              >
                 {amount}{" "}
               </Text>
             </View>
@@ -55,7 +59,13 @@ const ProductCard = ({
             </Text>
           </View>
           <View style={styleSheet.btnCount}>
-          {children}
+            {!disabled ? (
+              children
+            ) : (
+              <Text style={(styleSheet.textTitle, styleSheet.textPriceProduct)}>
+                Agotado
+              </Text>
+            )}
           </View>
         </View>
       ) : (

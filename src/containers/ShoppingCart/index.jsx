@@ -43,7 +43,7 @@ const ShoppingCart = () => {
                     <FlatList
                         data={Object.values(products)}
                         
-                        renderItem={({ item, index }) => (<InventoryItem info={item.item} />)}
+                        renderItem={({ item, index }) => (<InventoryItem info={{...item.info, amount: item.count }} />)}
                         keyExtractor={(item, index) => index.toString()}
                     />
             

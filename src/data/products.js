@@ -2,7 +2,7 @@ export default [
   {
     id: 1,
     name: "Coconut Milk - Unsweetened",
-    amount: 1,
+    amount: 0,
     price: 1000,
     qr: 1,
     image: "http://dummyimage.com/172x100.png/5fa2dd/ffffff",
