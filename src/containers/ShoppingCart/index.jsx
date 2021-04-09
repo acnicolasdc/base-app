@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import style from "./ShoppingCart.style";
 import { View, FlatList } from "react-native";
 import { Text } from "react-native-paper";
@@ -11,10 +11,27 @@ import InventoryItem from "@components/Inventory/InventoryItem";
 import { ShoppingCartContext } from "@providers/ShoppingCart";
 
 const ShoppingCart = () => {
-    const { products } = useContext(ShoppingCartContext);
-    console.log(products)
+    const { products, updateCostumerInformation, costumerInformation } = useContext(ShoppingCartContext);
+    const [ready, setReady ] = useState(false);
+    const [ name, setName ] = useState("");
     const styleSheet = style();
-    
+    useEffect(()=>{
+        isFormComplete()
+    }, [name,  products])
+    const isFormComplete = () => {
+        let isReady = false; 
+        if(name === "") isReady = true
+        if(Object.values(products).length === 0) isReady = true
+        setReady(isReady) 
+    }
+    const handlerShoppingCartToOrder = () => {
+        updateCostumerInformation({
+            name: name,
+            // id: costumer.id,
+    //     phone: costumer.phone,
+    //     email: costumer.email
+        })
+    }
     return (
         
         <View style={styleSheet.container}>
@@ -33,19 +50,19 @@ const ShoppingCart = () => {
 
 
 
-                <FieldInput label="NOMBRE DE CLIENTE" style={styleSheet.fieldInput} />
+                <FieldInput label="NOMBRE DE CLIENTE" style={styleSheet.fieldInput} onChangeText={text => setName(text)} value={name}/>
                 <FieldInput label="NUMERO DE IDENTIFICACION" style={styleSheet.fieldInput} keyboardType="number-pad" />
                 <FieldInput label="CELULAR" style={styleSheet.fieldInput} keyboardType="number-pad" />
                 <FieldInput label="CORREO ELECTRONICO" style={styleSheet.fieldInput} />
                 <Text style={styleSheet.txtSeparatorProducts}>PRODUCTOS</Text>
 
                 <View style={styleSheet.contentProducts}>
-                    <FlatList
+                   { Object.values(products).length === 0?<Text style={styleSheet.txtTotal}>Carrito vacio</Text> :<FlatList
                         data={Object.values(products)}
                         
                         renderItem={({ item, index }) => (<InventoryItem info={{...item.info, amount: item.count }} />)}
                         keyExtractor={(item, index) => index.toString()}
-                    />
+                    />}
             
                 </View>
 
@@ -58,7 +75,7 @@ const ShoppingCart = () => {
 
 
                 <View style={styleSheet.btnGenerateOrder}>
-                    <ButtonCommon>Generar Orden</ButtonCommon>
+                    <ButtonCommon disabled={ready} onPress={handlerShoppingCartToOrder}>Generar Orden</ButtonCommon>
                 </View>
             </ScrollView>
         </View>
