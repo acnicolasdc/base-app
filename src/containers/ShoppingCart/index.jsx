@@ -12,28 +12,35 @@ import { ShoppingCartContext } from "@providers/ShoppingCart";
 
 const ShoppingCart = () => {
     const { products, updateCostumerInformation, costumerInformation } = useContext(ShoppingCartContext);
-    const [ready, setReady ] = useState(false);
-    const [ name, setName ] = useState("");
+    const [ready, setReady] = useState(false);
+    const [name, setName] = useState("");
+    const [id, setId] = useState("");
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
+
     const styleSheet = style();
-    useEffect(()=>{
+    useEffect(() => {
         isFormComplete()
-    }, [name,  products])
+    }, [name, id, phone, email, products])
     const isFormComplete = () => {
-        let isReady = false; 
-        if(name === "") isReady = true
-        if(Object.values(products).length === 0) isReady = true
-        setReady(isReady) 
+        let isReady = false;
+        if (name === "") isReady = true
+        if (id === "") isReady = true
+        if (phone === "") isReady = true
+        if (email === "") isReady = true
+        if (Object.values(products).length === 0) isReady = true
+        setReady(isReady)
     }
     const handlerShoppingCartToOrder = () => {
         updateCostumerInformation({
             name: name,
-            // id: costumer.id,
-    //     phone: costumer.phone,
-    //     email: costumer.email
+            id: costumer.id,
+            phone: costumer.phone,
+            email: costumer.email
         })
     }
     return (
-        
+
         <View style={styleSheet.container}>
             <ScrollView style={styleSheet.infomationContent} >
                 <View style={styleSheet.contentImg}>
@@ -50,20 +57,20 @@ const ShoppingCart = () => {
 
 
 
-                <FieldInput label="NOMBRE DE CLIENTE" style={styleSheet.fieldInput} onChangeText={text => setName(text)} value={name}/>
-                <FieldInput label="NUMERO DE IDENTIFICACION" style={styleSheet.fieldInput} keyboardType="number-pad" />
-                <FieldInput label="CELULAR" style={styleSheet.fieldInput} keyboardType="number-pad" />
-                <FieldInput label="CORREO ELECTRONICO" style={styleSheet.fieldInput} />
+                <FieldInput label="NOMBRE DE CLIENTE" style={styleSheet.fieldInput} onChangeText={text => setName(text)} value={name} />
+                <FieldInput label="NUMERO DE IDENTIFICACION" style={styleSheet.fieldInput} keyboardType="number-pad" onChangeText={text => setId(text)} value={id} />
+                <FieldInput label="CELULAR" style={styleSheet.fieldInput} keyboardType="number-pad" onChangeText={text => setPhone(text)} value={phone} />
+                <FieldInput label="CORREO ELECTRONICO" style={styleSheet.fieldInput} onChangeText={text => setEmail(text)} value={email}/>
                 <Text style={styleSheet.txtSeparatorProducts}>PRODUCTOS</Text>
 
                 <View style={styleSheet.contentProducts}>
-                   { Object.values(products).length === 0?<Text style={styleSheet.txtTotal}>Carrito vacio</Text> :<FlatList
+                    {Object.values(products).length === 0 ? <Text style={styleSheet.txtTotal}>Carrito vacio</Text> : <FlatList
                         data={Object.values(products)}
-                        
-                        renderItem={({ item, index }) => (<InventoryItem info={{...item.info, amount: item.count }} />)}
+
+                        renderItem={({ item, index }) => (<InventoryItem info={{ ...item.info, amount: item.count }} />)}
                         keyExtractor={(item, index) => index.toString()}
                     />}
-            
+
                 </View>
 
                 <View style={styleSheet.contentTotal}>

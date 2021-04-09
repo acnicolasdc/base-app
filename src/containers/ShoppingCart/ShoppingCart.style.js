@@ -62,7 +62,7 @@ export default () =>
     btnGenerateOrder: {
       width: "70%",
       alignSelf: 'center',
-      marginBottom: 20,
+      marginBottom: 40,
       marginTop: 30
 
 
