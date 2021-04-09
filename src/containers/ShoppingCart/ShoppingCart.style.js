@@ -76,6 +76,7 @@ export default () =>
     },
     contentProducts: {
       flexDirection: 'column',
+      paddingLeft:15,
      
      
 

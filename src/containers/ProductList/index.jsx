@@ -23,14 +23,20 @@ const ProductList = () => {
   const onChangeSearch = (query) => setSearchQuery(query);
   const filterProductByName = () => {
     const MIN_SEARCH_LENGTH = 3;
-    if (!searchQuery || searchQuery.length < MIN_SEARCH_LENGTH) return;
+    if (!searchQuery || searchQuery.length < MIN_SEARCH_LENGTH ) return
+   
     const filteredProducts = products.filter((product) => {
       return product.name.toUpperCase() === searchQuery.toUpperCase();
     });
+  
+
     if (filteredProducts.length === 0) {
       setProducts(refactoredProductData);
       setVisible(true);
+     
+      
     } else {
+      
       setProducts(
         filteredProducts.length === 1
           ? [...filteredProducts, BLANK_COMPONENT]
@@ -38,7 +44,7 @@ const ProductList = () => {
       );
     }
   };
-  console.log(shoppingList)
+  
   return (
     <>
       <View style={{ paddingHorizontal: 15 }}>
@@ -48,6 +54,8 @@ const ProductList = () => {
             onChangeText={onChangeSearch}
             value={searchQuery}
             onIconPress={filterProductByName}
+            onSubmitEditing={filterProductByName}
+           
           />
         </View>
         <FlatList

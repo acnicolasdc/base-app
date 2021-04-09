@@ -7,13 +7,14 @@ export default (pallet,colors) =>
       borderColor: colors.pallet.borderCard,
       borderWidth: 1,
       flexDirection: 'column',
-      height: 220,
+      minHeight: 230,
       borderRadius: 30,
       backgroundColor: colors.background,
-      marginBottom: "5%",
-      padding: "2%",
+      marginBottom: 10,
+     paddingHorizontal:5,
       paddingTop: 15,
-      flex: 1,
+     
+      flex:1
     },
     containerSelected: {
       borderColor: colors.pallet.green001,
@@ -36,7 +37,7 @@ export default (pallet,colors) =>
     textContent: {
     paddingLeft:15,
     paddingTop:25,
-    flex: 1,
+    
 
     },
     textNameProduct: {
@@ -59,6 +60,17 @@ export default (pallet,colors) =>
       fontStyle: 'normal',
       paddingTop: 12,
       fontWeight: "500"
+    },
+    btnCount: {
+      alignSelf:'center',
+      justifyContent:'flex-end',
+      paddingVertical:10,
+     
+    },
+    
+      contentProductName: {
+        minHeight: 75,
+      
     }
 
 

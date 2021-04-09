@@ -16,6 +16,7 @@ const FieldSearchBar = ({ style, placeholder = defaultProps.PLACEHOLDER, onChang
       style={[styleSheet.containerSearchBar, style]}
       placeholder={placeholder}
       onChangeText={onChangeSearch}
+      onSubmitEditing={()=>console.log('Search softkey pressed!')}
       value={value}
       {...restProps}
     />

@@ -14,9 +14,9 @@ const ShoppingCart = () => {
     const { products } = useContext(ShoppingCartContext);
     console.log(products)
     const styleSheet = style();
-
+    
     return (
-
+        
         <View style={styleSheet.container}>
             <ScrollView style={styleSheet.infomationContent} >
                 <View style={styleSheet.contentImg}>
@@ -42,10 +42,11 @@ const ShoppingCart = () => {
                 <View style={styleSheet.contentProducts}>
                     <FlatList
                         data={Object.values(products)}
+                        
                         renderItem={({ item, index }) => (<InventoryItem info={item.item} />)}
                         keyExtractor={(item, index) => index.toString()}
                     />
-                    <ButtonCommon style={{ width: 50, alignSelf: "center" }}><Text style={styleSheet.textButton}>+</Text></ButtonCommon>
+            
                 </View>
 
                 <View style={styleSheet.contentTotal}>

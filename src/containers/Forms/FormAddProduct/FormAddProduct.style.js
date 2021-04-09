@@ -3,10 +3,11 @@ import { StyleSheet } from "react-native";
 export default () =>
     StyleSheet.create({
         container: {
-            backgroundColor: 'red',
+            backgroundColor: "#fff",
             flexDirection: 'column',
             height: "100%",
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+        
         },
         textTile: {
             marginTop: 20,

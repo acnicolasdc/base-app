@@ -11,6 +11,7 @@ const pallet = {
   grey005: "#1C1C1E",
   purple001: "#D4CAE9",
   purple002: "#F5F3FB",
+  purple004: "#6739BF",
   purple003: "#38219C",
   textTitle:"#292929",
   textSubtitle:"#5e5e5e",

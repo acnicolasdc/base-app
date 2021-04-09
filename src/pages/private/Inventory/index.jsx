@@ -4,9 +4,9 @@ import { View } from "react-native";
 
 import InventoryList from "@containers/Inventory/InventoryList"
 import styles from "./Inventory.style";
-import { routes } from "@routes/private";
+import { routes, subRoutes } from "@routes/private";
 import FormAddProduct from "@containers/Forms/FormAddProduct"
-import ProductDetail from "../../../containers/ProductDetail";
+import ButtonCommon from "@components/Button/ButtonCommon";
 
 ///<FormAddProduct/>
 ///<InventoryList/>
@@ -17,8 +17,15 @@ const Inventory = () => {
   console.log(navigation);
   return (
     <View style={{ backgroundColor: 'white', flex: 1 }}>
-      <View style={{ paddingLeft: 15 }}>
+      <View style={{ paddingLeft: 15, flex:1 }}>
         <InventoryList />
+        <ButtonCommon
+        onPress={() =>
+        navigation.navigate(routes.GENERAL_STACK, {
+          screen: subRoutes.GENERAL_STACK.FORM_ADD_PRODUCT,
+        })
+      }
+         style={{width:"50%", alignSelf:'center', marginBottom:5}}>NUEVO</ButtonCommon>
       </View>
     </View>
   );
