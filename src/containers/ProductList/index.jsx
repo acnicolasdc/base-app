@@ -5,6 +5,7 @@ import { ShoppingCartContext } from "@providers/ShoppingCart";
 import FieldSearchBar from "@components/Field/FieldSearchBar/FieldSearchBar";
 import ProductCard from "@components/Product/ProductCard";
 import productData from "@data/products";
+import ButtonCount from "@components/Button/ButtonCount"
 
 const NUM_COLUMNS = 2;
 const BLANK_COMPONENT = { id: "blank", empty: true, name: "" };
@@ -61,7 +62,9 @@ const ProductList = () => {
         <FlatList
           ListHeaderComponent={() => <View style={{ paddingTop: 15 }}></View>}
           data={products}
-          renderItem={({ item }) => <ProductCard info={item} onPress={addProduct} added={!!shoppingList[item.id]}/>}
+          renderItem={({ item }) => <ProductCard info={item} onPress={addProduct} added={!!shoppingList[item.id]}>
+            <ButtonCount count/>
+          </ProductCard>}
           keyExtractor={(item, index) => index.toString()}
           numColumns={NUM_COLUMNS}
           contentContainerStyle={{

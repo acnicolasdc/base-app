@@ -4,7 +4,7 @@ import { TouchableHighlight, Text, View } from "react-native";
 import { useTheme } from "react-native-paper";
 import { Fontisto } from "@expo/vector-icons";
 import IconWrap from "../../Icons/IconWrap";
-import ButtonCount from "@components/Button/ButtonCount"
+
 
 export const defaultProps = Object.freeze({
   INFO: {
@@ -22,7 +22,7 @@ const ProductCard = ({
   info = defaultProps.INFO,
   onPress = defaultProps.ON_PRESS,
   added = defaultProps.ADDED,
-  setCount, count, color, setColor
+  children
 }) => {
   const { pallet, colors } = useTheme();
   const styleSheet = styles(pallet, colors);
@@ -55,7 +55,7 @@ const ProductCard = ({
             </Text>
           </View>
           <View style={styleSheet.btnCount}>
-            <ButtonCount />
+          {children}
           </View>
         </View>
       ) : (

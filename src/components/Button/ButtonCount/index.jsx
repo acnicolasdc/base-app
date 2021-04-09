@@ -7,7 +7,7 @@ import { AntDesign } from '@expo/vector-icons';
 
 
 
-const ButtonCount = ({ }) => {
+const ButtonCount = ({count, setCount }) => {
   const { pallet, colors } = useTheme();
   const styleSheet = styles(pallet, colors);
   const [count, setCount] = useState(0);
