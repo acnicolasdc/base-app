@@ -18,7 +18,6 @@ export const defaultProps = Object.freeze({
 const InventoryItem = ({ style, info = defaultProps.INFO }) => {
     const { colors } = useTheme();
     const styleSheet = styles(colors);
-    console.log(info)
     const { name, amount, price, date } = info
     return (
         <TouchableOpacity onPress={() => alert('Pressed!')}>

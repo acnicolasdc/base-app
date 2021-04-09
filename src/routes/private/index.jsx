@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { AuthorizationsContext } from "@providers/Authorizations";
 import ShoppingCartController from "@containers/ShoppingCartController";
 import StackNavigation, { routes as stackRoutes } from "./stack";
-import TabNavigation from "./tab";
+import TabNavigation, {routes as tabRoutes  } from "./tab";
 // import {
 //   AddItem
 // } from "@pages/private";
@@ -16,6 +16,7 @@ export const routes = Object.freeze({
 });
 export const subRoutes = Object.freeze({
   GENERAL_STACK: stackRoutes,
+  GENERAL_TAB: tabRoutes,
 });
 
 const Private = () => {

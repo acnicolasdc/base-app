@@ -3,6 +3,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import Routes from "@routes";
 import Theme from "@providers/Theme";
 import ShoppingCart from "@providers/ShoppingCart";
+import OrdersStorage from "@providers/OrdersStorage";
 import Authorizations from "@providers/Authorizations";
 
 export default function App() {
@@ -11,7 +12,9 @@ export default function App() {
       <Theme>
         <Authorizations>
           <ShoppingCart>
-            <Routes />
+            <OrdersStorage>
+              <Routes />
+            </OrdersStorage>
           </ShoppingCart>
         </Authorizations>
       </Theme>

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ProductCard.style";
-import { TouchableHighlight, Text, View } from "react-native";
+import { TouchableHighlight, Text, View, Image } from "react-native";
 import { useTheme } from "react-native-paper";
 import { Fontisto } from "@expo/vector-icons";
 import IconWrap from "../../Icons/IconWrap";
@@ -27,10 +27,11 @@ const ProductCard = ({
 }) => {
   const { pallet, colors } = useTheme();
   const styleSheet = styles(pallet, colors);
-  const { id, name, amount, price } = info;
+  const { id, name, amount, price, image } = info;
   const productContainerStyle = added
     ? [styleSheet.container, styleSheet.containerSelected]
     : [styleSheet.container];
+  console.log(image);
   return (
     <TouchableHighlight
       activeOpacity={0.4}
@@ -39,8 +40,8 @@ const ProductCard = ({
     >
       {id !== "blank" ? (
         <View style={[...productContainerStyle, style]}>
-          <IconWrap>
-            <Fontisto name="qrcode" size={50} color="black" />
+          <IconWrap >
+            <Image source={{ uri: image, cache: 'only-if-cached' }} style={{ resizeMode:'contain', width: 50, height:50 }}/>
           </IconWrap>
           <View style={styleSheet.textContent}>
             <View style={styleSheet.contentProductName}>

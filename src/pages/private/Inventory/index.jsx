@@ -14,7 +14,6 @@ import ButtonCommon from "@components/Button/ButtonCommon";
 const Inventory = () => {
   const styleSheet = styles();
   const navigation = useNavigation();
-  console.log(navigation);
   return (
     <View style={{ backgroundColor: 'white', flex: 1 }}>
       <View style={{ paddingLeft: 15, flex:1 }}>
