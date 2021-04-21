@@ -10,7 +10,7 @@ export default () =>
         
         },
         textTile: {
-            marginTop: 20,
+            marginVertical: 20,
             fontSize: 25,
             alignSelf: 'center',
             fontWeight: '500',

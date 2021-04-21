@@ -3,8 +3,8 @@ import { StyleSheet } from "react-native";
 export default (colors) =>
   StyleSheet.create({
     container: {
-      width: "97%",
-      height: 150,
+      width: "90%",
+      height: 170,
       borderRadius: 30,
       backgroundColor: colors.background,
       marginBottom: "5%",
@@ -13,6 +13,7 @@ export default (colors) =>
       borderStyle: 'solid',
       borderColor: colors.pallet.borderCard,
       borderWidth: 1,
+      alignSelf:'center'
     },
 
     iconContent: {

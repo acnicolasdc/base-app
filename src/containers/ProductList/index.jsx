@@ -6,6 +6,7 @@ import FieldSearchBar from "@components/Field/FieldSearchBar/FieldSearchBar";
 import ProductCard from "@components/Product/ProductCard";
 import productData from "@data/products";
 import ButtonCount from "@components/Button/ButtonCount";
+import { ProductsStorageContext } from "@providers/ProductsStorage";
 
 const NUM_COLUMNS = 2;
 const BLANK_COMPONENT = { id: "blank", empty: true, name: "" };
@@ -15,26 +16,32 @@ const formatData = (productData) => {
     ? [...productData, BLANK_COMPONENT]
     : [...productData];
 };
-const refactoredProductData = formatData(productData);
 const ProductList = () => {
+  const {
+    products: productsDB
+  } = useContext(ProductsStorageContext);
   const [visible, setVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [products, setProducts] = useState(refactoredProductData);
+  const [products, setProducts] = useState(formatData(productsDB));
   const { updateProduct, products: shoppingList } = useContext(
     ShoppingCartContext
   );
   const onChangeSearch = (query) => setSearchQuery(query);
   const filterProductByName = () => {
-    const MIN_SEARCH_LENGTH = 3;
-    if (!searchQuery || searchQuery.length < MIN_SEARCH_LENGTH) return;
-
+    const MIN_SEARCH_LENGTH = 0;
+    if (!searchQuery || searchQuery.length < MIN_SEARCH_LENGTH) {
+      setProducts(formatData(productsDB));
+      setVisible(true);
+      return
+    };
     const filteredProducts = products.filter((product) => {
       return product.name.toUpperCase() === searchQuery.toUpperCase();
     });
 
     if (filteredProducts.length === 0) {
-      setProducts(refactoredProductData);
+      setProducts(formatData(productsDB));
       setVisible(true);
+
     } else {
       setProducts(
         filteredProducts.length === 1

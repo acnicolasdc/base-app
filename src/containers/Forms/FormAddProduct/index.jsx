@@ -1,24 +1,26 @@
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
 import { Fontisto } from '@expo/vector-icons';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import FieldInput from "@components/Field/FieldInput";
 import ButtonCommon from "@components/Button/ButtonCommon";
 import IconWrap from "@components/Icons/IconWrap";
 import style from "./FormAddProduct.style";
 
+
 const FormAddProduct = () => {
     const styleSheet = style();
 
     return (
-     
+     <ScrollView>
         <View style={styleSheet.container}>
             <Text style={styleSheet.textTile}
-            >{"AGREGAR NUEVO \n      PRODUCTO"}
+            >{"NUEVO PRODUCTO"}
             </Text>
 
             <View>
                 <IconWrap>
-                    <Fontisto name="qrcode" size={50} color="black" />
+                    <Fontisto name="qrcode" size={30} color="black" />
                 </IconWrap>
                 <Text
                     style={styleSheet.textSubtile}
@@ -27,7 +29,8 @@ const FormAddProduct = () => {
 
             </View>
 
-            <View style={styleSheet.contentInformation}>
+            <KeyboardAwareScrollView 
+            style={styleSheet.contentInformation}>
                 <FieldInput label="NOMBRE DEL PRODUCTO" style={{ marginBottom: 5 }} />
                 <FieldInput
                     label="PRECIO DE VENTA"
@@ -44,12 +47,15 @@ const FormAddProduct = () => {
                     style={{ marginBottom: 5 }}
 
                 />
-            </View>
+            </KeyboardAwareScrollView>
+
+        </View>
 
             <View style={styleSheet.btnContainer}>
                 <ButtonCommon>ACEPTAR</ButtonCommon>
             </View>
-        </View>
+
+    </ScrollView>
     );
 };
 

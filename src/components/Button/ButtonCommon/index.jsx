@@ -6,7 +6,7 @@ const ButtonCommon = ({ children, style, ...restProps }) => {
     <Button
       mode="contained"
       style={{
-        borderRadius: "50%",
+        borderRadius: 50,
         ...style,
       }}
       contentStyle={{

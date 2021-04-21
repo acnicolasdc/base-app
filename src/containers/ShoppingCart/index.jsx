@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { routes, subRoutes } from "@routes/private";
 import style from "./ShoppingCart.style";
-import { View, FlatList } from "react-native";
+import { View, FlatList, Image } from "react-native";
 import { Text } from "react-native-paper";
 import { MaterialIcons } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
@@ -12,9 +12,10 @@ import IconWrap from "@components/Icons/IconWrap";
 import InventoryItem from "@components/Inventory/InventoryItem";
 import { ShoppingCartContext } from "@providers/ShoppingCart";
 import { OrdersStorageContext } from "@providers/OrdersStorage";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const ShoppingCart = () => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
   const {
     products,
     cleanShoppingCart
@@ -42,8 +43,8 @@ const ShoppingCart = () => {
   };
   const calcTotal = () => {
     let total = 0;
-    Object.values(products).forEach((product)=>{
-        total = total + (product.count * product.info.price)
+    Object.values(products).forEach((product) => {
+      total = total + (product.count * product.info.price)
     })
     return total;
   }
@@ -58,7 +59,7 @@ const ShoppingCart = () => {
     addOrder(costumer, Object.values(products));
     cleanShoppingCart()
     navigation.navigate(routes.GENERAL_TAB, {
-        screen: subRoutes.GENERAL_TAB.ORDERS,
+      screen: subRoutes.GENERAL_TAB.ORDERS,
     })
   };
   return (
@@ -66,62 +67,62 @@ const ShoppingCart = () => {
       <ScrollView style={styleSheet.infomationContent}>
         <View style={styleSheet.contentImg}>
           <IconWrap>
-            <MaterialIcons name="shopping-cart" size={90} color="black" />
+            <MaterialIcons name="shopping-cart" size={40} color="black" />
           </IconWrap>
           <View>
             <Text style={styleSheet.textNumOrder}>#187</Text>
           </View>
         </View>
+        <KeyboardAwareScrollView>
+          <Text style={styleSheet.textSubtitleForm}>INGRESAR DATOS</Text>
 
-        <Text style={styleSheet.textSubtitleForm}>INGRESAR DATOS</Text>
+          <FieldInput
+            label="NOMBRE DE CLIENTE"
+            style={styleSheet.fieldInput}
+            onChangeText={(text) => setName(text)}
+            value={name}
+          />
+          <FieldInput
+            label="NUMERO DE IDENTIFICACION"
+            style={styleSheet.fieldInput}
+            keyboardType="number-pad"
+            onChangeText={(text) => setId(text)}
+            value={id}
+          />
+          <FieldInput
+            label="CELULAR"
+            style={styleSheet.fieldInput}
+            keyboardType="number-pad"
+            onChangeText={(text) => setPhone(text)}
+            value={phone}
+          />
+          <FieldInput
+            label="CORREO ELECTRONICO"
+            style={styleSheet.fieldInput}
+            onChangeText={(text) => setEmail(text)}
+            value={email}
+          />
+          <Text style={styleSheet.txtSeparatorProducts}>PRODUCTOS</Text>
 
-        <FieldInput
-          label="NOMBRE DE CLIENTE"
-          style={styleSheet.fieldInput}
-          onChangeText={(text) => setName(text)}
-          value={name}
-        />
-        <FieldInput
-          label="NUMERO DE IDENTIFICACION"
-          style={styleSheet.fieldInput}
-          keyboardType="number-pad"
-          onChangeText={(text) => setId(text)}
-          value={id}
-        />
-        <FieldInput
-          label="CELULAR"
-          style={styleSheet.fieldInput}
-          keyboardType="number-pad"
-          onChangeText={(text) => setPhone(text)}
-          value={phone}
-        />
-        <FieldInput
-          label="CORREO ELECTRONICO"
-          style={styleSheet.fieldInput}
-          onChangeText={(text) => setEmail(text)}
-          value={email}
-        />
-        <Text style={styleSheet.txtSeparatorProducts}>PRODUCTOS</Text>
+          <View style={styleSheet.contentProducts}>
+            {Object.values(products).length === 0 ? (
+              <Text style={styleSheet.txtTotal}>Carrito vacio</Text>
+            ) : (
+              <FlatList
+                data={Object.values(products)}
+                renderItem={({ item, index }) => (
+                  <InventoryItem info={{ ...item.info, amount: item.count }} />
+                )}
+                keyExtractor={(item, index) => index.toString()}
+              />
+            )}
+          </View>
 
-        <View style={styleSheet.contentProducts}>
-          {Object.values(products).length === 0 ? (
-            <Text style={styleSheet.txtTotal}>Carrito vacio</Text>
-          ) : (
-            <FlatList
-              data={Object.values(products)}
-              renderItem={({ item, index }) => (
-                <InventoryItem info={{ ...item.info, amount: item.count }} />
-              )}
-              keyExtractor={(item, index) => index.toString()}
-            />
-          )}
-        </View>
-
-       {Object.values(products).length !== 0&&<View style={styleSheet.contentTotal}>
-          <Text style={styleSheet.txtTotal}>TOTAL</Text>
-          <Text style={styleSheet.txtTotal}>${calcTotal()}</Text>
-        </View>}
-
+          {Object.values(products).length !== 0 && <View style={styleSheet.contentTotal}>
+            <Text style={styleSheet.txtTotal}>TOTAL</Text>
+            <Text style={styleSheet.txtTotal}>${calcTotal()}</Text>
+          </View>}
+        </KeyboardAwareScrollView>
         <View style={styleSheet.btnGenerateOrder}>
           <ButtonCommon disabled={ready} onPress={handlerShoppingCartToOrder}>
             Generar Orden

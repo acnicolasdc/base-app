@@ -2,6 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import { useTheme, Text } from "react-native-paper";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native";
 import styles from "./OrderCard.style";
@@ -37,8 +38,11 @@ const OrderCard = ({ style, info: { number, nameClient, items, total } = default
                     <Text style={styleSheet.textNameClient}>{nameClient}</Text>
                     <View
                         style={styleSheet.contentIndicator}
-                    >
-                        <AntDesign name="checkcircle" size={13} color="#2FD573" />
+                    >   
+                        <AntDesign name="clockcircle" size={13} color='#F9AA0D' />
+                  {/*   <AntDesign name="checkcircle" size={13} color="#2FD573" />
+                    <AntDesign name="closecircle" size={13} color="black" /> */}
+                        
                     </View>
                     <Text style={styleSheet.textItems}>{items.length} Productos</Text>
                     <Text style={styleSheet.textTotal}>TOTAL : {total}</Text>

@@ -5,20 +5,20 @@ const pallet = {
   white001: "#FFFF",
   green001: "#2FD573",
   grey001: "#ECEBEC",
-  grey002:"#e3e4e5",
-  grey003:"#686868",
+  grey002: "#e3e4e5",
+  grey003: "#686868",
   grey004: "#424242",
   grey005: "#1C1C1E",
   purple001: "#D4CAE9",
   purple002: "#F5F3FB",
   purple004: "#6739BF",
   purple003: "#38219C",
-  textTitle:"#292929",
-  textSubtitle:"#5e5e5e",
-  textDescription:"#1C1C1E",
+  textTitle: "#292929",
+  textSubtitle: "#5e5e5e",
+  textDescription: "#1C1C1E",
   borderCard: "#ECEBEC",
   backgroundWrapIcon: "#F5F3FB",
-  
+
 };
 
 export const lightMode = {
@@ -35,8 +35,6 @@ export const lightMode = {
     accent: "#f1c40f",
     placeholder: "rgba(0, 0, 0, 0.24)",
     pallet: pallet,
-   
-   
   },
 };
 
@@ -56,9 +54,6 @@ export const darkMode = {
     text: "#FFFF",
     placeholder: "rgba(255, 255, 255, 0.54)",
     pallet: pallet,
-    //textPrimary:"#686868",
-    //textSecundary:"#e3e4e5",
-    //textDescription:"#1C1C1E"
   },
   dark: true,
 };

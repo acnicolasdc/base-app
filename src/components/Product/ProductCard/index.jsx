@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./ProductCard.style";
 import { TouchableHighlight, Text, View, Image } from "react-native";
 import { useTheme } from "react-native-paper";
 import { Fontisto } from "@expo/vector-icons";
 import IconWrap from "../../Icons/IconWrap";
+import { ShoppingCartContext } from "@providers/ShoppingCart";
+import products from "../../../data/products";
 
 export const defaultProps = Object.freeze({
   INFO: {
@@ -28,10 +30,11 @@ const ProductCard = ({
   const { pallet, colors } = useTheme();
   const styleSheet = styles(pallet, colors);
   const { id, name, amount, price, image } = info;
+
   const productContainerStyle = added
     ? [styleSheet.container, styleSheet.containerSelected]
     : [styleSheet.container];
-  console.log(image);
+
   return (
     <TouchableHighlight
       activeOpacity={0.4}
@@ -41,7 +44,7 @@ const ProductCard = ({
       {id !== "blank" ? (
         <View style={[...productContainerStyle, style]}>
           <IconWrap >
-            <Image source={{ uri: image, cache: 'only-if-cached' }} style={{ resizeMode:'contain', width: 50, height:50 }}/>
+            <Image source={{ uri: image, cache: 'only-if-cached' }} style={{ resizeMode: 'contain', width: 50, height: 50 }} />
           </IconWrap>
           <View style={styleSheet.textContent}>
             <View style={styleSheet.contentProductName}>
@@ -50,7 +53,7 @@ const ProductCard = ({
               </Text>
               <Text
                 style={(styleSheet.textTitle, styleSheet.textAmountProduct)}
-              >
+              >Cantidad:{" "}
                 {amount}{" "}
               </Text>
             </View>
@@ -62,10 +65,11 @@ const ProductCard = ({
           <View style={styleSheet.btnCount}>
             {!disabled ? (
               children
-            ) : (
-              <Text style={(styleSheet.textTitle, styleSheet.textPriceProduct)}>
-                Agotado
+            ) : (<View style={styleSheet.soldOut}>
+              <Text style={styleSheet.textSoldOut}>
+                SOLD OUT
               </Text>
+            </View>
             )}
           </View>
         </View>

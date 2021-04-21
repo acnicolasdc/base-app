@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export default (pallet,colors) =>
+export default (pallet, colors) =>
   StyleSheet.create({
     container: {
       borderStyle: 'solid',
@@ -11,13 +11,19 @@ export default (pallet,colors) =>
       borderRadius: 30,
       backgroundColor: colors.background,
       marginBottom: 10,
-     paddingHorizontal:5,
+      paddingHorizontal: 5,
       paddingTop: 15,
-     
-      flex:1
+
+      flex: 1
     },
     containerSelected: {
       borderColor: colors.pallet.green001,
+    },
+    containerUnelected: {
+      borderColor: colors.pallet.borderCard,
+    },
+    containerUnSelected: {
+      borderColor: colors.pallet.purple004,
     },
     itemInvisible: {
       backgroundColor: 'transparent'
@@ -30,15 +36,11 @@ export default (pallet,colors) =>
       justifyContent: 'center',
       alignSelf: 'center',
       alignItems: 'center',
-      margin:15
-      
-     
+      margin: 15
     },
     textContent: {
-    paddingLeft:15,
-    paddingTop:25,
-    
-
+      paddingLeft: 15,
+      paddingTop: 25,
     },
     textNameProduct: {
       fontSize: 15,
@@ -56,22 +58,32 @@ export default (pallet,colors) =>
     },
     textPriceProduct: {
       fontSize: 15,
-      color:  colors.textTitle,
+      color: colors.textTitle,
       fontStyle: 'normal',
       paddingTop: 12,
       fontWeight: "500"
     },
     btnCount: {
-      alignSelf:'center',
-      justifyContent:'flex-end',
-      paddingVertical:10,
-     
+      alignSelf: 'center',
+      justifyContent: 'flex-end',
+      paddingVertical: 10,
+
     },
-    
-      contentProductName: {
-        minHeight: 75,
-      
+    contentProductName: {
+      minHeight: 75,
+    },
+    soldOut: {
+      backgroundColor: colors.pallet.purple004,
+      width: 120,
+      borderRadius: 10,
+      alignItems: 'center',
+      height: 40,
+    },
+    textSoldOut: {
+      color: 'white',
+      fontSize: 15,
+      fontStyle: 'normal',
+      paddingTop: 12,
+      fontWeight: "500"
     }
-
-
   });
