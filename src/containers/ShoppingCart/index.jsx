@@ -64,7 +64,7 @@ const ShoppingCart = () => {
   };
   return (
     <View style={styleSheet.container}>
-      <ScrollView style={styleSheet.infomationContent}>
+      <KeyboardAwareScrollView style={styleSheet.infomationContent}>
         <View style={styleSheet.contentImg}>
           <IconWrap>
             <MaterialIcons name="shopping-cart" size={40} color="black" />
@@ -73,62 +73,62 @@ const ShoppingCart = () => {
             <Text style={styleSheet.textNumOrder}>#187</Text>
           </View>
         </View>
-        <KeyboardAwareScrollView>
-          <Text style={styleSheet.textSubtitleForm}>INGRESAR DATOS</Text>
 
-          <FieldInput
-            label="NOMBRE DE CLIENTE"
-            style={styleSheet.fieldInput}
-            onChangeText={(text) => setName(text)}
-            value={name}
-          />
-          <FieldInput
-            label="NUMERO DE IDENTIFICACION"
-            style={styleSheet.fieldInput}
-            keyboardType="number-pad"
-            onChangeText={(text) => setId(text)}
-            value={id}
-          />
-          <FieldInput
-            label="CELULAR"
-            style={styleSheet.fieldInput}
-            keyboardType="number-pad"
-            onChangeText={(text) => setPhone(text)}
-            value={phone}
-          />
-          <FieldInput
-            label="CORREO ELECTRONICO"
-            style={styleSheet.fieldInput}
-            onChangeText={(text) => setEmail(text)}
-            value={email}
-          />
-          <Text style={styleSheet.txtSeparatorProducts}>PRODUCTOS</Text>
+        <Text style={styleSheet.textSubtitleForm}>INGRESAR DATOS</Text>
 
-          <View style={styleSheet.contentProducts}>
-            {Object.values(products).length === 0 ? (
-              <Text style={styleSheet.txtTotal}>Carrito vacio</Text>
-            ) : (
-              <FlatList
-                data={Object.values(products)}
-                renderItem={({ item, index }) => (
-                  <InventoryItem info={{ ...item.info, amount: item.count }} />
-                )}
-                keyExtractor={(item, index) => index.toString()}
-              />
-            )}
-          </View>
+        <FieldInput
+          label="NOMBRE DE CLIENTE"
+          style={styleSheet.fieldInput}
+          onChangeText={(text) => setName(text)}
+          value={name}
+        />
+        <FieldInput
+          label="NUMERO DE IDENTIFICACION"
+          style={styleSheet.fieldInput}
+          keyboardType="number-pad"
+          onChangeText={(text) => setId(text)}
+          value={id}
+        />
+        <FieldInput
+          label="CELULAR"
+          style={styleSheet.fieldInput}
+          keyboardType="number-pad"
+          onChangeText={(text) => setPhone(text)}
+          value={phone}
+        />
+        <FieldInput
+          label="CORREO ELECTRONICO"
+          style={styleSheet.fieldInput}
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+        />
+        <Text style={styleSheet.txtSeparatorProducts}>PRODUCTOS</Text>
 
-          {Object.values(products).length !== 0 && <View style={styleSheet.contentTotal}>
-            <Text style={styleSheet.txtTotal}>TOTAL</Text>
-            <Text style={styleSheet.txtTotal}>${calcTotal()}</Text>
-          </View>}
-        </KeyboardAwareScrollView>
+        <View style={styleSheet.contentProducts}>
+          {Object.values(products).length === 0 ? (
+            <Text style={styleSheet.txtTotal}>Carrito vacio</Text>
+          ) : (
+            <FlatList
+              data={Object.values(products)}
+              renderItem={({ item, index }) => (
+                <InventoryItem info={{ ...item.info, amount: item.count }} />
+              )}
+              keyExtractor={(item, index) => index.toString()}
+            />
+          )}
+        </View>
+
+        {Object.values(products).length !== 0 && <View style={styleSheet.contentTotal}>
+          <Text style={styleSheet.txtTotal}>TOTAL</Text>
+          <Text style={styleSheet.txtTotal}>${calcTotal()}</Text>
+        </View>}
+
         <View style={styleSheet.btnGenerateOrder}>
           <ButtonCommon disabled={ready} onPress={handlerShoppingCartToOrder}>
             Generar Orden
           </ButtonCommon>
         </View>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </View>
   );
 };

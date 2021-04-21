@@ -12,25 +12,25 @@ const FormAddProduct = () => {
     const styleSheet = style();
 
     return (
-     <ScrollView>
-        <View style={styleSheet.container}>
-            <Text style={styleSheet.textTile}
-            >{"NUEVO PRODUCTO"}
-            </Text>
-
-            <View>
-                <IconWrap>
-                    <Fontisto name="qrcode" size={30} color="black" />
-                </IconWrap>
-                <Text
-                    style={styleSheet.textSubtile}
-                >QR GENERADO 
+        <KeyboardAwareScrollView
+            style={styleSheet.contentInformation}>
+            <View style={styleSheet.container}>
+                <Text style={styleSheet.textTile}
+                >{"NUEVO PRODUCTO"}
                 </Text>
 
-            </View>
+                <View>
+                    <IconWrap>
+                        <Fontisto name="qrcode" size={30} color="black" />
+                    </IconWrap>
+                    <Text
+                        style={styleSheet.textSubtile}
+                    >QR GENERADO
+                </Text>
 
-            <KeyboardAwareScrollView 
-            style={styleSheet.contentInformation}>
+                </View>
+
+
                 <FieldInput label="NOMBRE DEL PRODUCTO" style={{ marginBottom: 5 }} />
                 <FieldInput
                     label="PRECIO DE VENTA"
@@ -47,15 +47,15 @@ const FormAddProduct = () => {
                     style={{ marginBottom: 5 }}
 
                 />
-            </KeyboardAwareScrollView>
 
-        </View>
+
+            </View>
 
             <View style={styleSheet.btnContainer}>
                 <ButtonCommon>ACEPTAR</ButtonCommon>
             </View>
 
-    </ScrollView>
+        </KeyboardAwareScrollView>
     );
 };
 
