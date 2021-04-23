@@ -25,11 +25,9 @@ const Inventory = () => {
           screen: subRoutes.GENERAL_STACK.FORM_ADD_PRODUCT,
         })
       }
-      style={styleSheet.btnNew}><Text style={styleSheet.txtBtn}>NUEVO PRODUCTO</Text></ButtonCommon>
-
-
+      style={styleSheet.btnNew}><Text style={styleSheet.txtBtn}>NUEVO PRODUCTO</Text>
+      </ButtonCommon>
         </View>
-       
       </View>
     </View>
   );

@@ -1,23 +1,18 @@
 import { StyleSheet } from "react-native";
-export default () =>
+export default (pallet, colors) =>
   StyleSheet.create({
     container: {
       flex:1,
       flexDirection: "column",
-      backgroundColor:'white'
+      backgroundColor:'white',
+      borderColor: colors.pallet.borderCard,
+            borderRadius: 15,
+            marginHorizontal: 20,
+            borderWidth: 1,
+            marginVertical: 40,
+           
     },
-    contentImg: {
-      paddingTop: 15,
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    textNumOrder:{
-      fontStyle:'italic',
-      fontSize:15,
-      fontWeight:"300",
-      paddingTop:5
-    },
-
+  
     infomationContent: {
       marginTop: "1%",
       // backgroundColor:'green'

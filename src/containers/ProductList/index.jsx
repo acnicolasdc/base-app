@@ -1,12 +1,14 @@
 import React, { useState, useContext } from "react";
 import { Snackbar } from "react-native-paper";
-import { FlatList, View } from "react-native";
+import { FlatList, View, Pressable } from "react-native";
 import { ShoppingCartContext } from "@providers/ShoppingCart";
 import FieldSearchBar from "@components/Field/FieldSearchBar/FieldSearchBar";
 import ProductCard from "@components/Product/ProductCard";
-import productData from "@data/products";
 import ButtonCount from "@components/Button/ButtonCount";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { ProductsStorageContext } from "@providers/ProductsStorage";
+import { routes, subRoutes } from "@routes/private";
+import { useNavigation } from "@react-navigation/native";
 
 const NUM_COLUMNS = 2;
 const BLANK_COMPONENT = { id: "blank", empty: true, name: "" };
@@ -26,6 +28,7 @@ const ProductList = () => {
   const { updateProduct, products: shoppingList } = useContext(
     ShoppingCartContext
   );
+  const navigation = useNavigation();
   const onChangeSearch = (query) => setSearchQuery(query);
   const filterProductByName = () => {
     const MIN_SEARCH_LENGTH = 0;
@@ -50,17 +53,40 @@ const ProductList = () => {
       );
     }
   };
+
   return (
     <>
       <View style={{ paddingHorizontal: 15 }}>
-        <View style={{ paddingTop: 15, paddingBottom: 15 }}>
+        <View style={{ paddingTop: 15, paddingBottom: 15, flexDirection: 'row', alignItems: 'center' }}>
           <FieldSearchBar
+            style={{ width: "83%" }}
             placeholder="Buscar producto"
             onChangeText={onChangeSearch}
             value={searchQuery}
             onIconPress={filterProductByName}
             onSubmitEditing={filterProductByName}
           />
+          <Pressable
+            onPress={() =>
+              navigation.navigate(routes.GENERAL_STACK, {
+                screen: subRoutes.GENERAL_STACK.SCAN_BARCODE,
+              })
+            }>
+            <View style={{
+              backgroundColor: '#6739BF', borderRadius: 10, width: 45, height: 45,
+              justifyContent: 'center', marginHorizontal: 15, alignItems: 'center', shadowColor: "#000",
+              shadowOffset: {
+                width: 0,
+                height: 3,
+              },
+              shadowOpacity: 0.29,
+              shadowRadius: 4.65,
+              elevation: 7,
+            }}
+            >
+              <MaterialCommunityIcons name="barcode-scan" size={28} color="white" style={{}} />
+            </View>
+          </Pressable>
         </View>
         <FlatList
           ListHeaderComponent={() => <View style={{ paddingTop: 15 }}></View>}

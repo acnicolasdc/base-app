@@ -1,11 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { routes, subRoutes } from "@routes/private";
-import style from "./ShoppingCart.style";
+import styles from "./ShoppingCart.style";
 import { View, FlatList, Image } from "react-native";
 import { Text } from "react-native-paper";
-import { MaterialIcons } from "@expo/vector-icons";
-import { ScrollView } from "react-native-gesture-handler";
+import { useTheme } from "react-native-paper";
 import FieldInput from "@components/Field/FieldInput";
 import ButtonCommon from "@components/Button/ButtonCommon";
 import IconWrap from "@components/Icons/IconWrap";
@@ -15,6 +14,8 @@ import { OrdersStorageContext } from "@providers/OrdersStorage";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const ShoppingCart = () => {
+  const { pallet, colors } = useTheme();
+  const styleSheet = styles(pallet, colors);
   const navigation = useNavigation();
   const {
     products,
@@ -28,7 +29,7 @@ const ShoppingCart = () => {
   const [id, setId] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const styleSheet = style();
+
   useEffect(() => {
     isFormComplete();
   }, [name, id, phone, email, products]);
@@ -63,17 +64,9 @@ const ShoppingCart = () => {
     })
   };
   return (
-    <View style={styleSheet.container}>
-      <KeyboardAwareScrollView style={styleSheet.infomationContent}>
-        <View style={styleSheet.contentImg}>
-          <IconWrap>
-            <MaterialIcons name="shopping-cart" size={40} color="black" />
-          </IconWrap>
-          <View>
-            <Text style={styleSheet.textNumOrder}>#187</Text>
-          </View>
-        </View>
 
+    <KeyboardAwareScrollView >
+      <View style={styleSheet.infomationContent, styleSheet.container}>
         <Text style={styleSheet.textSubtitleForm}>INGRESAR DATOS</Text>
 
         <FieldInput
@@ -126,10 +119,12 @@ const ShoppingCart = () => {
         <View style={styleSheet.btnGenerateOrder}>
           <ButtonCommon disabled={ready} onPress={handlerShoppingCartToOrder}>
             Generar Orden
-          </ButtonCommon>
+  </ButtonCommon>
         </View>
-      </KeyboardAwareScrollView>
-    </View>
+      </View>
+
+    </KeyboardAwareScrollView>
+
   );
 };
 

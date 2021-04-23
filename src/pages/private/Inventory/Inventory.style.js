@@ -18,7 +18,7 @@ export default () =>
       elevation: 7,
     },
     btnNew: {
-      margin: 0,
+      marginBottom: 0,
       paddingVertical: 0
     },
     txtBtn: {
