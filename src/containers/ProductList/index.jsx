@@ -1,11 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Snackbar } from "react-native-paper";
 import { FlatList, View, Pressable } from "react-native";
 import { ShoppingCartContext } from "@providers/ShoppingCart";
 import FieldSearchBar from "@components/Field/FieldSearchBar/FieldSearchBar";
 import ProductCard from "@components/Product/ProductCard";
 import ButtonCount from "@components/Button/ButtonCount";
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { ProductsStorageContext } from "@providers/ProductsStorage";
 import { routes, subRoutes } from "@routes/private";
 import { useNavigation } from "@react-navigation/native";
@@ -19,15 +19,16 @@ const formatData = (productData) => {
     : [...productData];
 };
 const ProductList = () => {
-  const {
-    products: productsDB
-  } = useContext(ProductsStorageContext);
+  const { products: productsDB } = useContext(ProductsStorageContext);
   const [visible, setVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState(formatData(productsDB));
   const { updateProduct, products: shoppingList } = useContext(
     ShoppingCartContext
   );
+  useEffect(() => {
+    setProducts(formatData(productsDB));
+  }, [productsDB]);
   const navigation = useNavigation();
   const onChangeSearch = (query) => setSearchQuery(query);
   const filterProductByName = () => {
@@ -35,8 +36,8 @@ const ProductList = () => {
     if (!searchQuery || searchQuery.length < MIN_SEARCH_LENGTH) {
       setProducts(formatData(productsDB));
       setVisible(true);
-      return
-    };
+      return;
+    }
     const filteredProducts = products.filter((product) => {
       return product.name.toUpperCase() === searchQuery.toUpperCase();
     });
@@ -44,7 +45,6 @@ const ProductList = () => {
     if (filteredProducts.length === 0) {
       setProducts(formatData(productsDB));
       setVisible(true);
-
     } else {
       setProducts(
         filteredProducts.length === 1
@@ -57,7 +57,14 @@ const ProductList = () => {
   return (
     <>
       <View style={{ paddingHorizontal: 15 }}>
-        <View style={{ paddingTop: 15, paddingBottom: 15, flexDirection: 'row', alignItems: 'center' }}>
+        <View
+          style={{
+            paddingTop: 15,
+            paddingBottom: 15,
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
           <FieldSearchBar
             style={{ width: "83%" }}
             placeholder="Buscar producto"
@@ -71,20 +78,33 @@ const ProductList = () => {
               navigation.navigate(routes.GENERAL_STACK, {
                 screen: subRoutes.GENERAL_STACK.SCAN_BARCODE,
               })
-            }>
-            <View style={{
-              backgroundColor: '#6739BF', borderRadius: 10, width: 45, height: 45,
-              justifyContent: 'center', marginHorizontal: 15, alignItems: 'center', shadowColor: "#000",
-              shadowOffset: {
-                width: 0,
-                height: 3,
-              },
-              shadowOpacity: 0.29,
-              shadowRadius: 4.65,
-              elevation: 7,
-            }}
+            }
+          >
+            <View
+              style={{
+                backgroundColor: "#6739BF",
+                borderRadius: 10,
+                width: 45,
+                height: 45,
+                justifyContent: "center",
+                marginHorizontal: 15,
+                alignItems: "center",
+                shadowColor: "#000",
+                shadowOffset: {
+                  width: 0,
+                  height: 3,
+                },
+                shadowOpacity: 0.29,
+                shadowRadius: 4.65,
+                elevation: 7,
+              }}
             >
-              <MaterialCommunityIcons name="barcode-scan" size={28} color="white" style={{}} />
+              <MaterialCommunityIcons
+                name="barcode-scan"
+                size={28}
+                color="white"
+                style={{}}
+              />
             </View>
           </Pressable>
         </View>
@@ -92,7 +112,11 @@ const ProductList = () => {
           ListHeaderComponent={() => <View style={{ paddingTop: 15 }}></View>}
           data={products}
           renderItem={({ item }) => (
-            <ProductCard info={item} added={!!shoppingList[item.id]} disabled={item.amount === 0}>
+            <ProductCard
+              info={item}
+              added={!!shoppingList[item.id]}
+              disabled={item.amount === 0}
+            >
               <ButtonCount
                 count={shoppingList[item.id]?.count || 0}
                 getCount={(count) => updateProduct(item, count)}

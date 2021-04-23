@@ -20,6 +20,7 @@ const productObject = (product) => ({
 const ProductsStorageProvider = ({ children }) => {
   const [products, setProducts] = useState(productsDB);
   const addProducts = (newProduct) => {
+    console.log("new product", newProduct)
     if(!newProduct) return;
     setProducts([...products, productObject(newProduct)]);
   }

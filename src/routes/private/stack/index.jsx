@@ -23,7 +23,6 @@ const StackNavigation = () => {
       <Stack.Screen name={routes.FORM_ADD_PRODUCT} component={AddItem} />
       <Stack.Screen name={routes.SCAN_BARCODE} component={ScanBarcode} />
       <Stack.Screen name={routes.INVENTORY} component={Inventory} />
-
     </Stack.Navigator>
   );
 };
