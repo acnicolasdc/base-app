@@ -44,21 +44,22 @@ const ProductCard = ({
       {id !== "blank" ? (
         <View style={[...productContainerStyle, style]}>
           <IconWrap >
-            <Image source={{ uri: image, cache: 'only-if-cached' }} style={{ resizeMode: 'contain', width: 50, height: 50 }} />
+            <Image source={{ uri: image, cache: 'only-if-cached' }}
+             style={{ resizeMode: 'contain', width: 50, height: 50 }} />
           </IconWrap>
           <View style={styleSheet.textContent}>
             <View style={styleSheet.contentProductName}>
-              <Text style={(styleSheet.textTitle, styleSheet.textNameProduct)}>
+              <Text style={( styleSheet.textNameProduct)}>
                 {name}{" "}
               </Text>
               <Text
-                style={(styleSheet.textTitle, styleSheet.textAmountProduct)}
+                style={( styleSheet.textAmountProduct)}
               >Cantidad:{" "}
                 {amount}{" "}
               </Text>
             </View>
 
-            <Text style={(styleSheet.textTitle, styleSheet.textPriceProduct)}>
+            <Text style={( styleSheet.textPriceProduct)}>
               ${price}{" "}
             </Text>
           </View>

@@ -5,15 +5,11 @@ import makeId from '../../utils/makeId'
 export const OrdersStorageContext = React.createContext({
   orders: [],
   addOrder: () => { },
+  updateOrder:() => { }
 });
-// "number": 117,
-// "nameClient": "Wrennie Castanho",
-// "idClient": "3159700",
-// "email": "wcastanho0@opera.com",
-// "celular": "(200) 5717058",
-// "items": [{}, {}, {}, {}],
-// "total": 493867
+
 const orderObject = (productList, costumerInfo) => ({
+  state: 0,
   nameClient: costumerInfo.name,
   idClient: costumerInfo.id,
   email: costumerInfo.email,
@@ -22,21 +18,26 @@ const orderObject = (productList, costumerInfo) => ({
   items: productList,
   number: makeId(),
 })
+
+
 const OrdersStorageProvider = ({ children }) => {
   const [orders, setOrders] = useState([]);
-
   const addOrder = (costumer, productList) => {
-    if(!costumer || !productList) return;
+    if (!costumer || !productList) return;
     setOrders([...orders, orderObject(productList, costumer)]);
   }
-
+  const updateOrder = (index) => {
+    const oldOrders =[...orders]
+    oldOrders[index] =  {...orders[index],state:1}
+    setOrders(oldOrders)
+    console.log(index)
+  }
   return (
     <OrdersStorageContext.Provider
-      value={{ orders, addOrder}}
+      value={{ orders, addOrder, updateOrder }}
     >
       {children}
     </OrdersStorageContext.Provider>
   );
 };
-
 export default OrdersStorageProvider;

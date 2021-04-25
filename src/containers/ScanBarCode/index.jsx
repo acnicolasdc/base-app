@@ -5,8 +5,8 @@ import ButtonCommon from "@components/Button/ButtonCommon";
 import ButtonArrow from "@components/Button/ButtonArrow";
 import { useNavigation } from "@react-navigation/native";
 import { Portal } from "react-native-paper";
-const ScanBarcode = ({ open = false, goBack = () => {}, getData = () => {},}) => {
-  // const navigation = useNavigation();
+
+const ScanBarcode = ({ open = false, goBack = () => { }, getData = () => { }, }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 
@@ -18,8 +18,8 @@ const ScanBarcode = ({ open = false, goBack = () => {}, getData = () => {},}) =>
   }, []);
 
   const handleBarCodeScanned = ({ type, data }) => {
-    setScanned(true);
-    getData({type, data})
+    getData({ type, data })
+    goBack();
   };
 
   if (hasPermission === null) {
@@ -37,21 +37,33 @@ const ScanBarcode = ({ open = false, goBack = () => {}, getData = () => {},}) =>
       />
       <View style={{ flex: 1, paddingVertical: 60, paddingHorizontal: 20 }}>
         <ButtonArrow
-          title={"Tap to Scan Again"}
           onPress={goBack}
           style={{ marginBottom: 15 }}
         />
+        <Text style={{
+          fontSize:15,
+          fontStyle:'italic',
+          color:'white',
+          alignSelf:'center',
+          justifyContent:'center',
+          position:'relative',
+          top:110
+         }}>
+         BUSCANDO CODIGO DE BARRAS...
+        
+      </Text>
         <View
           style={{
             flex: 1,
-            paddingVertical: 30,
-            paddingHorizontal: 20,
             borderWidth: 1,
-            marginVertical: 15,
+            marginTop: 120,
+            marginBottom:150,
+            borderColor:'#5e5e5e'
           }}
         ></View>
         {scanned && (
           <ButtonCommon
+            style={{ width: 100 }}
             title={"Tap to Scan Again"}
             onPress={() => setScanned(false)}
           />

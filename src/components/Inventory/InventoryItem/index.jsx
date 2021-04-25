@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import { useTheme, Text } from "react-native-paper";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native";
@@ -18,14 +18,14 @@ export const defaultProps = Object.freeze({
 const InventoryItem = ({ style, info = defaultProps.INFO }) => {
     const { colors } = useTheme();
     const styleSheet = styles(colors);
-    const { name, amount, price, date } = info
+    const { name, amount, price, date, image } = info
     return (
         <TouchableOpacity onPress={() => alert('Pressed!')}>
 
             <View style={[styleSheet.container, style]}>
                 <View style={styleSheet.iconContent}>
                     <IconWrap>
-                        <MaterialCommunityIcons name="qrcode-scan" size={15} color="black" />
+                        <Image source={{ uri: image, cache: 'only-if-cached' }} style={{ resizeMode: 'contain', width: 35, height: 35 }} />
                     </IconWrap>
                 </View>
                 <View style={styleSheet.informationContent}>

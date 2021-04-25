@@ -3,9 +3,10 @@ import { StyleSheet } from "react-native";
 export default (colors) =>
   StyleSheet.create({
     container: {
-      height: 70,
+      height: 80,
       backgroundColor:colors.background,
       flexDirection: "row",
+   
     },
     iconContent: {
       alignSelf:'center',

@@ -10,27 +10,45 @@ import styles from "./FormAddProduct.style";
 import { useTheme } from "react-native-paper";
 import { Fontisto } from "@expo/vector-icons";
 import { ProductsStorageContext } from "@providers/ProductsStorage";
-import ScanBarcode from "../../../containers/Test";
+import ScanBarcode from "../../ScanBarCode";
+
+
 import makeId from "../../../utils/makeId";
 
 const FormAddProduct = () => {
   const { pallet, colors } = useTheme();
   const styleSheet = styles(pallet, colors);
   const navigation = useNavigation();
-  const [camera, setCamera] = useState(false);
+  const [cameraScan, setCameraScan] = useState(false);
   const [qr, setQr] = useState("");
   const [productId, setProductId] = useState("");
   const [productName, setProductName] = useState("");
   const [productAmount, setProductAmount] = useState("");
   const [productPrice, setProductPrice] = useState("");
   const [productDescription, setProductDescription] = useState("");
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     setProductId(makeId());
   }, []);
   const { addProducts } = useContext(ProductsStorageContext);
 
+  useEffect(() => {
+    isFormComplete();
+  }, [productId, productName, productAmount, productPrice, qr]);
+
+  const isFormComplete = () => {
+    let isReady = false;
+    if (productId === "") isReady = true;
+    if (productName === "") isReady = true;
+    if (productAmount === "") isReady = true;
+    if (productPrice === "") isReady = true;
+    if (qr === "") isReady = true;
+    setReady(isReady);
+  };
+
   const handlerAddNewProduct = () => {
+    const date = new Date()
     const newProduct = {
       id: productId,
       name: productName,
@@ -40,13 +58,15 @@ const FormAddProduct = () => {
       image: "",
       description: productDescription,
       color: "",
-      date: "1/12/2021",
+      date: `${date.getDate()}/${parseInt(date.getMonth()) + 1}/${date.getFullYear()}`
+
     };
     addProducts(newProduct);
     navigation.navigate(routes.GENERAL_TAB, {
       screen: subRoutes.GENERAL_TAB.INVENTORY,
     });
   };
+
   return (
     <>
       <KeyboardAwareScrollView>
@@ -78,11 +98,7 @@ const FormAddProduct = () => {
               value={productAmount}
             />
             <Pressable
-              onPress={() =>
-                navigation.navigate(routes.GENERAL_STACK, {
-                  screen: subRoutes.GENERAL_STACK.SCAN_BARCODE,
-                })
-              }
+              onPress={() => { }}
             >
               <View style={styleSheet.boxIcon}>
                 <Fontisto name="camera" size={22} color="white" />
@@ -109,8 +125,8 @@ const FormAddProduct = () => {
             value={productDescription}
           />
           <View style={styleSheet.boxScan}>
-            <Text style={styleSheet.txtScan}>{qr!=""?qr: "Escanear codigo de barras"}</Text>
-            <Pressable onPress={() => setCamera(true)}>
+            <Text style={styleSheet.txtScan}>{qr != "" ? qr : "Escanear codigo de barras"}</Text>
+            <Pressable onPress={() => setCameraScan(true)}>
               <View style={styleSheet.boxIcon}>
                 <MaterialCommunityIcons
                   name="barcode-scan"
@@ -121,17 +137,18 @@ const FormAddProduct = () => {
             </Pressable>
           </View>
           <View style={styleSheet.btnContainer}>
-            <ButtonCommon onPress={handlerAddNewProduct}>ACEPTAR</ButtonCommon>
+            <ButtonCommon disabled={ready} onPress={handlerAddNewProduct}>ACEPTAR</ButtonCommon>
           </View>
         </View>
       </KeyboardAwareScrollView>
       <ScanBarcode
-        open={camera}
-        goBack={() => setCamera(false)}
+        open={cameraScan}
+        goBack={() => setCameraScan(false)}
         getData={({ type, data }) => {
           setQr(data);
         }}
       />
+
     </>
   );
 };

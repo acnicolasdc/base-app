@@ -12,21 +12,33 @@ import IconWrap from "../../Icons/IconWrap";
 
 export const defaultProps = Object.freeze({
     INFO: {
-        number: 777,
         nameClient: "Client name",
+        idClient: 111,
+        phone: 111,
+        email: 'correo@mail.com',
+        number: 777,
         items: [],
         total: 999,
+
     },
+    ON_PRESS: () => alert("press!"),
+    STATE: 0,
 });
-const OrderCard = ({ style, info: { number, nameClient, items, total } = defaultProps.INFO }) => {
+const OrderCard = ({
+    style,
+    onPress = defaultProps.ON_PRESS,
+    info = defaultProps.INFO,
+    state = defaultProps.STATE
+}) => {
     const { colors } = useTheme();
     const styleSheet = styles(colors);
+    const { nameClient, idClient, phone, email, number, items, total } = info
+    console.log(state)
     return (
-        <TouchableOpacity 
-        onPress={() => alert('Pressed!')
-        
-        }>
-
+        <TouchableOpacity
+            onPress={onPress}
+            disabled={state === 1}
+        >
             <View style={[styleSheet.container, style]}>
                 <View style={styleSheet.iconContent}>
                     <IconWrap>
@@ -37,12 +49,19 @@ const OrderCard = ({ style, info: { number, nameClient, items, total } = default
                     <Text style={styleSheet.textNumOrder}># {number}</Text>
                     <Text style={styleSheet.textNameClient}>{nameClient}</Text>
                     <View
-                        style={styleSheet.contentIndicator}
-                    >   
-                        <AntDesign name="clockcircle" size={13} color='#F9AA0D' />
-                  {/*   <AntDesign name="checkcircle" size={13} color="#2FD573" />
-                    <AntDesign name="closecircle" size={13} color="black" /> */}
-                        
+                        style={styleSheet.contentIndicator}>
+                        {
+                            state === 1 ?
+                                (
+                                    <AntDesign name="checkcircle" size={13} color="#2FD573" />
+                                )
+
+                                :
+                                (
+                                    <AntDesign name="clockcircle" size={13} color='#F9AA0D' />
+                                )
+                        }
+
                     </View>
                     <Text style={styleSheet.textItems}>{items.length} Productos</Text>
                     <Text style={styleSheet.textTotal}>TOTAL : {total}</Text>

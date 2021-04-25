@@ -1,5 +1,6 @@
 export default [
     {
+            "state":0,
             "number": 117,
             "nameClient": "Wrennie Castanho",
             "idClient": "3159700",
@@ -9,6 +10,7 @@ export default [
             "total": 493867
         },
         {
+            "state":0,
             "number": 118,
             "nameClient": "Nikolas De Rechter",
             "idClient": "9736913",
@@ -18,6 +20,7 @@ export default [
             "total": 788775
         },
         {
+            "state":0,
             "number": 119,
             "nameClient": "Kellby Guerro",
             "idClient": "1227464",
@@ -26,7 +29,8 @@ export default [
             "items": [{}, {}, {}],
             "total": 169646
         },
-        {
+        {   
+            "state":0,
             "number": 120,
             "nameClient": "Biddy Simonutti",
             "idClient": "0775436",
@@ -35,7 +39,8 @@ export default [
             "items": [{}, {}, {}, {}, {}],
             "total": 304633
         },
-        {
+        {   
+            "state":0,
             "number": 121,
             "nameClient": "Magdalena Cavanaugh",
             "idClient": "1742884",
@@ -44,7 +49,8 @@ export default [
             "items": [{}, {}, {}, {}, {}],
             "total": 845434
         },
-        {
+        {   
+            "state":0,
             "number": 122,
             "nameClient": "Lem Blenkhorn",
             "idClient": "7175845",
