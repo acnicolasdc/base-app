@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, Image } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { routes, subRoutes } from "@routes/private";
@@ -11,8 +11,7 @@ import { useTheme } from "react-native-paper";
 import { Fontisto } from "@expo/vector-icons";
 import { ProductsStorageContext } from "@providers/ProductsStorage";
 import ScanBarcode from "../../ScanBarCode";
-import ImagePicker from "@containers/ImagePicker";
-
+import usePickPhoto from "../../../hooks/usePickPhoto";
 
 import makeId from "../../../utils/makeId";
 
@@ -21,7 +20,6 @@ const FormAddProduct = () => {
   const styleSheet = styles(pallet, colors);
   const navigation = useNavigation();
   const [cameraScan, setCameraScan] = useState(false);
-  const [picture, setPicture] = useState(false);
   const [qr, setQr] = useState("");
   const [productId, setProductId] = useState("");
   const [productName, setProductName] = useState("");
@@ -29,6 +27,7 @@ const FormAddProduct = () => {
   const [productPrice, setProductPrice] = useState("");
   const [productDescription, setProductDescription] = useState("");
   const [ready, setReady] = useState(false);
+  const [image, pickImage] = usePickPhoto();
 
   useEffect(() => {
     setProductId(makeId());
@@ -50,18 +49,19 @@ const FormAddProduct = () => {
   };
 
   const handlerAddNewProduct = () => {
-    const date = new Date()
+    const date = new Date();
     const newProduct = {
       id: productId,
       name: productName,
       amount: productAmount,
       price: productPrice,
       qr: qr,
-      image: "",
+      image: image,
       description: productDescription,
       color: "",
-      date: `${date.getDate()}/${parseInt(date.getMonth()) + 1}/${date.getFullYear()}`
-
+      date: `${date.getDate()}/${
+        parseInt(date.getMonth()) + 1
+      }/${date.getFullYear()}`,
     };
     addProducts(newProduct);
     navigation.navigate(routes.GENERAL_TAB, {
@@ -99,12 +99,17 @@ const FormAddProduct = () => {
               onChangeText={(text) => setProductAmount(text)}
               value={productAmount}
             />
-            <Pressable
-              onPress={() => {setPicture(true)}}
-            >
-              <View style={styleSheet.boxIcon}>
-                <Fontisto name="camera" size={22} color="white" />
-              </View>
+            <Pressable onPress={() => pickImage()}>
+              {image ? (
+                <Image
+                  source={{ uri: image }}
+                  style={styleSheet.boxImage}
+                />
+              ) : (
+                <View style={styleSheet.boxIcon}>
+                  <Fontisto name="camera" size={22} color="white" />
+                </View>
+              )}
             </Pressable>
           </View>
           <FieldInput
@@ -127,7 +132,9 @@ const FormAddProduct = () => {
             value={productDescription}
           />
           <View style={styleSheet.boxScan}>
-            <Text style={styleSheet.txtScan}>{qr != "" ? qr : "Escanear codigo de barras"}</Text>
+            <Text style={styleSheet.txtScan}>
+              {qr != "" ? qr : "Escanear codigo de barras"}
+            </Text>
             <Pressable onPress={() => setCameraScan(true)}>
               <View style={styleSheet.boxIcon}>
                 <MaterialCommunityIcons
@@ -139,7 +146,9 @@ const FormAddProduct = () => {
             </Pressable>
           </View>
           <View style={styleSheet.btnContainer}>
-            <ButtonCommon disabled={ready} onPress={handlerAddNewProduct}>ACEPTAR</ButtonCommon>
+            <ButtonCommon disabled={ready} onPress={handlerAddNewProduct}>
+              ACEPTAR
+            </ButtonCommon>
           </View>
         </View>
       </KeyboardAwareScrollView>
@@ -150,11 +159,6 @@ const FormAddProduct = () => {
           setQr(data);
         }}
       />
-          <ImagePicker
-        open={picture}
-       
-      />
-
     </>
   );
 };
