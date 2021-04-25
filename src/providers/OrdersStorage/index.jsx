@@ -30,7 +30,6 @@ const OrdersStorageProvider = ({ children }) => {
     const oldOrders =[...orders]
     oldOrders[index] =  {...orders[index],state:1}
     setOrders(oldOrders)
-  
   }
   return (
     <OrdersStorageContext.Provider

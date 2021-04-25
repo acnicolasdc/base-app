@@ -2,13 +2,11 @@ import React, { useContext, useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { routes, subRoutes } from "@routes/private";
 import styles from "./ShoppingCart.style";
-import { View, FlatList,  } from "react-native";
-import * as Linking from 'expo-linking';
+import { View, FlatList, Alert } from "react-native";
 import { Text } from "react-native-paper";
 import { useTheme } from "react-native-paper";
 import FieldInput from "@components/Field/FieldInput";
 import ButtonCommon from "@components/Button/ButtonCommon";
-import IconWrap from "@components/Icons/IconWrap";
 import InventoryItem from "@components/Inventory/InventoryItem";
 import { ShoppingCartContext } from "@providers/ShoppingCart";
 import { OrdersStorageContext } from "@providers/OrdersStorage";
@@ -20,7 +18,8 @@ const ShoppingCart = () => {
   const navigation = useNavigation();
   const {
     products,
-    cleanShoppingCart
+    cleanShoppingCart,
+    deleteItemById
   } = useContext(ShoppingCartContext);
   const {
     orders, addOrder
@@ -30,7 +29,7 @@ const ShoppingCart = () => {
   const [id, setId] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  
+
 
   useEffect(() => {
     isFormComplete();
@@ -51,6 +50,10 @@ const ShoppingCart = () => {
     })
     return total;
   }
+
+  const handleRemoveProduct = (index) => {
+    deleteItemById(index)
+  }
   const handlerShoppingCartToOrder = () => {
     const costumer = {
       name: name,
@@ -59,6 +62,9 @@ const ShoppingCart = () => {
       email: email,
       total: calcTotal()
     };
+
+  
+
     addOrder(costumer, Object.values(products));
     cleanShoppingCart()
     navigation.navigate(routes.GENERAL_TAB, {
@@ -66,7 +72,7 @@ const ShoppingCart = () => {
     })
   };
 
-  
+
   return (
 
     <KeyboardAwareScrollView >
@@ -108,7 +114,23 @@ const ShoppingCart = () => {
             <FlatList
               data={Object.values(products)}
               renderItem={({ item, index }) => (
-                <InventoryItem info={{ ...item.info, amount: item.count }} />
+                <InventoryItem
+                  onPress={() => Alert.alert(
+                    "CUIDADO !",
+                    "Estas seguro que deseas eliminar este producto?",
+                    [
+                      {
+                        text: "Cancel",
+                        onPress: () => { null },
+                        style: "cancel"
+                      },
+                      { text: "OK", onPress: () => handleRemoveProduct(item.id) }
+                    ]
+                  )
+                  }
+
+
+                  info={{ ...item.info, amount: item.count }} />
               )}
               keyExtractor={(item, index) => index.toString()}
             />

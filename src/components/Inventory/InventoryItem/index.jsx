@@ -1,10 +1,10 @@
 import React from "react";
 import { View, Image } from "react-native";
 import { useTheme, Text } from "react-native-paper";
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native";
 import styles from "./InventoryItem.style";
 import IconWrap from "../../Icons/IconWrap";
+
 
 export const defaultProps = Object.freeze({
     INFO: {
@@ -12,15 +12,21 @@ export const defaultProps = Object.freeze({
         name: "Product name",
         amount: 1,
         price: 1000,
+       
     },
+    ON_PRESS: () => null,
 });
 
-const InventoryItem = ({ style, info = defaultProps.INFO }) => {
+const InventoryItem = ({
+    style, 
+    info = defaultProps.INFO,
+    onPress = defaultProps.ON_PRESS,
+}) => {
     const { colors } = useTheme();
     const styleSheet = styles(colors);
     const { name, amount, price, date, image } = info
     return (
-        <TouchableOpacity onPress={() => alert('Pressed!')}>
+        <TouchableOpacity onPress={onPress}>
 
             <View style={[styleSheet.container, style]}>
                 <View style={styleSheet.iconContent}>

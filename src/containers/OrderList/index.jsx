@@ -1,26 +1,31 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { OrdersStorageContext } from "@providers/OrdersStorage";
 import { FlatList, View, Text } from "react-native";
+import { ShoppingCartContext } from "@providers/ShoppingCart";
 import OrderCard from "@components/Order/OrderCard";
 import orderData from "@data/orders";
 import style from "./OrderList.style";
-import { useTheme, Button, Paragraph, Dialog, Portal } from "react-native-paper";
+import { useTheme, Dialog, Portal, } from "react-native-paper";
+import { Alert } from "react-native";
 import ButtonCommon from "@components/Button/ButtonCommon"
-import { Feather } from '@expo/vector-icons';
+import InventoryItem from "@components/Inventory/InventoryItem";
 
 const OrderList = ({ }) => {
   const { pallet, colors } = useTheme();
   const styleSheet = style(pallet, colors);
   const [orderSelected, setOrderSelected] = useState('');
+  const [ready, setReady] = useState(true);
+  const {
+    productsOrder
+  } = useContext(ShoppingCartContext);
+  useEffect(() => {
+    setReady(true);
+  }, [orderSelected]);
 
-  
   const {
     orders, updateOrder
   } = useContext(OrdersStorageContext);
   const [visible, setVisible] = useState(false);
-
-console.log(orders)
-
   const showDialog = (index) => {
     setOrderSelected(index)
     setVisible(true)
@@ -31,9 +36,18 @@ console.log(orders)
     updateOrder(orderSelected)
     hideDialog(true)
     updateOrder(orderSelected)
-
   }
-
+  const calcTotal = () => {
+    let total = 0;
+    Object.values(productsOrder).forEach((product) => {
+      total = total + ((product.count) * product.info.price)
+    })
+    return total;
+  }
+  const handlerShoppingCartToOrder = () => {
+    total: calcTotal()
+  }
+  handlerShoppingCartToOrder()
   return (
     <View style={{ backgroundColor: "white", flex: 1 }}>
       { orders == 0 ?
@@ -43,35 +57,50 @@ console.log(orders)
           </Text>
         </View> :
         <FlatList
+        onPress={"Oe"}
           data={orders}
           renderItem={({ item, index }) => {
             return <OrderCard onPress={() => showDialog(index)
             } info={item}
-              style={{ marginLeft: 7, marginTop: 15 }}
-
+              style={{ marginLeft: 7, marginTop: 15, marginBottom: 5 }}
             />
           }}
           keyExtractor={orderData.number}
         />
       }
       <Portal>
-        <Dialog visible={visible} onDismiss={hideDialog}>
-          <Dialog.Title><Feather name="x" size={24} color="black" /></Dialog.Title>
-          <Dialog.Content style={{}}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-              <ButtonCommon
-                onPress={handledApproval}
-                >Rechazar</ButtonCommon>
+        <Dialog visible={visible} onDismiss={hideDialog} style={{ borderRadius: 30 }}>
+          <Dialog.Content style={{ padding: 0 }}>
 
-              <ButtonCommon
-               onPress={handledApproval}
-                >Aprobar</ButtonCommon>
-
+            {Object.values(productsOrder).length === 0 ? (
+              <Text>Carrito vacio</Text>
+            ) : (
+              <FlatList
+                data={Object.values(productsOrder)}
+                renderItem={({ item, index }) => (
+                  <InventoryItem style={{ height: 83 }} info={{ ...item.info, amount: item.count }} />
+                )}
+                keyExtractor={(item, index) => index.toString()}
+              />
+            )}
+            <View style={styleSheet.boxTotal}>
+              <Text style={styleSheet.txtTotal}>TOTAL:      ${calcTotal()}</Text>
             </View>
           </Dialog.Content>
-          <Dialog.Actions>
-            <Button onPress={hideDialog}>Done</Button>
-          </Dialog.Actions>
+          <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+            <ButtonCommon
+              disabled={!ready}
+              onPress={() => {
+                Alert.alert("Enviando al correo asociado...")
+                setReady(false)
+              }}
+              style={styleSheet.btns}
+            >Enviar</ButtonCommon>
+            <ButtonCommon
+              onPress={handledApproval}
+            >Aprobar</ButtonCommon>
+          </View>
+          <Dialog.Actions />
         </Dialog>
       </Portal>
     </View>

@@ -2,7 +2,6 @@ import React from "react";
 import { View } from "react-native";
 import { useTheme, Text } from "react-native-paper";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { TouchableOpacity } from "react-native";
 import styles from "./OrderCard.style";
@@ -31,11 +30,10 @@ const OrderCard = ({
     const { colors } = useTheme();
     const styleSheet = styles(colors);
     const { nameClient, state, phone, email, number, items, total } = info
-    console.log(state)
     return (
         <TouchableOpacity
             onPress={onPress}
-            disabled={state === 1}
+           
         >
             <View style={[styleSheet.container, style]}>
                 <View style={styleSheet.iconContent}>

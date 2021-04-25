@@ -5,6 +5,7 @@ import productsDB from '../../data/products'
 export const ProductsStorageContext = React.createContext({
   products: [],
   addProducts: () => { },
+  deleteItemById: () => {}
 });
 const productObject = (product) => ({
   id: makeId(),
@@ -12,7 +13,7 @@ const productObject = (product) => ({
   amount: product.amount,
   price: product.price,
   qr: product.qr,
-  image:"https://mercaldas.vteximg.com.br/arquivos/ids/199918-400-400/CHICLE-ADAMS-De-Menta-17-4-20-Unidades-Caja_1215.jpg?v=637382419573030000",
+  image:product.image,
   description: product.description,
   color:product.color,
   date:product.date
@@ -20,13 +21,18 @@ const productObject = (product) => ({
 const ProductsStorageProvider = ({ children }) => {
   const [products, setProducts] = useState(productsDB);
   const addProducts = (newProduct) => {
-    console.log("new product", newProduct)
     if(!newProduct) return;
     setProducts([...products, productObject(newProduct)]);
   }
+
+  const deleteItemById = (id) => {
+    const filteredData = products.filter(product => product.id != id);
+    setProducts(filteredData)
+  }
+  
   return (
     <ProductsStorageContext.Provider
-      value={{ products, addProducts}}
+      value={{ products, addProducts, deleteItemById}}
     >
       {children}
     </ProductsStorageContext.Provider>

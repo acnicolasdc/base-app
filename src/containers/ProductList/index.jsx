@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Snackbar } from "react-native-paper";
-import { FlatList, View, Pressable } from "react-native";
+import { FlatList, View, Pressable, Alert } from "react-native";
 import { ShoppingCartContext } from "@providers/ShoppingCart";
 import FieldSearchBar from "@components/Field/FieldSearchBar/FieldSearchBar";
 import ProductCard from "@components/Product/ProductCard";
@@ -22,7 +22,6 @@ const formatData = (productData) => {
 const ProductList = () => {
   const { products: productsDB } = useContext(ProductsStorageContext);
   const [visible, setVisible] = useState(false);
-  //const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState(formatData(productsDB));
   const [camera, setCamera] = useState(false);
   const [qr, setQr] = useState("");
@@ -39,12 +38,21 @@ const ProductList = () => {
       if(getProduct){
         setProducts(formatData([getProduct]))
         setQr("")
+      }else{
+        Alert.alert(
+          
+          "Producto no encontrado",
+          "Parece que este codigo de barras no esta registrado dentro de tu tienda...",
+          [
+            
+            { text: "OK", onPress: () => setVisible(false) }
+          ]
+        );
       }
     }
   }, [qr]);
 
   const navigation = useNavigation();
-  //const onChangeSearch = (query) => setSearchQuery(query);
   const filterProductByName = (searchQuery) => {
     const MIN_SEARCH_LENGTH = 0;
     if (!searchQuery || searchQuery.length < MIN_SEARCH_LENGTH) {
@@ -90,13 +98,37 @@ const ProductList = () => {
           }}
         >
           <FieldSearchBar
-            style={{ width: "63%" }}
+            style={{ width: "70%" }}
             placeholder="Buscar producto"
             onChangeText={filterProductByName}
-            //value={searchQuery}
             onIconPress={filterProductByName}
             onSubmitEditing={filterProductByName}
           />
+           <Pressable
+           style = {{marginHorizontal:10}}
+            onPress={() => filterProductByName('')}>
+            <View
+              style={{
+                backgroundColor: "#6739BF",
+                borderRadius: 10,
+                width: 45,
+                height: 45,
+                justifyContent: "center",
+                alignItems: "center",
+                shadowColor: "#000",
+                shadowOffset: {
+                  width: 0,
+                  height: 3,
+                },
+                shadowOpacity: 0.29,
+                shadowRadius: 4.65,
+                elevation: 7,
+              }}
+            >
+              <Feather name="x-square" size={28} color="white" />
+            </View>
+          </Pressable>
+          
           <Pressable
             onPress={() => setCamera(true)}
           >
@@ -107,7 +139,6 @@ const ProductList = () => {
                 width: 45,
                 height: 45,
                 justifyContent: "center",
-                marginHorizontal: 15,
                 alignItems: "center",
                 shadowColor: "#000",
                 shadowOffset: {
@@ -128,31 +159,7 @@ const ProductList = () => {
             </View>
           </Pressable>
           
-          <Pressable
-            onPress={() => filterProductByName('')}
-          >
-            <View
-              style={{
-                backgroundColor: "#6739BF",
-                borderRadius: 10,
-                width: 45,
-                height: 45,
-                justifyContent: "center",
-                marginHorizontal: 0,
-                alignItems: "center",
-                shadowColor: "#000",
-                shadowOffset: {
-                  width: 0,
-                  height: 3,
-                },
-                shadowOpacity: 0.29,
-                shadowRadius: 4.65,
-                elevation: 7,
-              }}
-            >
-              <Feather name="x-square" size={24} color="white" />
-            </View>
-          </Pressable>
+         
 
         </View>
         <FlatList
@@ -186,7 +193,6 @@ const ProductList = () => {
         goBack={() => setCamera(false)}
         getData={({ type, data }) => {
         setQr(data);
-        console.log(data)
         }}
       />
     </>

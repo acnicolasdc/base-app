@@ -12,9 +12,24 @@ export default (pallet, colors) =>
             flex:1,
             alignSelf:'center',
             justifyContent:'center',
-           
-
-        }
+        },
+        btns:{
+            width:100,
+            marginHorizontal:5,
+        },
+        txtTotal: {
+            fontSize: 25,
+            fontWeight: "600",
+            alignSelf:'center',
+            fontStyle:'italic',
+            marginTop:5
+        
+          },
+          boxTotal:{
+              borderTopWidth:1,
+              borderColor: "#6739BF",
+              marginVertical:10
+          }
         
     });
 ;

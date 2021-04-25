@@ -66,6 +66,7 @@ const FormAddProduct = () => {
     addProducts(newProduct);
     navigation.navigate(routes.GENERAL_TAB, {
       screen: subRoutes.GENERAL_TAB.INVENTORY,
+      
     });
   };
 

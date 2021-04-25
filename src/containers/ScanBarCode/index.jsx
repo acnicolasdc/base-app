@@ -28,6 +28,7 @@ const ScanBarcode = ({ open = false, goBack = () => { }, getData = () => { }, })
   if (hasPermission === false) {
     return <Text>No access to camera</Text>;
   }
+ 
 
   return open ? (
     <Portal>
@@ -40,9 +41,13 @@ const ScanBarcode = ({ open = false, goBack = () => { }, getData = () => { }, })
           onPress={goBack}
           style={{ marginBottom: 15 }}
         />
-        <Text style={{
-          fontSize:15,
-          fontStyle:'italic',
+  
+  <Text style={{
+      
+      opacity:.8,
+      borderRadius:15,
+      alignItems:'center',
+          fontSize:18,
           color:'white',
           alignSelf:'center',
           justifyContent:'center',
@@ -52,13 +57,14 @@ const ScanBarcode = ({ open = false, goBack = () => { }, getData = () => { }, })
          BUSCANDO CODIGO DE BARRAS...
         
       </Text>
+   
         <View
           style={{
-            flex: 1,
+            height:200,
             borderWidth: 1,
             marginTop: 120,
             marginBottom:150,
-            borderColor:'#5e5e5e'
+            borderColor:'#e3e4e5'
           }}
         ></View>
         {scanned && (
