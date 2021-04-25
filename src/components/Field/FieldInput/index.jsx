@@ -8,7 +8,7 @@ const FieldInput = ({ style, ...restProps }) => {
   return (
     <TextInput
       mode="flat"
-      autoCapitalize="none"
+      autoCapitalize="words"
       style={[styleSheet.fieldStructure, style]}
       underlineColor={colors.placeholder}
       underlineColorAndroid={colors.placeholder}

@@ -114,6 +114,7 @@ const FormAddProduct = () => {
             </Pressable>
           </View>
           <FieldInput
+          autoCapitalize="characters"
             label="NOMBRE DEL PRODUCTO"
             style={styleSheet.fieldInput}
             onChangeText={(text) => setProductName(text)}

@@ -1,4 +1,4 @@
-import React, { useSate } from "react";
+import React, { useState,useLayoutEffect } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const APP_NAME = "ORDERWAY";
@@ -24,7 +24,7 @@ const getData = async ( key="" ) => {
 }
 
 const AuthorizationsProvider = ({ children }) => {
-  const [ session, setSession ] = useSate(false);
+  const [ session, setSession ] = useState(false);
 
   useLayoutEffect(() => {
     const hasSession = getData(USER_KEY);

@@ -15,6 +15,7 @@ const OrderList = ({ }) => {
   const styleSheet = style(pallet, colors);
   const [orderSelected, setOrderSelected] = useState('');
   const [ready, setReady] = useState(true);
+  const indexOrder = 0
   const {
     productsOrder
   } = useContext(ShoppingCartContext);
@@ -57,7 +58,6 @@ const OrderList = ({ }) => {
           </Text>
         </View> :
         <FlatList
-        onPress={"Oe"}
           data={orders}
           renderItem={({ item, index }) => {
             return <OrderCard onPress={() => showDialog(index)
@@ -78,7 +78,8 @@ const OrderList = ({ }) => {
               <FlatList
                 data={Object.values(productsOrder)}
                 renderItem={({ item, index }) => (
-                  <InventoryItem style={{ height: 83 }} info={{ ...item.info, amount: item.count }} />
+                  <InventoryItem style={{ height: 83 }}
+                    info={{ ...item.info, amount: item.count }} />
                 )}
                 keyExtractor={(item, index) => index.toString()}
               />
@@ -96,8 +97,10 @@ const OrderList = ({ }) => {
               }}
               style={styleSheet.btns}
             >Enviar</ButtonCommon>
+            {console.log(orders)}
             <ButtonCommon
-              onPress={handledApproval}
+              onPress={handledApproval
+              }
             >Aprobar</ButtonCommon>
           </View>
           <Dialog.Actions />

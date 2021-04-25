@@ -58,17 +58,6 @@ export default [
     color: "#434508",
     date: "7/17/2020",
   },
-  {
-    id: 6,
-    name: "SOMETHING ",
-    amount: 0,
-    price: 800.000,
-    qr: "0080432402795",
-    image: "https://http2.mlstatic.com/D_NQ_NP_852024-MCO41598478169_042020-O.webp",
-    description:
-      "Incluye vaporera, capacidad de 1.8LT. Potencia 500 Watts",
-    color: "#434508",
-    date: "7/17/2020",
-  },
+
 
 ];

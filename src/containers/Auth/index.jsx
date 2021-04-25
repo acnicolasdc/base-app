@@ -12,17 +12,17 @@ import style from "./Auth.style";
 // hardcode users
 const USER_ONE = {
   username: "sandra@orderway.com",
-  password: "12345",
+  password: "123",
 };
 
 const USER_TWO = {
   username: "peñe@orderway.com",
-  password: "12345",
+  password: "123",
 };
 
 const USER_THREE = {
   username: "roger@orderway.com",
-  password: "12345",
+  password: "123",
 };
 
 const Auth = () => {
