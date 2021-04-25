@@ -1,14 +1,16 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import Private from "./private";
 import Public from "./public";
-const LOGIN = true;
+import { AuthorizationsContext } from "@providers/Authorizations";
+
 const Routes = () => {
+  const { session } = useContext(AuthorizationsContext);
   return (
     <NavigationContainer>
       <StatusBar style="auto" />
-      {LOGIN ? <Private /> : <Public />}
+      {session ? <Private /> : <Public />}
     </NavigationContainer>
   );
 };
