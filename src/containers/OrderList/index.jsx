@@ -13,10 +13,13 @@ const OrderList = ({ }) => {
   const styleSheet = style(pallet, colors);
   const [orderSelected, setOrderSelected] = useState('');
 
+  
   const {
     orders, updateOrder
   } = useContext(OrdersStorageContext);
   const [visible, setVisible] = useState(false);
+
+console.log(orders)
 
   const showDialog = (index) => {
     setOrderSelected(index)

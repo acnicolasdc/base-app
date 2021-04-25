@@ -7,6 +7,8 @@ import { routes, subRoutes } from "@routes/private";
 import FormAddProduct from "@containers/Forms/FormAddProduct"
 import ButtonCommon from "@components/Button/ButtonCommon";
 
+
+
 ///<FormAddProduct/>
 ///<InventoryList/>
 ///<ProductDetail/>

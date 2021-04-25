@@ -11,6 +11,7 @@ import { useTheme } from "react-native-paper";
 import { Fontisto } from "@expo/vector-icons";
 import { ProductsStorageContext } from "@providers/ProductsStorage";
 import ScanBarcode from "../../ScanBarCode";
+import ImagePicker from "@containers/ImagePicker";
 
 
 import makeId from "../../../utils/makeId";
@@ -20,6 +21,7 @@ const FormAddProduct = () => {
   const styleSheet = styles(pallet, colors);
   const navigation = useNavigation();
   const [cameraScan, setCameraScan] = useState(false);
+  const [picture, setPicture] = useState(false);
   const [qr, setQr] = useState("");
   const [productId, setProductId] = useState("");
   const [productName, setProductName] = useState("");
@@ -98,7 +100,7 @@ const FormAddProduct = () => {
               value={productAmount}
             />
             <Pressable
-              onPress={() => { }}
+              onPress={() => {setPicture(true)}}
             >
               <View style={styleSheet.boxIcon}>
                 <Fontisto name="camera" size={22} color="white" />
@@ -147,6 +149,10 @@ const FormAddProduct = () => {
         getData={({ type, data }) => {
           setQr(data);
         }}
+      />
+          <ImagePicker
+        open={picture}
+       
       />
 
     </>

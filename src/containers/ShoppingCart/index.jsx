@@ -2,7 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { routes, subRoutes } from "@routes/private";
 import styles from "./ShoppingCart.style";
-import { View, FlatList, Image } from "react-native";
+import { View, FlatList,  } from "react-native";
+import * as Linking from 'expo-linking';
 import { Text } from "react-native-paper";
 import { useTheme } from "react-native-paper";
 import FieldInput from "@components/Field/FieldInput";
@@ -29,6 +30,7 @@ const ShoppingCart = () => {
   const [id, setId] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  
 
   useEffect(() => {
     isFormComplete();
@@ -63,6 +65,8 @@ const ShoppingCart = () => {
       screen: subRoutes.GENERAL_TAB.ORDERS,
     })
   };
+
+  
   return (
 
     <KeyboardAwareScrollView >

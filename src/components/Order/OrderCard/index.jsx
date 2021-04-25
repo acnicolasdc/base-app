@@ -19,20 +19,18 @@ export const defaultProps = Object.freeze({
         number: 777,
         items: [],
         total: 999,
-
+        state:false
     },
     ON_PRESS: () => alert("press!"),
-    STATE: 0,
 });
 const OrderCard = ({
     style,
     onPress = defaultProps.ON_PRESS,
     info = defaultProps.INFO,
-    state = defaultProps.STATE
 }) => {
     const { colors } = useTheme();
     const styleSheet = styles(colors);
-    const { nameClient, idClient, phone, email, number, items, total } = info
+    const { nameClient, state, phone, email, number, items, total } = info
     console.log(state)
     return (
         <TouchableOpacity
