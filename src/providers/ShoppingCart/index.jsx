@@ -28,6 +28,7 @@ const ShoppingCartProvider = ({ children }) => {
         delete removedProductList[newProduct.id];
         setProducts(removedProductList)
         setProductsOrders(removedProductList)
+        console.log("Esta"+removedProductList)
       } else {
         const productUpdated = { ...isProduct, count: count };
         setProducts({ ...products, [newProduct.id]: productUpdated })

@@ -24,14 +24,16 @@ const InventoryList = () => {
         flexDirection: 'column',
         borderColor: colors.pallet.borderCard,
         borderRadius: 25,
-        marginHorizontal: 20,
+        marginHorizontal: 10,
         borderWidth: 1,
-        marginVertical: 15,
+        marginTop: 15,
         paddingHorizontal: 15,
         marginBottom: 90,
+       
       }}
       data={products}
       renderItem={({ item, index }) => (<InventoryItem
+       
         onPress={ () => Alert.alert(
             "CUIDADO !",
             "Estas seguro que deseas eliminar este producto?",

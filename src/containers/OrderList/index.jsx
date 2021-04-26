@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { OrdersStorageContext } from "@providers/OrdersStorage";
 import { FlatList, View, Text } from "react-native";
 import { ShoppingCartContext } from "@providers/ShoppingCart";
+import { ProductsStorageContext } from "@providers/ProductsStorage";
 import OrderCard from "@components/Order/OrderCard";
 import orderData from "@data/orders";
 import style from "./OrderList.style";
@@ -15,10 +16,14 @@ const OrderList = ({ }) => {
   const styleSheet = style(pallet, colors);
   const [orderSelected, setOrderSelected] = useState('');
   const [ready, setReady] = useState(true);
-  const indexOrder = 0
   const {
     productsOrder
   } = useContext(ShoppingCartContext);
+
+  const {
+    updateInventory
+  } = useContext(ProductsStorageContext);
+
   useEffect(() => {
     setReady(true);
   }, [orderSelected]);
@@ -37,6 +42,11 @@ const OrderList = ({ }) => {
     updateOrder(orderSelected)
     hideDialog(true)
     updateOrder(orderSelected)
+    const order = orders[orderSelected]
+    order.items.forEach((product) => {
+      console.log(product)
+      updateInventory(product.count, product.id)
+    })
   }
   const calcTotal = () => {
     let total = 0;
@@ -97,7 +107,6 @@ const OrderList = ({ }) => {
               }}
               style={styleSheet.btns}
             >Enviar</ButtonCommon>
-            {console.log(orders)}
             <ButtonCommon
               onPress={handledApproval
               }

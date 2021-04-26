@@ -16,7 +16,7 @@ const USER_ONE = {
 };
 
 const USER_TWO = {
-  username: "peñe@orderway.com",
+  username: "victor@orderway.com",
   password: "123",
 };
 

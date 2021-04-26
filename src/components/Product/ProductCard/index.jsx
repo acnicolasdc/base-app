@@ -68,7 +68,7 @@ const ProductCard = ({
               children
             ) : (<View style={styleSheet.soldOut}>
               <Text style={styleSheet.textSoldOut}>
-                SOLD OUT
+                AGOTADO
               </Text>
             </View>
             )}

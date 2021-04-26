@@ -5,7 +5,9 @@ import productsDB from '../../data/products'
 export const ProductsStorageContext = React.createContext({
   products: [],
   addProducts: () => { },
-  deleteItemById: () => {}
+  deleteItemById: () => {},
+  updateInventory: () => {}
+  
 });
 const productObject = (product) => ({
   id: makeId(),
@@ -29,10 +31,25 @@ const ProductsStorageProvider = ({ children }) => {
     const filteredData = products.filter(product => product.id != id);
     setProducts(filteredData)
   }
+
+  const updateInventory = (count, id) => {
+    const indexOf = products.findIndex(product => product.id === id)
+  if (indexOf >= 0) {
+      const gotProduct = products[indexOf]
+      console.log(gotProduct)
+      gotProduct.amount = gotProduct.amount - count
+      console.log(gotProduct)
+      const newProductList = [...products]
+      newProductList[indexOf] = gotProduct
+      console.log(newProductList)
+      setProducts(newProductList)
+    }
+    
+  }
   
   return (
     <ProductsStorageContext.Provider
-      value={{ products, addProducts, deleteItemById}}
+      value={{ products, addProducts, deleteItemById, updateInventory}}
     >
       {children}
     </ProductsStorageContext.Provider>

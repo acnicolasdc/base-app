@@ -1,51 +1,43 @@
 export default [
   {
-    title: "Sistema de facturación digital",
+    title: "Sistema de facturación móvil",
     text: "Aquí podrás crear todos los productos que vendes.",
-    image: "image.jpg",
-  },
-  {
-    title: "Tienes empleados ?",
-    text:
-      "Podras crearlos dentro de tu sistema y así, ellos podrán interactuar con el.",
-    text:
-      "Podras crearlos dentro de tu sistema y así, ellos te brindarán potencia de fuego para evitar la aglomeración en tu establecimiento.",
     image: "image.jpg",
   },
   {
     title: "Esta vez, tienes la técnologia a tu favor",
     text:
-      "Le asignaremos un identificador gráfico único a cada producto conocido como CÓDIGO QR.",
+      "Asocia un identificador gráfico a tus productos escaneando sus códigos de barras.",
     image: "image.jpg",
   },
   {
-    title: "Apadrina los productos en tu tienda fisica",
+    title: "Genera ordenes de venta rapidamente",
     text:
-      "Imprime la lista de tus CÓDIGOS QR y adhierelo a uma superficie donde del producto",
+      "Añade productos a una orden, escaneando sus códigos de barras o por texto",
     image: "image.jpg",
   },
   {
-    title: "Genera órdenes de venta como núnca",
+    title: "Trabaja con tu equipo",
     text:
-      "Usando la cámara de sus dispositivos, los empleados creados y tu, podrán escanear los codigos QR y agregarlos a ordenes de venta",
+      "Tus empleados  y tu, podrán compartir las ordenes generadas para ser aprobadas y despachadas desde caja...",
     image: "image.jpg",
   },
   {
-    title: "Genera facturas",
+    title: "Comparte los comprobantes de venta",
     text:
-      "Podras aprobar las ordenes de venta y enviarlas como facturas a los clientes",
+      "Podras enviar las ordenes de venta a los clientes",
     image: "image.jpg",
   },
   {
     title: "Alcanza muchas más ventas",
     text:
-      "Entre más fácil sea finalizar tus ventas, mas rápido y mas ventas podrás alcanzar",
+      "Entre más fácil sea finalizar tus ventas, mas rápido y más ventas podrás alcanzar",
     image: "image.jpg",
   },
 
   {
     title: "Tu negocio crecerá",
-    text: "De la mano, podremos elevar tus ventas, intentalo...",
+    text: "De la mano, podremos elevar tus ventas, inténtalo...",
     image: "image.jpg",
   },
 ];
