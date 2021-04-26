@@ -41,9 +41,10 @@ const ShoppingCartProvider = ({ children }) => {
   const deleteItemById = (id) => {
     const filteredData =  Object.values(products).filter(product => product.id != id);
     setProducts(filteredData)
+    setProductsOrders(filteredData)
   }
 
-  const cleanShoppingCart = () => setProducts({});
+  const cleanShoppingCart = () => {setProducts({})} ;
   const getCountProducts = () => Object.values(products).length;
   return (
     <ShoppingCartContext.Provider

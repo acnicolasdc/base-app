@@ -3,7 +3,7 @@ export default [
     id: 1,
     name: "ARROCERA OSTER 1,8LT",
     amount: 20,
-    price: 166.000,
+    price: 166000,
     qr: "0034264487987",
     image: "https://http2.mlstatic.com/D_NQ_NP_615674-MCO42468581786_072020-O.webp",
     description:
@@ -15,7 +15,7 @@ export default [
     id: 2,
     name: "OLLA PITADORA IMUSA 6LT",
     amount: 15,
-    price: 110.000,
+    price: 110000,
     qr: "7702073030511",
     image: "https://http2.mlstatic.com/D_NQ_NP_790464-MCO42753920032_072020-O.webp",
     description:
@@ -27,7 +27,7 @@ export default [
     id: 3,
     name: "LICUADORA OSTER BASICA",
     amount: 50,
-    price: 90.000,
+    price: 90000,
     qr: "0053891138376",
     image: "https://http2.mlstatic.com/D_NQ_NP_961495-MCO41641078401_052020-O.webp",
     description:
@@ -39,7 +39,7 @@ export default [
     id: 4,
     name: "CAFETERA KALLEY 6TZ",
     amount: 10,
-    price: 60.000,
+    price: 60000,
     qr: "7701023335461",
     image: "https://http2.mlstatic.com/D_NQ_NP_2X_891371-MCO31061696478_062019-F.webp",
     description:
@@ -50,7 +50,7 @@ export default [
     id: 5,
     name: "ARROCERA KALLEY 1.8LT",
     amount: 0,
-    price: 80.000,
+    price: 80000,
     qr: "7701023354783",
     image: "https://http2.mlstatic.com/D_NQ_NP_852024-MCO41598478169_042020-O.webp",
     description:
