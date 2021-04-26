@@ -27,10 +27,11 @@ const AuthorizationsProvider = ({ children }) => {
   const [ session, setSession ] = useState(false);
 
   useLayoutEffect(() => {
-    const hasSession = getData(USER_KEY);
-    if (hasSession && !session) {
+      getData(USER_KEY).then((hasSession)=>{
+      if (hasSession && !session) {
         setSession(true);
-    }
+      }
+    });
   }, [session]);
 
 
@@ -43,7 +44,7 @@ const AuthorizationsProvider = ({ children }) => {
 
   const saveUserData = async (value) => {
     try {
-      await AsyncStorage.setItem(USER_KEY, value)
+      await AsyncStorage.setItem(USER_KEY, JSON.stringify(value))
       setSession(true);
     } catch (e) {
       // saving error
