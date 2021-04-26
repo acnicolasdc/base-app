@@ -5,7 +5,8 @@ import makeId from '../../utils/makeId'
 export const OrdersStorageContext = React.createContext({
   orders: [],
   addOrder: () => { },
-  updateOrder:() => { }
+  updateOrder:() => { },
+  deleteOrder: () => {}
 });
 
 const orderObject = (productList, costumerInfo) => ({
@@ -31,9 +32,15 @@ const OrdersStorageProvider = ({ children }) => {
     oldOrders[index] =  {...orders[index],state:1}
     setOrders(oldOrders)
   }
+
+  const deleteOrder = (number) => {
+    const filteredData = orders.filter(order => order.id != number);
+    setOrders(filteredData)
+  }
+
   return (
     <OrdersStorageContext.Provider
-      value={{ orders, addOrder, updateOrder }}
+      value={{ orders, addOrder, updateOrder, deleteOrder  }}
     >
       {children}
     </OrdersStorageContext.Provider>

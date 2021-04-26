@@ -1,20 +1,17 @@
 import React, { useState } from "react";
 
-
 export const ShoppingCartContext = React.createContext({
   updateProduct: () => { },
   countProducts: 0,
   products: {},
   cleanShoppingCart: () => { },
   deleteItemById: () => {}
-
 });
 const productObject = (product, count = 1) => ({
   id: product.id,
   info: product,
   count: count
 })
-
 
 const ShoppingCartProvider = ({ children }) => {
   const [products, setProducts] = useState({});
@@ -28,7 +25,6 @@ const ShoppingCartProvider = ({ children }) => {
         delete removedProductList[newProduct.id];
         setProducts(removedProductList)
         setProductsOrders(removedProductList)
-        console.log("Esta"+removedProductList)
       } else {
         const productUpdated = { ...isProduct, count: count };
         setProducts({ ...products, [newProduct.id]: productUpdated })

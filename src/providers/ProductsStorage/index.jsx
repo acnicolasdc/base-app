@@ -36,12 +36,9 @@ const ProductsStorageProvider = ({ children }) => {
     const indexOf = products.findIndex(product => product.id === id)
   if (indexOf >= 0) {
       const gotProduct = products[indexOf]
-      console.log(gotProduct)
       gotProduct.amount = gotProduct.amount - count
-      console.log(gotProduct)
       const newProductList = [...products]
       newProductList[indexOf] = gotProduct
-      console.log(newProductList)
       setProducts(newProductList)
     }
     

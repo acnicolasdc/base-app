@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
-import { OrdersStorageContext } from "@providers/OrdersStorage";
 import { FlatList, View, Text } from "react-native";
 import { ShoppingCartContext } from "@providers/ShoppingCart";
 import { ProductsStorageContext } from "@providers/ProductsStorage";
+import { OrdersStorageContext } from "@providers/OrdersStorage";
 import OrderCard from "@components/Order/OrderCard";
 import orderData from "@data/orders";
 import style from "./OrderList.style";
@@ -24,12 +24,13 @@ const OrderList = ({ }) => {
     updateInventory
   } = useContext(ProductsStorageContext);
 
+
   useEffect(() => {
     setReady(true);
   }, [orderSelected]);
 
   const {
-    orders, updateOrder
+    orders, updateOrder,deleteOrder
   } = useContext(OrdersStorageContext);
   const [visible, setVisible] = useState(false);
   const showDialog = (index) => {
@@ -44,7 +45,6 @@ const OrderList = ({ }) => {
     updateOrder(orderSelected)
     const order = orders[orderSelected]
     order.items.forEach((product) => {
-      console.log(product)
       updateInventory(product.count, product.id)
     })
   }
@@ -59,6 +59,10 @@ const OrderList = ({ }) => {
     total: calcTotal()
   }
   handlerShoppingCartToOrder()
+
+  const handleRemoveOrder = (index) => {
+    deleteOrder(index)
+  }
   return (
     <View style={{ backgroundColor: "white", flex: 1 }}>
       { orders == 0 ?
@@ -99,6 +103,12 @@ const OrderList = ({ }) => {
             </View>
           </Dialog.Content>
           <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+          <ButtonCommon
+              onPress={()=>{
+                handleRemoveOrder(orders.number),
+                hideDialog()
+              }}
+            >Eliminar</ButtonCommon>
             <ButtonCommon
               disabled={!ready}
               onPress={() => {

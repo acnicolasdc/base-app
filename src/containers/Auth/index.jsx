@@ -49,6 +49,7 @@ const Auth = () => {
   return (
     <View style={{ flex: 1 }}>
       <FieldInput
+        autoCapitalize="none"
         label="CORREO"
         textContentType="emailAddress"
         style={{ marginBottom: 10 }}

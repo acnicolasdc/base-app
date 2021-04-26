@@ -106,7 +106,9 @@ const ProductList = () => {
           />
            <Pressable
            style = {{marginHorizontal:10}}
-            onPress={() => filterProductByName('')}>
+            onPress={
+              () => filterProductByName('')
+            }>
             <View
               style={{
                 backgroundColor: "#6739BF",

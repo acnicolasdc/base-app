@@ -4,14 +4,9 @@ import { View, Text } from "react-native";
 import InventoryList from "@containers/Inventory/InventoryList"
 import styles from "./Inventory.style";
 import { routes, subRoutes } from "@routes/private";
-import FormAddProduct from "@containers/Forms/FormAddProduct"
 import ButtonCommon from "@components/Button/ButtonCommon";
 
 
-
-///<FormAddProduct/>
-///<InventoryList/>
-///<ProductDetail/>
 const Inventory = () => {
   const styleSheet = styles();
   const navigation = useNavigation();
