@@ -27,13 +27,16 @@ const InventoryList = () => {
         marginHorizontal: 10,
         borderWidth: 1,
         marginTop: 15,
-        paddingHorizontal: 15,
-        marginBottom: 90,
+        marginBottom: "18%",
+        paddingHorizontal:5,
+        marginRight:'8%'
+        
+       
        
       }}
       data={products}
       renderItem={({ item, index }) => (<InventoryItem
-       
+          style={{paddingVertical:"5%"}}
         onPress={ () => Alert.alert(
             "CUIDADO !",
             "Estas seguro que deseas eliminar este producto?",

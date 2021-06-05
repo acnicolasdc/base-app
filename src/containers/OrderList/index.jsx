@@ -8,7 +8,7 @@ import orderData from "@data/orders";
 import style from "./OrderList.style";
 import { useTheme, Dialog, Portal, } from "react-native-paper";
 import { Alert } from "react-native";
-import ButtonCommon from "@components/Button/ButtonCommon"
+import ButtonCommonSmall from "@components/Button/ButtonCommonSmall"
 import InventoryItem from "@components/Inventory/InventoryItem";
 
 const OrderList = ({ }) => {
@@ -17,7 +17,7 @@ const OrderList = ({ }) => {
   const [orderSelected, setOrderSelected] = useState('');
   const [ready, setReady] = useState(true);
   const {
-    productsOrder
+    productsOrder, deleteItemById
   } = useContext(ShoppingCartContext);
 
   const {
@@ -30,7 +30,7 @@ const OrderList = ({ }) => {
   }, [orderSelected]);
 
   const {
-    orders, updateOrder,deleteOrder
+    orders, updateOrder, deleteOrder
   } = useContext(OrdersStorageContext);
   const [visible, setVisible] = useState(false);
   const showDialog = (index) => {
@@ -60,6 +60,9 @@ const OrderList = ({ }) => {
   }
   handlerShoppingCartToOrder()
 
+  const handleRemoveProduct = (index) => {
+    deleteItemById(index)
+  }
   const handleRemoveOrder = (index) => {
     deleteOrder(index)
   }
@@ -83,7 +86,7 @@ const OrderList = ({ }) => {
         />
       }
       <Portal>
-        <Dialog visible={visible} onDismiss={hideDialog} style={{ borderRadius: 30 }}>
+        <Dialog visible={visible} onDismiss={hideDialog} style={{ borderRadius: 30, width: "90%", alignSelf: 'center' }}>
           <Dialog.Content style={{ padding: 0 }}>
 
             {Object.values(productsOrder).length === 0 ? (
@@ -92,7 +95,20 @@ const OrderList = ({ }) => {
               <FlatList
                 data={Object.values(productsOrder)}
                 renderItem={({ item, index }) => (
-                  <InventoryItem style={{ height: 83 }}
+                  <InventoryItem
+                    onPress={() => Alert.alert(
+                      "CUIDADO !",
+                      "Estas seguro que deseas eliminar este producto?",
+                      [
+                        {
+                          text: "Cancel",
+                          onPress: () => { null },
+                          style: "cancel"
+                        },
+                        { text: "OK", onPress: () => handleRemoveProduct(item.id) }
+                      ]
+                    )}
+                    style={{ height: 83 }}
                     info={{ ...item.info, amount: item.count }} />
                 )}
                 keyExtractor={(item, index) => index.toString()}
@@ -103,24 +119,24 @@ const OrderList = ({ }) => {
             </View>
           </Dialog.Content>
           <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-          <ButtonCommon
-              onPress={()=>{
+            <ButtonCommonSmall
+              onPress={() => {
                 handleRemoveOrder(orders.number),
-                hideDialog()
+                  hideDialog()
               }}
-            >Eliminar</ButtonCommon>
-            <ButtonCommon
+            >Eliminar</ButtonCommonSmall>
+            <ButtonCommonSmall
               disabled={!ready}
               onPress={() => {
                 Alert.alert("Enviando al correo asociado...")
                 setReady(false)
               }}
               style={styleSheet.btns}
-            >Enviar</ButtonCommon>
-            <ButtonCommon
+            >Enviar</ButtonCommonSmall>
+            <ButtonCommonSmall
               onPress={handledApproval
               }
-            >Aprobar</ButtonCommon>
+            >Aprobar</ButtonCommonSmall>
           </View>
           <Dialog.Actions />
         </Dialog>

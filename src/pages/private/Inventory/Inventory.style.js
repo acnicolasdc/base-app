@@ -6,7 +6,7 @@ export default () =>
 
       alignSelf: 'center',
       position: 'absolute',
-      top: '85%',
+      top: '90%',
       left: '30%',
       shadowColor: "#000",
       shadowOffset: {

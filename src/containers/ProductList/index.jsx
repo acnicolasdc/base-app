@@ -33,18 +33,18 @@ const ProductList = () => {
   }, [productsDB]);
 
   useEffect(() => {
-    if(qr !== ""){
-      const getProduct=products.find(product=>product.qr === qr)
-      if(getProduct){
+    if (qr !== "") {
+      const getProduct = products.find(product => product.qr === qr)
+      if (getProduct) {
         setProducts(formatData([getProduct]))
         setQr("")
-      }else{
+      } else {
         Alert.alert(
-          
+
           "Producto no encontrado",
           "Parece que este codigo de barras no esta registrado dentro de tu tienda...",
           [
-            
+
             { text: "OK", onPress: () => setVisible(false) }
           ]
         );
@@ -81,11 +81,11 @@ const ProductList = () => {
     return products
       .filter(
         ({ name }) =>
-          name.match(searchRE) 
+          name.match(searchRE)
       )
       .slice(0, 15);
   };
-  
+
   return (
     <>
       <View style={{ paddingHorizontal: 15 }}>
@@ -104,8 +104,8 @@ const ProductList = () => {
             onIconPress={filterProductByName}
             onSubmitEditing={filterProductByName}
           />
-           <Pressable
-           style = {{marginHorizontal:10}}
+          <Pressable
+            style={{ marginHorizontal: "2%" }}
             onPress={
               () => filterProductByName('')
             }>
@@ -130,7 +130,7 @@ const ProductList = () => {
               <Feather name="x-square" size={28} color="white" />
             </View>
           </Pressable>
-          
+
           <Pressable
             onPress={() => setCamera(true)}
           >
@@ -156,12 +156,11 @@ const ProductList = () => {
                 name="barcode-scan"
                 size={28}
                 color="white"
-                style={{}}
               />
             </View>
           </Pressable>
-          
-         
+
+
 
         </View>
         <FlatList
@@ -194,7 +193,7 @@ const ProductList = () => {
         open={camera}
         goBack={() => setCamera(false)}
         getData={({ type, data }) => {
-        setQr(data);
+          setQr(data);
         }}
       />
     </>
