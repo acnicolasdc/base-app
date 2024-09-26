@@ -5,7 +5,7 @@ import { routes } from "@routes/public";
 import ButtonStepIndicator from "@components/Button/ButtonStepIndicator";
 import LayoutFrame from "@components/Layout/LayoutFrame";
 import style from "./OnBoarding.styles";
-import getStartedInformation from './utils/getStartedInformation';
+import getStartedInformation from "./utils/getStartedInformation";
 
 const OnBoarding = ({ navigation }) => {
   const [step, setStep] = useState(0);
@@ -13,7 +13,7 @@ const OnBoarding = ({ navigation }) => {
   const styleSheet = style(colors);
   const maxSteps = getStartedInformation.length;
   const stepController = () => {
-    if (step+1 === maxSteps) {
+    if (step + 1 === maxSteps) {
       navigation.navigate(routes.LOGIN);
     } else {
       setStep((prevStep) => prevStep + 1);
@@ -23,7 +23,7 @@ const OnBoarding = ({ navigation }) => {
   return (
     <LayoutFrame>
       <View style={styleSheet.subheading}>
-        <Subheading style={styleSheet.headingText}>ENVASE</Subheading>
+        <Subheading style={styleSheet.headingText}>ORDERWAY</Subheading>
       </View>
       <View style={styleSheet.container}>
         <View style={styleSheet.container}></View>
@@ -34,7 +34,7 @@ const OnBoarding = ({ navigation }) => {
       </View>
       <View style={styleSheet.bottomContent}>
         <ButtonStepIndicator
-          position={step+1}
+          position={step + 1}
           steps={maxSteps}
           color={colors.secondary}
           iconColor={colors.background}
@@ -43,7 +43,7 @@ const OnBoarding = ({ navigation }) => {
         />
         <View style={styleSheet.bottomAbsoluteContent}>
           <Subheading onPress={() => navigation.navigate(routes.LOGIN)}>
-            SKIP
+            SALTAR
           </Subheading>
         </View>
       </View>

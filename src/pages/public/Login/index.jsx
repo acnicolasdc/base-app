@@ -21,7 +21,7 @@ const Login = () => {
         <Subheading>Ingresa tus datos para continuar</Subheading>
       </View>
       <View style={styleSheet.container}>
-        <Auth/>
+        <Auth />
       </View>
     </LayoutFrame>
   );

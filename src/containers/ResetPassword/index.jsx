@@ -11,17 +11,19 @@ const ResetPassword = () => {
   const navigation = useNavigation();
   return (
     <View style={styleSheet.formContainer}>
-    <View style={styleSheet.formContainerInput}>
-      <FieldInput label="CREATE NEW PASSWORD" secureTextEntry={true} style={{ marginBottom: 10 }}/>
-      <FieldInput label="CONFIRM PASSWORD" secureTextEntry={true}/>
-    </View>
+      <View style={styleSheet.formContainerInput}>
+        <FieldInput
+          label="NUEVA CONTRASEÑA"
+          secureTextEntry={true}
+          style={{ marginBottom: 10 }}
+        />
+        <FieldInput label="CONFIRMAR NUEVA CONTRASEÑA" secureTextEntry={true} />
+      </View>
       <ButtonCommon
         style={{
           width: "100%",
         }}
-        onPress={() =>
-          navigation.navigate(routes.LOGIN)
-        }
+        onPress={() => navigation.navigate(routes.LOGIN)}
       >
         RESET PASSWORD
       </ButtonCommon>

@@ -15,12 +15,12 @@ const SignUp = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   return (
     <View style={{ flex: 1 }}>
-      <FieldInput label="NIT" style={{ marginBottom: 10 }} />
-      <FieldInput label="NOMBRE DE LA EMPRESA" style={{ marginBottom: 10 }} />
+      <FieldInput label="NIT" style={{ marginBottom: 2 }} />
+      <FieldInput label="NOMBRE DE LA EMPRESA" style={{ marginBottom: 5 }} />
       <FieldInput
         label="CORREO ELECTRONICO"
         textContentType="emailAddress"
-        style={{ marginBottom: 10 }}
+        style={{ marginBottom: 2 }}
       />
       <FieldInputPhone
         label="CELULAR / TELEFONO"
@@ -35,18 +35,24 @@ const SignUp = () => {
       <FieldInput
         label="CONTRASEÑA"
         secureTextEntry={true}
-        style={{ marginBottom: 10 }}
+        style={{ marginBottom: 2 }}
       />
-      <FieldInput label="CONFIRMAR CONTRASEÑA" secureTextEntry={true} />
+      <FieldInput
+        label="CONFIRMAR CONTRASEÑA"
+        secureTextEntry={true}
+        style={{ marginBottom: 2 }}
+      />
       <View style={styleSheet.bottomContainer}>
         <ButtonCommon
           style={{
             width: "100%",
+            marginBottom: "10%",
           }}
           onPress={() =>
             navigation.navigate(routes.NOTICE_INFORMATION, {
-              message: 'Wow!! Bienvenido a Payboard, recuerda ingresar con tu correo y contraseña',
-              buttonMessage: 'INICIAR SESION',
+              message:
+                "Wow!! Bienvenido a ORDERWAY, recuerda ingresar con tu correo y contraseña",
+              buttonMessage: "INICIAR SESION",
               banner: image,
               pushRoute: routes.LOGIN,
             })

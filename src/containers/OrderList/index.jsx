@@ -1,0 +1,148 @@
+import React, { useContext, useState, useEffect } from "react";
+import { FlatList, View, Text } from "react-native";
+import { ShoppingCartContext } from "@providers/ShoppingCart";
+import { ProductsStorageContext } from "@providers/ProductsStorage";
+import { OrdersStorageContext } from "@providers/OrdersStorage";
+import OrderCard from "@components/Order/OrderCard";
+import orderData from "@data/orders";
+import style from "./OrderList.style";
+import { useTheme, Dialog, Portal, } from "react-native-paper";
+import { Alert } from "react-native";
+import ButtonCommonSmall from "@components/Button/ButtonCommonSmall"
+import InventoryItem from "@components/Inventory/InventoryItem";
+
+const OrderList = ({ }) => {
+  const { pallet, colors } = useTheme();
+  const styleSheet = style(pallet, colors);
+  const [orderSelected, setOrderSelected] = useState('');
+  const [ready, setReady] = useState(true);
+  const {
+    productsOrder, deleteItemById
+  } = useContext(ShoppingCartContext);
+
+  const {
+    updateInventory
+  } = useContext(ProductsStorageContext);
+
+
+  useEffect(() => {
+    setReady(true);
+  }, [orderSelected]);
+
+  const {
+    orders, updateOrder, deleteOrder
+  } = useContext(OrdersStorageContext);
+  const [visible, setVisible] = useState(false);
+  const showDialog = (index) => {
+    setOrderSelected(index)
+    setVisible(true)
+  }
+  const hideDialog = () => setVisible(false);
+
+  const handledApproval = () => {
+    updateOrder(orderSelected)
+    hideDialog(true)
+    updateOrder(orderSelected)
+    const order = orders[orderSelected]
+    order.items.forEach((product) => {
+      updateInventory(product.count, product.id)
+    })
+  }
+  const calcTotal = () => {
+    let total = 0;
+    Object.values(productsOrder).forEach((product) => {
+      total = total + ((product.count) * product.info.price)
+    })
+    return total;
+  }
+  const handlerShoppingCartToOrder = () => {
+    total: calcTotal()
+  }
+  handlerShoppingCartToOrder()
+
+  const handleRemoveProduct = (index) => {
+    deleteItemById(index)
+  }
+  const handleRemoveOrder = (index) => {
+    deleteOrder(index)
+  }
+  return (
+    <View style={{ backgroundColor: "white", flex: 1 }}>
+      { orders == 0 ?
+        <View style={styleSheet.boxText}>
+          <Text style={styleSheet.text}>
+            No hay ordenes
+          </Text>
+        </View> :
+        <FlatList
+          data={orders}
+          renderItem={({ item, index }) => {
+            return <OrderCard onPress={() => showDialog(index)
+            } info={item}
+              style={{ marginLeft: 7, marginTop: 15, marginBottom: 5 }}
+            />
+          }}
+          keyExtractor={orderData.number}
+        />
+      }
+      <Portal>
+        <Dialog visible={visible} onDismiss={hideDialog} style={{ borderRadius: 30, width: "90%", alignSelf: 'center' }}>
+          <Dialog.Content style={{ padding: 0 }}>
+
+            {Object.values(productsOrder).length === 0 ? (
+              <Text>Carrito vacio</Text>
+            ) : (
+              <FlatList
+                data={Object.values(productsOrder)}
+                renderItem={({ item, index }) => (
+                  <InventoryItem
+                    onPress={() => Alert.alert(
+                      "CUIDADO !",
+                      "Estas seguro que deseas eliminar este producto?",
+                      [
+                        {
+                          text: "Cancel",
+                          onPress: () => { null },
+                          style: "cancel"
+                        },
+                        { text: "OK", onPress: () => handleRemoveProduct(item.id) }
+                      ]
+                    )}
+                    style={{ height: 83 }}
+                    info={{ ...item.info, amount: item.count }} />
+                )}
+                keyExtractor={(item, index) => index.toString()}
+              />
+            )}
+            <View style={styleSheet.boxTotal}>
+              <Text style={styleSheet.txtTotal}>TOTAL:      ${calcTotal()}</Text>
+            </View>
+          </Dialog.Content>
+          <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+            <ButtonCommonSmall
+              onPress={() => {
+                handleRemoveOrder(orders.number),
+                  hideDialog()
+              }}
+            >Eliminar</ButtonCommonSmall>
+            <ButtonCommonSmall
+              disabled={!ready}
+              onPress={() => {
+                Alert.alert("Enviando al correo asociado...")
+                setReady(false)
+              }}
+              style={styleSheet.btns}
+            >Enviar</ButtonCommonSmall>
+            <ButtonCommonSmall
+              onPress={handledApproval
+              }
+            >Aprobar</ButtonCommonSmall>
+          </View>
+          <Dialog.Actions />
+        </Dialog>
+      </Portal>
+    </View>
+  );
+};
+
+export default OrderList;
